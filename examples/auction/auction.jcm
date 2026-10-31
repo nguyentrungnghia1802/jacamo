@@ -12,7 +12,6 @@ mas auction {
                do_auction("a2","flight_ticket(athens,paris,date(18,12,2015))")
     }
 
-
     agent alice   : auction_capabilities.asl
     agent maria   : auction_capabilities.asl
     agent francois: auction_capabilities.asl
