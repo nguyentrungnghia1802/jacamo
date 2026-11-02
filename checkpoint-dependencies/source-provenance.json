@@ -1,0 +1,62 @@
+[
+  {
+    "component": "cartago",
+    "path": "src/main/java/cartago/Artifact.java",
+    "commit": "440cd41c1810ceef6a627477c461776b3200236b",
+    "sha256": "7ddd95df2e8c8d364017c341ab89a44f7cc2126ca6abe5fc14095e037ff16f07"
+  },
+  {
+    "component": "cartago",
+    "path": "src/main/java/cartago/Workspace.java",
+    "commit": "440cd41c1810ceef6a627477c461776b3200236b",
+    "sha256": "947279cf597ba4782123135929d34a5da7b341561592b11c30890182d4fa8c64"
+  },
+  {
+    "component": "cartago",
+    "path": "src/main/java/cartago/CartagoEnvironment.java",
+    "commit": "440cd41c1810ceef6a627477c461776b3200236b",
+    "sha256": "fe4bc0723d3240be6b04f9a4e334aaed2d129d726e10eedbc08b44fea751dfd6"
+  },
+  {
+    "component": "npl",
+    "path": "src/main/java/npl/TimeTerm.java",
+    "commit": "b0424d05bf59f6061228836ec5f19b255c60aac5",
+    "sha256": "e9bad534eb345857d4439de391c11b3920ca402a1d5574906b76823e5ffad94e"
+  },
+  {
+    "component": "npl",
+    "path": "src/main/java/npl/NormInstance.java",
+    "commit": "b0424d05bf59f6061228836ec5f19b255c60aac5",
+    "sha256": "6b7193bd8bf65edd8f1d50d383f85ffbd2fd3124594f1da19b9db8762bd2d199"
+  },
+  {
+    "component": "npl",
+    "path": "src/main/java/npl/StateTransitions.java",
+    "commit": "b0424d05bf59f6061228836ec5f19b255c60aac5",
+    "sha256": "26d34fb8db2b8323211e8f3dcd1285055892935b6b97fa2c6458e4bd2eb8d48f"
+  },
+  {
+    "component": "npl",
+    "path": "src/main/java/npl/StateTransitionsThread.java",
+    "commit": "b0424d05bf59f6061228836ec5f19b255c60aac5",
+    "sha256": "bfe5123be60f02c192e2094dbe87ab9347b1937cb0b4a59c5516b3a09b7876ba"
+  },
+  {
+    "component": "npl",
+    "path": "src/main/java/npl/NPLInterpreter.java",
+    "commit": "b0424d05bf59f6061228836ec5f19b255c60aac5",
+    "sha256": "889556bfbcb9cd2711421a2b7d89124b2b668718abeadeaf009933d5bfe1287c"
+  },
+  {
+    "component": "jason",
+    "path": "jason/stdlib/wait.java",
+    "sourceJarSha256": "2f4e450d1fb116a9bf2d4ab7eddb2265b82fa4a303a97a64570c67710e2d1ce0",
+    "sha256": "84e661a061f904e94d36220d362ea060e3e2f77027fa4142ad9bf1acdd583deb"
+  },
+  {
+    "component": "jason",
+    "path": "jason/infra/local/LocalAgArch.java",
+    "sourceJarSha256": "2f4e450d1fb116a9bf2d4ab7eddb2265b82fa4a303a97a64570c67710e2d1ce0",
+    "sha256": "1928d3c17f999301b7823efdd21a898a90bff403e0d490a0a2f8a4b3d5cc89ca"
+  }
+]

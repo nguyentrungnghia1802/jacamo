@@ -90,6 +90,7 @@ public class JaCaMoLauncher extends RunLocalMAS {
 
     @Override
     public int init(String[] args) {
+        jacamo.checkpoint.CheckpointFeasibility.requireConfiguredModeSupported();
         parseArgs(args);
         String projectFileName = null;
         if (RunLocalMAS.class.getResource("/"+defaultProjectFileName) != null) {
@@ -315,6 +316,7 @@ public class JaCaMoLauncher extends RunLocalMAS {
 
     @Override
     public void finish(int deadline, boolean stopJVM, int exitValue) {     
+        if(jacamo.checkpoint.CheckpointBoot.verified())org.jacamo.checkpoint.runtime.ExecutionBarrier.stop();
         stopAgs(deadline); // stop the agents before shutting down the platforms
         
         for (Platform p: platforms) {
@@ -341,6 +343,9 @@ public class JaCaMoLauncher extends RunLocalMAS {
     /** create environment, agents, controller */
     @Override
     public void create() throws JasonException {
+        jacamo.checkpoint.CheckpointFeasibility.requireConfiguredModeSupported();
+        jacamo.checkpoint.CheckpointBoot.admit(getJaCaMoProject());
+        if(jacamo.checkpoint.CheckpointBoot.verified())jason.util.Config.get().setProperty(jason.util.Config.START_WEB_MI,"false");
         createCustomPlatforms();
         createEnvironment();
         createOrganisation();
@@ -351,6 +356,7 @@ public class JaCaMoLauncher extends RunLocalMAS {
 
     @Override
     public void start() {
+        jacamo.checkpoint.CheckpointFeasibility.requireConfiguredModeSupported();
         for (Platform p: platforms) {
             try {
                 p.start();
@@ -443,6 +449,7 @@ public class JaCaMoLauncher extends RunLocalMAS {
 
     @Override
     protected void startAgs() {
+        jacamo.checkpoint.CheckpointBoot.requireReadyForReasoning();
         if (!getProject().isJade()) {
             super.startAgs();
         }
