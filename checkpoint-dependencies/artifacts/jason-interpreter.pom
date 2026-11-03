@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  
+  
+  
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.jason-lang</groupId>
+  <artifactId>jason-interpreter</artifactId>
+  <version>3.3.2-checkpoint-SNAPSHOT</version>
+  <name>Jason</name>
+  <description>Jason is a programming language to develop BDI/cognitive agents</description>
+  <url>https://jason-lang.github.io</url>
+  <licenses>
+    <license>
+      <name>LGPLv3</name>
+      <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Jomi Fred Hubner</name>
+      <email>jomifred@gmail.com</email>
+      <url>https://jomifred.github.io</url>
+    </developer>
+    <developer>
+      <name>Rafael Heitor Bordini</name>
+      <email>rafael.h.bordini@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/jason-lang/jason</connection>
+    <developerConnection>scm:git:https://github.com/jason-lang/jason</developerConnection>
+    <url>https://github.com/jason-lang/jason</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.ingenias</groupId>
+      <artifactId>jade</artifactId>
+      <version>4.3</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.json</groupId>
+      <artifactId>javax.json-api</artifactId>
+      <version>1.1.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.json</artifactId>
+      <version>1.1.4</version>
+      <scope>compile</scope>
+    </dependency>
+  <dependency><groupId>org.jacamo</groupId><artifactId>checkpoint-runtime</artifactId><version>1.0.0-SNAPSHOT</version></dependency></dependencies>
+</project>

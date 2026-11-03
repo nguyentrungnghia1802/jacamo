@@ -1,0 +1,1 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion><groupId>org.jacamo</groupId><artifactId>checkpoint-runtime</artifactId><version>1.0.0-SNAPSHOT</version><dependencies><dependency><groupId>org.ow2.asm</groupId><artifactId>asm</artifactId><version>9.7</version></dependency></dependencies></project>
