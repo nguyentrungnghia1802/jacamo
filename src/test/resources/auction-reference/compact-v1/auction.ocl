@@ -1,0 +1,11 @@
+-- Authored state/operation requirements; full MOISE time/norm profile is separate.
+context Auction inv NonnegativePrice: self.best_bid >= 0
+context Auction inv PublishedWinner: self.winner = 'no_winner' or self.winner = self.currentWinner
+context Auction::start(service : String)
+pre Idle: not self.running
+post Opened: self.running and self.task = service
+context Auction::bid(amount : Real)
+pre RunningForBid: self.running
+context Auction::stop()
+pre RunningForStop: self.running
+post Closed: not self.running

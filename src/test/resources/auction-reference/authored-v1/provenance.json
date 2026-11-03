@@ -1,0 +1,62 @@
+{
+  "version": "AUCTION_AUTHORED_INPUTS/3.0",
+  "origin": "Desktop Thesis/CSL/Core/auction",
+  "migration": "Explicit user-approved attempt/accepted-bid split. CSL and authored OCL unchanged; prior success-only iStar/XML retained as references. Original use4Goal recurrence unchanged.",
+  "files": [
+    {
+      "path": "auction_csl.csl",
+      "sha256": "0d0872612661235c0d7865c177dc31dfe2ef649913a99750eb9e42f87163de37"
+    },
+    {
+      "path": "auction_istar_final.istar",
+      "sha256": "4e2ccc86a980cb3f010cb13eaf051dd2f76529f1214031924f44afcaf5ecfed9"
+    },
+    {
+      "path": "auction_constraints_final_fixed.ocl",
+      "sha256": "891c77f07981e03c808cfdaf23285d5a6d9050859954f5f561f7308aab81039a",
+      "originalSha256BeforeDeadlineComment": "07f692a7412cd877203846081018d846076b7fd149392db1accc5e83ad4fa0d6",
+      "previousSha256BeforeObserverProfile": "ec35a31fdd9714e9abd3eb80d76676ad5f356e5079cb10aef9ab55cbef2355ba"
+    }
+  ],
+  "localTestOverride": {
+    "reason": "User requested commenting out the failing deadline OCL to rerun the tool",
+    "disabledClause": "AuctionObligation::WithinDeadline",
+    "bindingAlsoCommented": true,
+    "meaning": "A run with this input does not verify obligation deadlines; other constraints remain enabled."
+  },
+  "runtimeSelection": {
+    "policy": "ESSENTIAL_CSL_STATE/1.0",
+    "mappingSha256": "84a93deb46ed34d9d8906ad2cbe880a520201be12b6cfe2aff57123adba9d949",
+    "milestones": "DOMAIN",
+    "unusedOptionalBeliefViews": "NOT_ACQUIRED_UNDEFINED",
+    "formalModelsChanged": true,
+    "verificationEvidenceDropped": false,
+    "unusedObserverProjection": "AuctionObligation and AuctionMonitor.now not materialized while WithinDeadline disabled; raw NPL/clock retained",
+    "fullObserverMappingReference": {
+      "path": "references/auction-mapping-full-observers.xml",
+      "sha256": "b470c7fe1f8da07c3c01a70870127afd43cc82a0baf9f14b1a05430cda0ab789"
+    }
+  },
+  "observerContract": {
+    "version": "AUCTION_PUBLIC_CONFIRMATION/2.0",
+    "meaning": "Public confirmation order, not exact internal truth-change time; bidSatisfiedObserved is complete source state history",
+    "strictReferences": {
+      "auction-mapping-strict-v1.xml": "8a67ab2f4b6c9c1be8d3c2dd5b8b9e7163f74aa843f898a7e26293009a3b6380",
+      "auction_constraints_strict_v1.ocl": "ec35a31fdd9714e9abd3eb80d76676ad5f356e5079cb10aef9ab55cbef2355ba"
+    }
+  },
+  "participationContract": {
+    "version": "AUCTION_ATTEMPT_AND_ACCEPTED_BID/3.0",
+    "participant": "Lookup/focus and observed attempt completion. Only exact declared .fail/internalAction/41 is an accepted failure. Missing, different and framework failures remain unavailable or unfulfilled. Exact callback sourceFailure GOAL_LISTENER_FAILED:ia_failed is mandatory; framework failures at the same site are not accepted.",
+    "collective": "O_bid is AND(O_bid_attempt, O_bid_accepted). ANY attempt is insufficient without currentWinner changing from its source-asserted initial no_winner.",
+    "requirements": [
+      "O_root",
+      "all authored native invariant and operation contracts"
+    ],
+    "expectedDifference": "An intentionally simulated decline can fulfill P_bid_t2, never fabricates an accepted operation, done evidence or norm fulfillment. Failed execution alone is not a requirement violation.",
+    "references": {
+      "references\\auction_istar_success_only_v2.istar": "a3bb1203367f570d8a3cb9b9f5b1a6619d5e4db189ef304f409ca6cb49aea2a9",
+      "references\\auction-mapping-success-only-v2.xml": "f31bea3acf30ace170ea632c4deddcf92a5b0257d29d24cfa5feabf47d63bae8"
+    }
+  }
+}

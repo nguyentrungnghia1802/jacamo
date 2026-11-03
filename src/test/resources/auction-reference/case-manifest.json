@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0.0",
+  "caseId": "auction",
+  "rootAliases": {
+    "root-auction": ".",
+    "root-core": ".",
+    "root-use4goal": "provenance/use4goal"
+  },
+  "assets": [
+    {
+      "id": "src-jcm",
+      "path": "auction.jcm",
+      "sha256": "c766fb0dc5fc6f4085cf6c1fc26d2df09229256c2e6138dfd4d44ef21fb7d2fb",
+      "format": "PINNED_application-configuration",
+      "origin": "C:\\Users\\NTNghia\\OneDrive\\Desktop\\Thesis\\CSL\\Case study\\auction\\auction.jcm",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "src-os",
+      "path": "src/org/auction-os.xml",
+      "sha256": "d2481d4ee3c45b2cead42f942a3943684e86facee992870356ca4d1e47d16f9a",
+      "format": "PINNED_organizational-specification",
+      "origin": "C:\\Users\\NTNghia\\OneDrive\\Desktop\\Thesis\\CSL\\Case study\\auction\\src\\org\\auction-os.xml",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "src-asl",
+      "path": "src/agt/auction_capabilities.asl",
+      "sha256": "31679b13210114b211dad862ad86af352cc9003ac9527ea7268e3a1d0f9cfe1b",
+      "format": "PINNED_agent-behavior",
+      "origin": "C:\\Users\\NTNghia\\OneDrive\\Desktop\\Thesis\\CSL\\Case study\\auction\\src\\agt\\auction_capabilities.asl",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "src-artifact",
+      "path": "src/env/auction_env/AuctionArtifact.java",
+      "sha256": "34036fc220274853e39f93682cdb22c350fe6a06739669860f2a66afe606ff4b",
+      "format": "PINNED_persistent-artifact-state",
+      "origin": "C:\\Users\\NTNghia\\OneDrive\\Desktop\\Thesis\\CSL\\Case study\\auction\\src\\env\\auction_env\\AuctionArtifact.java",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "src-build",
+      "path": "build.gradle",
+      "sha256": "0c81b7f1b57c8f9b427280eb8967e820edaffe329540e4988ddd85e402175b40",
+      "format": "PINNED_dependency-provenance",
+      "origin": "C:\\Users\\NTNghia\\OneDrive\\Desktop\\Thesis\\CSL\\Case study\\auction\\build.gradle",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "target-drawio",
+      "path": "auction_csl.drawio",
+      "sha256": "eade0439144e57aa1c3b8ce004a9f211d74bb1ddcb585ad16197f8881d3c4186",
+      "format": "PINNED_authoritative-M1-target",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-plugin\\examples\\auction\\auction_csl.drawio",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "input-istar",
+      "path": "auction_istar_final.drawio",
+      "sha256": "22fa1cfc9a049fa86bf95cc5c4c88399cb17fd764030c37aa569add8a1249715",
+      "format": "PINNED_intentional-layer",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-plugin\\examples\\auction\\auction_istar_final.drawio",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "input-ocl",
+      "path": "auction_constraints_final.ocl",
+      "sha256": "5a6860619bacaf85f0a721be75777925db0f51592f7bdb4a4c6b5d94314634b4",
+      "format": "PINNED_verification-contract",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-plugin\\examples\\auction\\auction_constraints_final.ocl",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-ecore",
+      "path": "provenance/use4goal/docs/model/csl.ecore",
+      "sha256": "17146c1ad0bd62547695568d938d4a41a933f44d7480440a3f13e9617bff03f7",
+      "format": "PINNED_CSL-metamodel",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\docs\\model\\csl.ecore",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-grammar",
+      "path": "provenance/use4goal/goal/src/main/resources/grammars/CSL.g4",
+      "sha256": "5bca5c44933f2619eeac837279e09a995a293383ebe3795d058d7e5319d3d224",
+      "format": "PINNED_CSL-syntax",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\goal\\src\\main\\resources\\grammars\\CSL.g4",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-compiler",
+      "path": "provenance/use4goal/goal/src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslCompiler.java",
+      "sha256": "706ba4a4562f2176ccd6d9d1c9c5a9ffa65b7d05d2b0cd50783a84d203740966",
+      "format": "PINNED_native-CSL-compiler",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\goal\\src\\main\\java\\org\\vnu\\sme\\goal\\dsl\\csl\\parser\\CslCompiler.java",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-renderer",
+      "path": "provenance/use4goal/goal/src/main/java/org/vnu/sme/goal/dsl/csl/view/CslSpecText.java",
+      "sha256": "59b8f29ee698a97d7041a1d69117b4e01b3a79f3d11cd3c2e0ff28c6ae6a11bc",
+      "format": "PINNED_canonical-CSL-renderer",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\goal\\src\\main\\java\\org\\vnu\\sme\\goal\\dsl\\csl\\view\\CslSpecText.java",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-backend",
+      "path": "provenance/use4goal/goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslModel.java",
+      "sha256": "8da2070c384ed555cbbe5f77426213ef809d420594d11f2e9c2725352c03f227",
+      "format": "PINNED_runtime-support-boundary",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\goal\\src\\main\\java\\org\\vnu\\sme\\goal\\dsl\\csl\\mm\\CslModel.java",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-map-parser",
+      "path": "provenance/use4goal/goal/src/main/java/org/vnu/sme/goal/verify/conformance/mapping/ConformanceMappingParser.java",
+      "sha256": "d9ec64447d830ad9a074d90c0ba452383b9bbc7b5a517721d43082ce9acab07f",
+      "format": "PINNED_existing-non-XML-mapping-format",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\goal\\src\\main\\java\\org\\vnu\\sme\\goal\\verify\\conformance\\mapping\\ConformanceMappingParser.java",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-proposal",
+      "path": "provenance/use4goal/examples/ProposalReview/proposal-review-final.csl",
+      "sha256": "5bc9a926d82fefd733661deac284d25ee7bd3639088942ed3d0550affb4e6657",
+      "format": "PINNED_reference-modeling-style",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use4Goal\\examples\\ProposalReview\\proposal-review-final.csl",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "ref-org-obedient",
+      "path": "provenance/moise/asl/org-obedient.asl",
+      "sha256": "9b63b41bd1f080b5bfb1942d58aa26ebbe01b507347a1635ff09112339a113c9",
+      "format": "PINNED_FRAMEWORK_ASL",
+      "origin": "C:\\Users\\NTNghia\\.gradle\\caches\\modules-2\\files-2.1\\org.jacamo\\moise\\1.1\\51d669573a2c60018ecd4e24d1177f21a0a6b6bb\\moise-1.1.jar!/asl/org-obedient.asl",
+      "archiveSha256": "2b7d0415c5ec0bcf060a430c7d12753aa02bdf769172922d10ff2909870161a8",
+      "archiveEntry": "asl/org-obedient.asl"
+    },
+    {
+      "id": "target-csl",
+      "path": "auction_csl.csl",
+      "sha256": "c039ad94928fab1791aab91b7b3323507ba1916704b4a60d0ee5cf1824ac1c56",
+      "format": "CSL_SOURCE",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-plugin\\examples\\auction\\auction_csl.csl",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "target-istar",
+      "path": "auction_istar_final.istar",
+      "sha256": "7704bb185e05affa78236d0294a96d77bebc88df5d124aac0db05794ceb60931",
+      "format": "ISTAR_SOURCE",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-plugin\\examples\\auction\\auction_istar_final.istar",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "engine-provenance",
+      "path": "provenance/use4goal-engine.json",
+      "sha256": "1c1e79e3a55cd9ff3dc55f592028211a49834f7b0546d18b637646ae138c90e4",
+      "format": "ENGINE_PROVENANCE",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-jacamo-semantic-engine\\src\\main\\resources\\META-INF\\use4goal-provenance.json",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "license-use4goal",
+      "path": "provenance/licenses/use4Goal-GPL-3.0.txt",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+      "format": "LICENSE",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\use\\use-jacamo-semantic-engine\\src\\main\\resources\\META-INF\\licenses\\use4Goal-GPL-3.0.txt",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    },
+    {
+      "id": "license-jacamo",
+      "path": "provenance/licenses/JaCaMo-LGPL-3.0.txt",
+      "sha256": "ea7d049c7705dc13afc202dd18e1827f3484f8212fd3fa7b82fc4a0c363432c9",
+      "format": "LICENSE",
+      "origin": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\LICENSE",
+      "archiveSha256": "",
+      "archiveEntry": ""
+    }
+  ],
+  "runtimeRequirements": {
+    "javaRelease": "21",
+    "hostUseVersion": "7.5.0",
+    "jacamoVersion": "1.3.1",
+    "jasonVersion": "3.3.2",
+    "cartagoVersion": "3.1",
+    "moiseVersion": "1.1",
+    "nplVersion": "0.6.1",
+    "engineUpstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+    "mappingRequiredOmissionIds": "X01 X02 X03 X04 X05 X06 X07 X08 X09 X10 X11 X12",
+    "sha256:jacamo-1.3.1.jar": "a52869979268e5256ea82861dc180cddb1d6d84fc5230e4de6288fa26ebc5705",
+    "sha256:jason-interpreter-3.3.2.jar": "cd79268ddcfa45599284bda64bd6980dbd86eec6c862028cc276495aab49154c",
+    "sha256:cartago-3.1.jar": "bf03b37b28e304b2d784c8d77267e56c12b943ff70eed35b533c6323e0736866",
+    "sha256:moise-1.1.jar": "2b7d0415c5ec0bcf060a430c7d12753aa02bdf769172922d10ff2909870161a8",
+    "sha256:npl-0.6.1.jar": "956818edfe9aeff7c4fde35bf1dd276cd71e1da62daf77a2a15ab08f87903332"
+  }
+}

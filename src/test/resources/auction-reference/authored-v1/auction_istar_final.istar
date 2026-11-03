@@ -1,0 +1,110 @@
+// Canonical rationale: auction_istar_final_fixed.drawio, with the user's explicit
+// correction that Auctioneer and Participant specialize auction_capabilities.
+// Diagram edge labels define is-a; stale dependencyLeg metadata on those two
+// graphical edges does not create additional goal Dependencies.
+//
+// In-body is-a is intentional: the existing original model builder preserves it,
+// whereas its top-level is-a grammar alternative is not built into the model.
+// Descriptions are comments because the original runtime model drops description.
+// Auction is a collective organizational viewpoint. The DSL's agent declaration
+// is its concrete notation; it is NOT another running JaCaMo agent or CSL Auction.
+//
+// MODEL/RUNTIME BINDING CONTRACT (data in case mapping XML, never Java constants):
+// Auctioneer -> CSL auctioneer; Participant -> CSL participant;
+// auction_capabilities -> CSL auction_capabilities (same-instance specialization).
+// The base capability role is not an independently adopted MOISE role.
+// self -> exact Auction resolved from scheme Id + workspace/artifact incarnation.
+// service -> the actual start argument; step -> current player/goal/step invocation.
+// Role belief attributes remain epistemic views, never Artifact/world predicates.
+// D_bid uses ANY over this scheme's committed Participant occurrences, nonempty,
+// matching the latest diagram label. XML must declare this population/quantifier;
+// it is not encoded by renaming a Task or by modifying the original recurrence.
+// Contract AUCTION_ATTEMPT_AND_ACCEPTED_BID/3.0: Participant completion is an
+// observed attempt/decision, including ONLY the XML-declared intentional .fail.
+// Collective O_bid additionally requires a source-confirmed accepted bid.
+// Administrative goalSatisfied(bid) alone satisfies neither condition.
+// AND is outcome conjunction. MOISE sequence and deadlines are checked separately
+// by the authored OCL/observer; AND does not assert execution order.
+//
+// EXACT DIAGRAM DELTA: A_decide_t1 is absent in the latest diagram. The ASL
+// ?focusing(...) query still belongs to the observed decide-plan prefix and
+// resolves the target Artifact before A_decide_t2; it is not a sixth Task here.
+//
+// COMPATIBILITY: original strict GoalModelValidator reports FOUR limitations.
+// The diagram has unary AND refinement A_decide <- A_decide_t2; this validator
+// requires at least two AND children. Do not invent a second Task to satisfy it.
+// It also rejects the three Dependency
+// endpoints A_start/A_decide/P_bid because they are refinement parents. Preserve
+// these real diagram endpoints. A versioned derived-dependency profile is needed;
+// do not detach endpoints or remove refinements just to pass legacy validation.
+// Current live admission must also support IS_A before claiming execution of this
+// updated model. Actor inheritance syntax alone is not evidence of runtime support.
+
+istar AuctionGoals {
+    agent Auction {
+        // auction(Id, Service): all three organizational outcomes are necessary.
+        goal O_root : Achieve
+        // Dependency realization, not a raw MOISE administrative status flag.
+        goal O_start : Achieve > O_root
+        goal O_bid : Achieve > O_root
+        goal O_bid_attempt : Achieve > O_bid
+        // This source field changes from no_winner only on an accepted improving bid.
+        // The first accepted bid improves the initial MAX_VALUE; no console inference.
+        goal O_bid_accepted : Achieve > O_bid condition {[ self.currentWinner <> 'no_winner' ]}
+        goal O_decide : Achieve > O_root
+    }
+
+    // Shared ASL capability abstraction; concrete belief-state attributes are in CSL.
+    role auction_capabilities {
+    }
+
+    role Auctioneer {
+        Auctioneer is-a auction_capabilities
+
+        goal A_start : Achieve
+        // A_start_t1: successful makeArtifact and focus in this invocation.
+        task A_start_t1 > A_start
+        pre {[ step.enabled ]}
+        post {[ step.succeeded ]}
+
+        // A_start_t2: successful source start(service), bound to exact Auction.
+        task A_start_t2 > A_start
+        pre {[ not self.running ]}
+        post {[ self.running and self.task = service ]}
+
+        goal A_decide : Achieve
+        // A_decide_t2: source focusing query resolves Artifact, then stop succeeds.
+        task A_decide_t2 > A_decide
+        pre {[ self.running ]}
+        post {[ not self.running ]}
+
+        resource A_artifact
+            > needed-by A_start_t2
+            > needed-by A_decide_t2
+    }
+
+    role Participant {
+        Participant is-a auction_capabilities
+
+        goal P_bid : Achieve
+        // P_bid_t1: successful lookupArtifact and focus in this invocation.
+        task P_bid_t1 > P_bid
+        pre {[ step.enabled ]}
+        post {[ step.succeeded ]}
+
+        // P_bid_t2: completion of the participation decision/attempt.
+        // A successful non-improving bid and the explicitly declared simulated
+        // decline (.fail at the verified source site) both complete this Task.
+        // Other failures or absent evidence do not. This is not bid acceptance.
+        task P_bid_t2 > P_bid
+        pre {[ step.enabled and self.running ]}
+        post {[ step.completed ]}
+
+        resource P_artifact > needed-by P_bid_t2
+    }
+
+    depend Auction.O_start -> goal D_start -> Auctioneer.A_start
+    depend Auction.O_decide -> goal D_decide -> Auctioneer.A_decide
+    // ANY observed Participant attempt, AND the separate actual-accepted-bid leaf.
+    depend Auction.O_bid_attempt -> goal D_bid -> Participant.P_bid
+}

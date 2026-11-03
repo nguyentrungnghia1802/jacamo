@@ -1,0 +1,12 @@
+// Observed-world profile. Full belief/norm requirements remain in authored-v1.
+csl v4.0 CompactAuctionState {
+ orgContext AuctionRun { }
+ entity Auction {
+  attribute id : String required;
+  attribute running : Boolean required mutable;
+  attribute task : String required mutable;
+  attribute best_bid : Real required mutable;
+  attribute winner : String required mutable;
+  attribute currentWinner : String required mutable;
+ }
+}

@@ -1,0 +1,260 @@
+// Converted from auction_istar_final.drawio; Draw.io cell IDs are preserved.
+// Format: use4Goal IStar.g4 concrete syntax. This export does not change the diagram.
+//
+// The Draw.io organizational Actor Auction is represented as agent Auction:
+// the current DSL only declares agent/role, and its Actor metaclass is abstract.
+// This is the existing collective organizational viewpoint, not another JaCaMo agent
+// or the passive CSL Entity Auction. Auctioneer and Participant remain Roles.
+//
+// Compatibility note: the current use4Goal GoalModelValidator rejects a dependency
+// whose dependee is a refinement parent. The three source attachments to A_start,
+// A_decide and P_bid are retained exactly, together with their task refinements.
+// Syntax parsing succeeds; the current compiler reports those three semantic errors.
+// No endpoints are detached, reversed or redirected to make the validator accept them.
+//
+// Execution binding from the diagram: self is the Auction instance resolved by
+// the current scheme Id and artifact identity; service is the bound start input.
+// step.enabled/step.succeeded are invocation-scoped observer predicates.
+// OCL sequence, bid evidence and deadline invariants remain in
+// auction_constraints_final.ocl; they are not new CSL attributes or goal flags.
+
+istar AuctionGoals {
+
+  // Draw.io: O_actor (actor)
+  agent Auction {
+
+    // MOISE goal: auction
+    goal O_root : Achieve description "auction(Id, Service) | all three assigned goals achieved"
+
+    // MOISE goal: start
+    // dependency propagation; not raw administrative goalState
+    goal O_start : Achieve description "start | Auction started | mAuctioneer"
+      > O_root
+
+    // MOISE goal: bid
+    // dependency propagation; not raw administrative goalState
+    goal O_bid : Achieve description "bid | committed bids performed | mParticipant | ttf: 10 s"
+      > O_root
+
+    // MOISE goal: decide
+    // dependency propagation; not raw administrative goalState
+    goal O_decide : Achieve description "decide | Auction closed; result available | mAuctioneer | ttf: 1 h"
+      > O_root
+  }
+
+  // Draw.io: A_actor (role)
+  role Auctioneer {
+
+    // MOISE goal: start
+    goal A_start : Achieve description "start | successful !start plan"
+
+    // Source: auction_capabilities.asl:19-25
+    task A_start_t1 description "Create & focus artifact | makeArtifact(...); focus(ArtId)"
+      > A_start
+    pre {[ step.enabled ]}
+    post {[ step.succeeded ]}
+
+    // Source: auction_capabilities.asl:25; AuctionArtifact.java:18-24
+    task A_start_t2 description "Call start(Service) | on AuctionArtifact"
+      > A_start
+    pre {[ not self.running ]}
+    post {[ self.running and self.task = service ]}
+
+    // MOISE goal: decide
+    goal A_decide : Achieve description "decide | successful !decide plan"
+
+    // Source: auction_capabilities.asl:27-30
+    task A_decide_t1 description "Query focused artifact | ?focusing(ArtId, Id, ...)"
+      > A_decide
+    pre {[ step.enabled ]}
+    post {[ step.succeeded ]}
+
+    // Source: auction_capabilities.asl:30; AuctionArtifact.java:26-32
+    task A_decide_t2 description "Call stop() | on AuctionArtifact"
+      > A_decide
+    pre {[ self.running ]}
+    post {[ not self.running ]}
+
+    resource A_artifact description "AuctionArtifact | shared domain entity"
+      > needed-by A_decide_t2
+      > needed-by A_start_t2
+
+    // Draw.io: A_participates
+    Auctioneer participates-in Auction
+  }
+
+  // Draw.io: P_actor (role)
+  role Participant {
+
+    // MOISE goal: bid
+    goal P_bid : Achieve description "bid | successful !bid plan, per committed agent"
+
+    // Source: auction_capabilities.asl:32-35
+    task P_bid_t1 description "Find & focus artifact | lookupArtifact(Id, AId); focus(AId)"
+      > P_bid
+    pre {[ step.enabled ]}
+    post {[ step.succeeded ]}
+
+    // Source: auction_capabilities.asl:36-42; AuctionArtifact.java:34-44
+    task P_bid_t2 description "Wait, then bid(amount) | successful branch: random < 0.9"
+      > P_bid
+    pre {[ step.enabled and self.running ]}
+    post {[ step.succeeded ]}
+
+    resource P_artifact description "AuctionArtifact | same shared domain entity"
+      > needed-by P_bid_t2
+
+    // Draw.io: P_participates
+    Participant participates-in Auction
+  }
+
+  // D_start: Auction started
+  // Source: auction-os.xml:38-41,49; auction_capabilities.asl:19-25
+  // Scope: normative-realization
+  depend Auction.O_start -> goal D_start -> Auctioneer.A_start
+
+  // D_decide: Auction closed; | result available
+  // Source: auction-os.xml:38-41,49; auction_capabilities.asl:27-30
+  // Scope: normative-realization
+  depend Auction.O_decide -> goal D_decide -> Auctioneer.A_decide
+
+  // D_bid: Assigned bid | performed
+  // Source: auction-os.xml:42-44,50; auction_capabilities.asl:32-42
+  // Scope: per-committed-role-enactment
+  depend Auction.O_bid -> goal D_bid -> Participant.P_bid
+}
+
+// Documentation from Draw.io (comments only; no additional model elements).
+
+// Draw.io note A_query_note:
+// The decide plan queries an existing focus; it does not call focus again.
+
+// Draw.io note P_branch_note:
+// Jason failure and recovery
+//
+// The successful branch waits 500..2500 ms, then calls
+// bid(random * 100 + 10). The other branch calls .fail.
+//
+// A failed !bid plan produces no normal goalAchieved.
+// An unfulfilled bid obligation triggers the Auctioneer's
+// administrative handler.
+//
+// Failure and administrative recovery are not OR means
+// to perform an actual bid. A non-winning successful
+// bid still counts as an actual bid.
+
+// Draw.io note O_admin_note:
+// Administrative status
+//
+// goalSatisfied(bid) can let the
+// scheme proceed despite failure.
+// This does not fulfil the actual-bid
+// dependency or prove root success.
+
+// Draw.io note notes_title:
+// AUCTION / semantic contract and source trace
+
+// Draw.io note ownership:
+// 1 / Goal reliance and actor association
+//
+// auction = AND(start, bid, decide), all within Auction.
+// mAuctioneer = {start, decide}; mParticipant = {bid}.
+// participates-in describes Role-to-Organization association only.
+// Three Goal Dependencies express who is expected to achieve the goals.
+// Each has an external dependum and two directed D-marked legs.
+// Auction's child goals are depender elements; they have no refinements
+// of their own. Role-side dependee goals may be refined into Tasks.
+// Dependency failure is possible and does not make the notation invalid.
+
+// Draw.io note plans:
+// 2 / Jason task mapping
+//
+// start: makeArtifact; focus; start(Service). ASL 19-25.
+// decide: ?focusing(...); stop. ASL 27-30.
+// The query retrieves the existing focus; it does not refocus.
+// bid: lookupArtifact; focus; if random < 0.9, wait and bid;
+// otherwise .fail. ASL 32-42. The code says 0.9; its 80% comment is stale.
+//
+// org-obedient.asl calls goalAchieved only after !Goal succeeds.
+// A successful bid need not improve best_bid or become winner.
+// AuctionArtifact.stop publishes currentWinner, including no_winner.
+//
+// The AND task refinements show the necessary successful plan steps.
+// The .fail branch is not modeled as an alternative achievement.
+
+// Draw.io note conditions:
+// 3 / Thesis extended iStar: evaluating the goals
+//
+// Section IV-A / Fig. 4 / Table I: refinement and dependency values
+// are propagated; leaf Conditions bind execution to the shared state.
+//
+// The organizational children now obtain achievement via dependencies.
+// They are not additionally assigned self.*SatisfiedAt >= 0 conditions.
+// A MOISE administrative state must not override a failed actual-bid
+// dependency in the goal model.
+//
+// Setup/query leaf Tasks: pre = step.enabled; post = step.succeeded.
+// Artifact-call Tasks: source operation contracts plus observed success.
+// step is keyed by scheme run, role player and invocation.
+// Goals use Achieve within one run; MOISE performance is a separate type.
+// A successful protocol run need not achieve every normative iStar goal.
+
+// Draw.io note monitor:
+// 4 / Explicit observer interface for the OCL
+//
+// AuctionMonitor is a required trace projection, not a Java source class.
+// One instance per scheme run / auction Id. Integer times are in ms
+// on one clock; -1 means the event has not occurred.
+//
+// now
+// startSatisfiedAt, bidEnabledAt, bidSatisfiedAt
+// decideEnabledAt, decideSatisfiedAt : Integer
+// bidCommittedBy, bidDoneBy, actualBidBy : Set(String)
+// adminBidOverride : Boolean
+//
+// Satisfied/enabled times come from MOISE, not artifact return times.
+// bidDoneBy comes from done(Sch,bid,Ag); actualBidBy from successful
+// bid calls, including non-winning bids. Do not infer either from winner.
+// bidCommittedBy is frozen at the first bid satisfaction (current before it).
+// adminBidOverride records only an observed successful admin command.
+// These fields audit scheme status; they do not define normative goal values.
+
+// Draw.io note deadlines:
+// 5 / Deadline and recovery semantics
+//
+// bid: ttf = 10000 ms. decide: ttf = 3600000 ms. OS 34-35.
+// Use each obligation's activation/deadline from MOISE, including
+// a later mission commitment; do not time from MAS startup.
+//
+// AuctionObligation: one record per bid/decide obligation activation.
+// goal : String  -- bid or decide
+// activatedAt, deadlineAt, endedAt : Integer
+// unfulfilled : Boolean; monitor : AuctionMonitor
+// endedAt = first terminal engine time (fulfilled/unfulfilled/inactive),
+// or -1 while pending. Use engine times, not notification receipt times.
+// unfulfilled remains true after oblUnfulfilled; never erase the record.
+//
+// WithinDeadline is a conformance norm: pending overtime also fails.
+// Admin recovery allows progress but does not repair an expired duty.
+// Thus the scheme can finish while the iStar bidding goal is unachieved.
+
+// Draw.io note sources:
+// 6 / Verified references and scope
+//
+// Local JaCaMo examples/auction:
+// src/org/auction-os.xml: 14-24, 28-50.
+// src/agt/auction_capabilities.asl: 19-42, 53-57.
+// src/env/auction_env/AuctionArtifact.java: 18-44.
+// Resolved moise-1.1.jar: asl/org-obedient.asl;
+// Scheme.isSatisfied and SchemeBoard.admCommand.
+//
+// iStar 2.0 Language Guide: sections 2, 3, 5, 6.1, 6.2, 8.
+// Supplied thesis PDF: section IV-A, Fig. 4, Table I (page 3).
+//
+// ASL 53-57 handles oblUnfulfilled with goalSatisfied(bid).
+// No blacklist task is added: the source contains only a TODO.
+// Bid Dependency is instantiated per committed Participant enactment;
+// normal global completion requires all such agents, not one winning bid.
+
+// Draw.io note notes_footer:
+// Standard iStar has no generic Goal-to-Goal Association. Cross-actor reliance uses Dependency; mission trace annotations are not semantic edges. The unchanged OCL audits sequence, evidence and deadlines, including administrative recovery; it does not erase normative dependency failure.

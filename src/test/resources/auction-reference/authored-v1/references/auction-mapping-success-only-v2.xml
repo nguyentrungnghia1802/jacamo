@@ -1,0 +1,680 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mapping xmlns="urn:use:jacamo-mapping:2" version="2.0" id="auction-authored-public-confirmation-v2" engineProfile="ROLE_SPECIALIZATION_V1" jcmRef="src-jcm" xmlns:os="http://moise.sourceforge.net/os">
+  <sources>
+    <file id="src-jcm" path="auction.jcm" sha256="c766fb0dc5fc6f4085cf6c1fc26d2df09229256c2e6138dfd4d44ef21fb7d2fb" kind="JCM" />
+    <file id="src-os" path="src/org/auction-os.xml" sha256="d2481d4ee3c45b2cead42f942a3943684e86facee992870356ca4d1e47d16f9a" kind="MOISE" />
+    <file id="src-asl" path="src/agt/auction_capabilities.asl" sha256="31679b13210114b211dad862ad86af352cc9003ac9527ea7268e3a1d0f9cfe1b" kind="ASL" />
+    <file id="src-artifact" path="src/env/auction_env/AuctionArtifact.java" sha256="34036fc220274853e39f93682cdb22c350fe6a06739669860f2a66afe606ff4b" kind="JAVA" />
+    <file id="src-build" path="build.gradle" sha256="0c81b7f1b57c8f9b427280eb8967e820edaffe329540e4988ddd85e402175b40" kind="RESOURCE" />
+  </sources>
+  <ocl sha256="891c77f07981e03c808cfdaf23285d5a6d9050859954f5f561f7308aab81039a" />
+  <models mode="AUTHORED" cslSha256="0d0872612661235c0d7865c177dc31dfe2ef649913a99750eb9e42f87163de37" istarSha256="a3bb1203367f570d8a3cb9b9f5b1a6619d5e4db189ef304f409ca6cb49aea2a9" />
+  <assertions>
+    <require selectorRef="sel-org" field="instance" equals="aorg" />
+    <require selectorRef="sel-org" field="spec" equals="auction-os.xml" />
+    <require selectorRef="sel-os-root" field="id" equals="auction" />
+    <require selectorRef="sel-os-group" field="id" equals="auctionGroup" />
+    <require selectorRef="sel-group-config" field="spec" equals="auctionGroup" />
+    <require selectorRef="sel-group-config" field="instance" equals="agrp" />
+    <requireSet selectorRef="sel-role-definitions" field="id" values="auctioneer participant" />
+    <requireSameSet leftSelectorRef="sel-role-definitions" leftField="id" rightSelectorRef="sel-role-bounds" rightField="id" />
+    <require selectorRef="sel-class" field="name" equals="AuctionArtifact" />
+    <require selectorRef="sel-class" field="base" equals="Artifact" />
+    <require selectorRef="sel-create" field="className" equals="auction_env.AuctionArtifact" />
+    <require selectorRef="sel-create" field="idVariable" equals="Id" />
+    <require selectorRef="sel-create" field="artifactVariable" equals="ArtId" />
+    <require selectorRef="sel-current-winner" field="name" equals="currentWinner" />
+    <require selectorRef="sel-current-winner" field="initial" equals="no_winner" />
+    <require selectorRef="sel-current-winner-write" field="expression" equals="getCurrentOpAgentId().getAgentName()" />
+  </assertions>
+  <selectors>
+    <select id="sel-org" sourceRef="src-jcm" syntax="regex" expectedCount="1">
+      <pattern>^\s*organisation\s+(?P&lt;instance&gt;\w+)\s*:\s*(?P&lt;spec&gt;[^\s{]+)\s*\{</pattern>
+    </select>
+    <select id="sel-group-config" sourceRef="src-jcm" syntax="regex" expectedCount="1">
+      <pattern>^\s*group\s+(?P&lt;instance&gt;\w+)\s*:\s*(?P&lt;spec&gt;\w+)\s*\{</pattern>
+    </select>
+    <select id="sel-agents" sourceRef="src-jcm" syntax="regex" expectedCount="5">
+      <pattern>^\s*agent\s+(?P&lt;agent&gt;\w+)\s*:\s*(?P&lt;program&gt;[\w./-]+)</pattern>
+    </select>
+    <select id="sel-players" sourceRef="src-jcm" syntax="regex" expectedCount="5">
+      <pattern>^\s*(?:players:\s*)?(?P&lt;agent&gt;\w+)\s+(?P&lt;role&gt;\w+)\s*$</pattern>
+    </select>
+    <select id="sel-requests" sourceRef="src-jcm" syntax="regex" expectedCount="2">
+      <pattern>do_auction\("(?P&lt;auctionId&gt;[^"]+)","(?P&lt;service&gt;[^"]+)"\)</pattern>
+    </select>
+    <select id="sel-os-root" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification" expectedCount="1">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-os-group" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification/os:group-specification" expectedCount="1">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-role-definitions" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification/os:role-definitions/os:role" expectedCount="2">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-role-bounds" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification/os:group-specification/os:roles/os:role" expectedCount="2">
+      <capture name="id" expression="@id" />
+      <capture name="min" expression="@min" />
+      <capture name="max" expression="@max" />
+    </select>
+    <select id="sel-absent-structure" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification//os:subgroups | /os:organisational-specification/os:structural-specification//os:extends | /os:organisational-specification/os:structural-specification//os:links | /os:organisational-specification/os:structural-specification//os:compatibilities" expectedCount="0" />
+    <select id="sel-sequence" sourceRef="src-os" syntax="xpath" expression="//os:scheme[@id='doAuction']/os:goal[@id='auction']/os:plan" expectedCount="1">
+      <capture name="operator" expression="@operator" />
+    </select>
+    <select id="sel-sequence-goals" sourceRef="src-os" syntax="xpath" expression="//os:scheme[@id='doAuction']/os:goal[@id='auction']/os:plan/os:goal" expectedCount="3">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-deadlines" sourceRef="src-os" syntax="xpath" expression="//os:scheme[@id='doAuction']/os:goal[@id='auction']/os:plan/os:goal[@ttf]" expectedCount="2">
+      <capture name="goal" expression="@id" />
+      <capture name="ttf" expression="@ttf" />
+    </select>
+    <select id="sel-class" sourceRef="src-artifact" syntax="regex" expectedCount="1">
+      <pattern>public\s+class\s+(?P&lt;name&gt;\w+)\s+extends\s+(?P&lt;base&gt;\w+)</pattern>
+    </select>
+    <select id="sel-create" sourceRef="src-asl" syntax="regex" expectedCount="1">
+      <pattern>makeArtifact\(\s*(?P&lt;idVariable&gt;Id),\s*"(?P&lt;className&gt;[^"]+)",\s*\[\s*\],\s*(?P&lt;artifactVariable&gt;ArtId)\s*\)</pattern>
+    </select>
+    <select id="sel-observables" sourceRef="src-artifact" syntax="regex" expectedCount="4">
+      <pattern>defineObsProperty\("(?P&lt;name&gt;[^"]+)",\s*(?P&lt;initial&gt;[^;\r\n]+)\);</pattern>
+    </select>
+    <select id="sel-current-winner" sourceRef="src-artifact" syntax="regex" expectedCount="1">
+      <pattern>^\s*String\s+(?P&lt;name&gt;currentWinner)\s*=\s*"(?P&lt;initial&gt;[^"]*)";</pattern>
+    </select>
+    <select id="sel-current-winner-write" sourceRef="src-artifact" syntax="regex" expectedCount="1">
+      <pattern>^\s*currentWinner\s*=\s*(?P&lt;expression&gt;getCurrentOpAgentId\(\)\.getAgentName\(\));</pattern>
+    </select>
+  </selectors>
+  <modelRules targetVersion="v4.0" targetModel="AuctionState">
+    </modelRules>
+  <istar name="AuctionGoals">
+    </istar>
+  <runtime>
+    <datasets>
+      <clock id="source-clock-cut" requestRef="source-clock" />
+      <facts id="source-workspaces" authority="cartago" kind="WORKSPACE" />
+      <facts id="source-artifacts" authority="cartago" kind="ARTIFACT" />
+      <facts id="source-groups" authority="moise" kind="GROUP_BOARD" population="CARTAGO_BOARD_INVENTORY_V1" />
+      <artifactReferences id="source-step-artifacts" requestRef="execution-steps" />
+      <schemeReferences id="source-step-schemes" requestRef="execution-steps" />
+      <schemeCuts id="source-scheme-history" requestRef="scheme-history" population="CARTAGO_BOARD_INVENTORY_V1" />
+      <operationCuts id="source-domain-operations" requestRef="auction-operations" />
+      <operationCuts id="source-scheme-operations" requestRef="scheme-operations" />
+
+      <operationReferences id="source-creations" requestRef="workspace-operations" argumentIndex="3" />
+      <fieldCuts id="source-domain-state" requestRef="candidate-field" />
+      <removals id="source-disposals" authority="cartago" kind="ARTIFACT" />
+
+
+
+
+
+
+
+
+
+    </datasets>
+    <tables>
+      <table id="observed-workspaces" dataset="source-workspaces">
+        <column name="uuid" path="identity" required="true" />
+        <column name="semantic" path="values.semanticId" required="true" />
+        <column name="name" path="values.name" required="true" />
+      </table>
+      <table id="physical-group-artifacts" dataset="source-artifacts">
+        <where path="values.artifactTypeJavaClassName" type="String" equals="ora4mas.nopl.GroupBoard" />
+        <column name="boardUuid" path="values.uuid" required="true" />
+        <column name="workspace" path="values.workspaceSemanticId" required="true" />
+      </table>
+      <table id="qualified-groups" dataset="source-groups">
+        <where path="values.organisationName" type="String" equals="aorg" />
+        <whereBound path="values.groupSpecSemanticId" bindingRef="bind-group" />
+        <join tableRef="physical-group-artifacts" leftPath="values.boardArtifactIdentity" rightPath="boardUuid" as="physical" cardinality="ONE" required="true" />
+        <join tableRef="observed-workspaces" leftPath="physical.workspace" rightPath="semantic" as="organization" cardinality="ONE" required="true" />
+        <whereFieldsEqual leftPath="values.organisationName" rightPath="organization.name" type="String" />
+        <column name="uuid" path="identity" required="true" />
+        <column name="organization" path="organization.uuid" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="qualified-organizations" dataset="source-workspaces">
+        <whereExists tableRef="qualified-groups" leftPath="identity" rightPath="organization" as="actualGroup" />
+        <column name="uuid" path="identity" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="observed-auctioneer" dataset="source-groups">
+        <where path="values.organisationName" type="String" equals="aorg" />
+        <whereBound path="values.groupSpecSemanticId" bindingRef="bind-group" />
+        <expand path="values.players" as="player" />
+        <whereBound path="player.roleSemanticId" bindingRef="bind-role-auctioneer" />
+        <column name="group" path="identity" required="true" />
+        <column name="player" path="player.agentSemanticId" required="true" />
+        <column name="role" path="player.roleSemanticId" required="true" />
+        <identity mode="LOGICAL_ROLE" fields="group player role" as="occurrence" />
+      </table>
+      <table id="observed-participant" dataset="source-groups">
+        <where path="values.organisationName" type="String" equals="aorg" />
+        <whereBound path="values.groupSpecSemanticId" bindingRef="bind-group" />
+        <expand path="values.players" as="player" />
+        <whereBound path="player.roleSemanticId" bindingRef="bind-role-participant" />
+        <column name="group" path="identity" required="true" />
+        <column name="player" path="player.agentSemanticId" required="true" />
+        <column name="role" path="player.roleSemanticId" required="true" />
+        <identity mode="LOGICAL_ROLE" fields="group player role" as="occurrence" />
+      </table>
+      <table id="qualified-creations" dataset="source-creations">
+        <where path="javaClass" type="String" equals="auction_env.AuctionArtifact" />
+        <where path="declaringClass" type="String" equals="cartago.WorkspaceArtifact" />
+        <where path="operation" type="String" equals="makeArtifact" />
+        <whereFieldsEqual leftPath="creator" rightPath="performerSemanticId" type="String" />
+        <column name="uuid" path="identity" required="true" />
+        <column name="semantic" path="artifactSemanticId" required="true" />
+        <column name="player" path="performerRuntimeId" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="observed-domain-state" dataset="source-domain-state">
+        <column name="uuid" path="identity" required="true" />
+        <column name="semantic" path="artifactSemanticId" required="true" />
+        <column name="running" path="properties.running" required="true" />
+        <column name="task" path="properties.task" required="true" />
+        <column name="best" path="properties.best_bid" required="true" />
+        <column name="winner" path="properties.winner" required="true" />
+        <column name="candidate" path="fields.currentWinner" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="qualified-scheme-group" dataset="source-scheme-history">
+        <where path="responsibilityComplete" type="Boolean" equals="true" />
+        <whereSize path="responsibleGroups" equals="1" />
+        <expand path="responsibleGroups" as="responsible" valueType="String" />
+        <join tableRef="qualified-groups" leftPath="responsible.value" rightPath="uuid" as="context" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="group" path="context.uuid" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="bound-domain-creations" dataset="source-step-artifacts">
+        <where path="task" type="String" equals="A_start_t1" />
+        <where path="phase" type="String" equals="SUCCEEDED" />
+        <where path="javaClass" type="String" equals="auction_env.AuctionArtifact" />
+        <termString path="schemeArgumentTerms.auction.Id" rawPath="schemeArguments.auction.Id" as="declaredId" mode="JACA_3_1_STRING_OR_ATOM" />
+        <whereFieldsEqual leftPath="declaredId" rightPath="artifactName" type="String" />
+        <join tableRef="qualified-creations" leftPath="artifactSemanticId" rightPath="semantic" as="creation" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <whereFieldsEqual leftPath="agent" rightPath="creation.player" type="String" />
+        <join tableRef="qualified-scheme-group" leftPath="scheme" rightPath="scheme" as="context" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <column name="uuid" path="identity" required="true" />
+        <column name="group" path="context.group" required="true" />
+        <column name="id" path="declaredId" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="disposed-domain" dataset="source-disposals">
+        <column name="uuid" path="identity" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="qualified-scheme-bindings" dataset="source-step-schemes">
+        <where path="task" type="String" equals="A_start_t1" />
+        <where path="phase" type="String" equals="SUCCEEDED" />
+        <where path="javaClass" type="String" equals="auction_env.AuctionArtifact" />
+        <termString path="schemeArgumentTerms.auction.Id" rawPath="schemeArguments.auction.Id" as="declaredId" mode="JACA_3_1_STRING_OR_ATOM" />
+        <whereFieldsEqual leftPath="declaredId" rightPath="artifactName" type="String" />
+        <join tableRef="qualified-creations" leftPath="artifactSemanticId" rightPath="semantic" as="creation" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <whereFieldsEqual leftPath="agent" rightPath="creation.player" type="String" />
+        <join tableRef="qualified-organizations" leftPath="schemeWorkspaceIdentity" rightPath="uuid" as="context" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="domain" path="domainIdentity" required="true" />
+        <column name="runId" path="bindings.capturedRun.sessionId" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="domain-operation-history" dataset="source-domain-operations">
+        <column name="uuid" path="identity" required="true" />
+        <column name="events" path="events" required="true" />
+        <column name="continuous" path="continuous" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="scheme-operation-history" dataset="source-scheme-operations">
+        <column name="uuid" path="identity" required="true" />
+        <column name="events" path="events" required="true" />
+        <column name="continuous" path="continuous" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="qualified-monitor-scopes" dataset="source-scheme-history">
+        <join tableRef="qualified-scheme-bindings" leftPath="identity" rightPath="scheme" as="binding" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <column name="physical" path="artifactIdentity" required="true" />
+        <column name="schemeUid" path="identity" required="true" />
+        <column name="runId" path="binding.runId" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="monitor-observations" dataset="source-scheme-history">
+        <join tableRef="qualified-scheme-bindings" leftPath="identity" rightPath="scheme" as="binding" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <join tableRef="domain-operation-history" leftPath="binding.domain" rightPath="uuid" as="domainOps" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <join tableRef="scheme-operation-history" leftPath="artifactIdentity" rightPath="uuid" as="schemeOps" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <firstMatch path="transitions" as="firstBid" orderPath="sequence" completePath="continuous">
+          <match path="goal" type="String" equals="bid" />
+          <match path="state" type="String" equals="SATISFIED" />
+        </firstMatch>
+        <choose as="effectiveCommitments" conditionPath="firstBid.found" truePath="firstBid.value.commitments" falsePath="commitments" />
+        <selectValues path="effectiveCommitments" as="committed" valuePath="agent" valueType="String" completePath="continuous" distinct="true">
+          <match path="mission" type="String" equals="mParticipant" />
+        </selectValues>
+        <selectValues path="done" as="donePlayers" valuePath="player" valueType="String" completePath="continuous" distinct="true">
+          <match path="goal" type="String" equals="bid" />
+        </selectValues>
+        <selectValues path="domainOps.events" as="actualPlayers" valuePath="performerName" valueType="String" completePath="domainOps.continuous" distinct="true">
+          <match path="operation" type="String" equals="bid" />
+          <match path="outcome" type="String" equals="SUCCEEDED" />
+          <match path="performerKnown" type="Boolean" equals="true" />
+        </selectValues>
+        <selectValues path="schemeOps.events" as="adminCalls" valuePath="invocation" valueType="String" completePath="schemeOps.continuous" distinct="true">
+          <match path="operation" type="String" equals="admCommand" />
+          <match path="outcome" type="String" equals="SUCCEEDED" />
+          <match path="raw.after.argumentObservationVersion" type="String" equals="1.0.0" />
+          <match path="raw.after.typedArgumentValues.0.kind" type="String" equals="STRING" />
+          <match path="raw.after.typedArgumentValues.0.javaType" type="String" equals="java.lang.String" />
+          <match path="raw.after.typedArgumentValues.0.value" type="String" equals="goalSatisfied(bid)" />
+          <match path="performerKnown" type="Boolean" equals="true" />
+        </selectValues>
+
+        <selectValues path="transitions" as="startStates" valuePath="state" valueType="String" completePath="continuous" distinct="true">
+          <match path="goal" type="String" equals="start" />
+        </selectValues>
+        <selectValues path="transitions" as="bidStates" valuePath="state" valueType="String" completePath="continuous" distinct="true">
+          <match path="goal" type="String" equals="bid" />
+        </selectValues>
+        <selectValues path="transitions" as="decideStates" valuePath="state" valueType="String" completePath="continuous" distinct="true">
+          <match path="goal" type="String" equals="decide" />
+        </selectValues>
+        <firstMatch path="transitions" as="startSatisfiedConfirmation" orderPath="sequence" completePath="confirmation.complete">
+          <match path="goal" type="String" equals="start" />
+          <match path="state" type="String" equals="SATISFIED" />
+        </firstMatch>
+        <relativeTime as="startSatisfiedTime" requestRef="source-clock" epochPath="startSatisfiedConfirmation.value.publicationEpochMillis" sourceClockPath="clockIdentity" onMissing="unavailable-value" />
+        <firstMatch path="transitions" as="bidEnabledConfirmation" orderPath="sequence" completePath="confirmation.complete">
+          <match path="goal" type="String" equals="bid" />
+          <match path="state" type="String" equals="ENABLED" />
+        </firstMatch>
+        <relativeTime as="bidEnabledTime" requestRef="source-clock" epochPath="bidEnabledConfirmation.value.publicationEpochMillis" sourceClockPath="clockIdentity" onMissing="unavailable-value" />
+        <firstMatch path="transitions" as="bidSatisfiedConfirmation" orderPath="sequence" completePath="confirmation.complete">
+          <match path="goal" type="String" equals="bid" />
+          <match path="state" type="String" equals="SATISFIED" />
+        </firstMatch>
+        <relativeTime as="bidSatisfiedTime" requestRef="source-clock" epochPath="bidSatisfiedConfirmation.value.publicationEpochMillis" sourceClockPath="clockIdentity" onMissing="unavailable-value" />
+        <firstMatch path="transitions" as="decideEnabledConfirmation" orderPath="sequence" completePath="confirmation.complete">
+          <match path="goal" type="String" equals="decide" />
+          <match path="state" type="String" equals="ENABLED" />
+        </firstMatch>
+        <relativeTime as="decideEnabledTime" requestRef="source-clock" epochPath="decideEnabledConfirmation.value.publicationEpochMillis" sourceClockPath="clockIdentity" onMissing="unavailable-value" />
+        <firstMatch path="transitions" as="decideSatisfiedConfirmation" orderPath="sequence" completePath="confirmation.complete">
+          <match path="goal" type="String" equals="decide" />
+          <match path="state" type="String" equals="SATISFIED" />
+        </firstMatch>
+        <relativeTime as="decideSatisfiedTime" requestRef="source-clock" epochPath="decideSatisfiedConfirmation.value.publicationEpochMillis" sourceClockPath="clockIdentity" onMissing="unavailable-value" />
+        <column name="confirmationComplete" path="confirmation.complete" required="true" />
+        <column name="startSatisfiedFound" path="startSatisfiedConfirmation.found" required="false" />
+        <column name="startSatisfiedTime" path="startSatisfiedTime" required="false" />
+        <column name="bidEnabledFound" path="bidEnabledConfirmation.found" required="false" />
+        <column name="bidEnabledTime" path="bidEnabledTime" required="false" />
+        <column name="bidSatisfiedFound" path="bidSatisfiedConfirmation.found" required="false" />
+        <column name="bidSatisfiedTime" path="bidSatisfiedTime" required="false" />
+        <column name="decideEnabledFound" path="decideEnabledConfirmation.found" required="false" />
+        <column name="decideEnabledTime" path="decideEnabledTime" required="false" />
+        <column name="decideSatisfiedFound" path="decideSatisfiedConfirmation.found" required="false" />
+        <column name="decideSatisfiedTime" path="decideSatisfiedTime" required="false" />
+        <column name="runId" path="binding.runId" required="true" />
+        <column name="schemeUid" path="identity" required="true" />
+
+        <column name="history" path="continuous" required="true" />
+        <column name="firstSatisfied" path="firstBid.found" required="true" />
+        <column name="committed" path="committed" required="true" />
+        <column name="done" path="donePlayers" required="true" />
+        <column name="actual" path="actualPlayers" required="true" />
+        <column name="adminCalls" path="adminCalls" required="true" />
+        <column name="adminHistory" path="schemeOps.continuous" required="true" />
+        <column name="startStates" path="startStates" required="true" />
+        <column name="bidStates" path="bidStates" required="true" />
+        <column name="decideStates" path="decideStates" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="execution-scopes" dataset="source-scheme-history">
+        <where path="responsibilityComplete" type="Boolean" equals="true" />
+        <expand path="responsibleGroups" as="group" valueType="String" />
+        <join tableRef="qualified-groups" leftPath="group.value" rightPath="uuid" as="context" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <join tableRef="qualified-scheme-bindings" leftPath="identity" rightPath="scheme" as="domainBinding" cardinality="ONE" required="false" knowledge="QUALIFIED_PHYSICAL_REFERENCE" onMissing="unavailable-value" />
+        <firstMatch path="transitions" as="firstBid" orderPath="sequence" completePath="continuous">
+          <match path="goal" type="String" equals="bid" />
+          <match path="state" type="String" equals="SATISFIED" />
+        </firstMatch>
+        <choose as="members" conditionPath="firstBid.found" truePath="firstBid.value.commitmentBindings" falsePath="commitmentBindings" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="group" path="group.value" required="true" />
+        <column name="domain" path="domainBinding.domain" required="false" />
+        <column name="castComplete" path="members.complete" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="execution-auctioneers" dataset="source-scheme-history">
+        <where path="commitmentBindings.complete" type="Boolean" equals="true" />
+        <expand path="commitmentBindings.rows" as="member" />
+        <where path="member.mission" type="String" equals="mAuctioneer" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="player" path="member.runtimePlayer" required="true" />
+      </table>
+      <table id="execution-participants" dataset="source-scheme-history">
+        <firstMatch path="transitions" as="firstBid" orderPath="sequence" completePath="continuous">
+          <match path="goal" type="String" equals="bid" />
+          <match path="state" type="String" equals="SATISFIED" />
+        </firstMatch>
+        <choose as="members" conditionPath="firstBid.found" truePath="firstBid.value.commitmentBindings" falsePath="commitmentBindings" />
+        <where path="members.complete" type="Boolean" equals="true" />
+        <expand path="members.rows" as="member" />
+        <where path="member.mission" type="String" equals="mParticipant" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="player" path="member.runtimePlayer" required="true" />
+      </table>
+      <table id="demand-start" dataset="source-scheme-history">
+        <where path="responsibilityComplete" type="Boolean" equals="true" />
+        <where path="commitmentBindings.complete" type="Boolean" equals="true" />
+        <expand path="publicGoals" as="goal" />
+        <where path="goal.name" type="String" equals="start" />
+        <test as="required" path="goal.state" type="String" equals="WAITING" negate="true" />
+        <expand path="goal.committed" as="committer" valueType="String" />
+        <expand path="commitmentBindings.rows" as="member" />
+        <whereFieldsEqual leftPath="member.sourcePlayer" rightPath="committer.value" type="String" />
+        <expand path="responsibleGroups" as="group" valueType="String" />
+        <column name="group" path="group.value" required="true" />
+        <column name="player" path="member.runtimePlayer" required="true" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="goal" path="goal.definition" required="true" />
+        <column name="required" path="required" required="true" />
+        <column name="complete" path="commitmentBindings.complete" required="true" />
+      </table>
+      <table id="demand-bid" dataset="source-scheme-history">
+        <where path="responsibilityComplete" type="Boolean" equals="true" />
+        <where path="commitmentBindings.complete" type="Boolean" equals="true" />
+        <expand path="publicGoals" as="goal" />
+        <where path="goal.name" type="String" equals="bid" />
+        <test as="required" path="goal.state" type="String" equals="WAITING" negate="true" />
+        <expand path="goal.committed" as="committer" valueType="String" />
+        <expand path="commitmentBindings.rows" as="member" />
+        <whereFieldsEqual leftPath="member.sourcePlayer" rightPath="committer.value" type="String" />
+        <expand path="responsibleGroups" as="group" valueType="String" />
+        <column name="group" path="group.value" required="true" />
+        <column name="player" path="member.runtimePlayer" required="true" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="goal" path="goal.definition" required="true" />
+        <column name="required" path="required" required="true" />
+        <column name="complete" path="commitmentBindings.complete" required="true" />
+      </table>
+      <table id="demand-decide" dataset="source-scheme-history">
+        <where path="responsibilityComplete" type="Boolean" equals="true" />
+        <where path="commitmentBindings.complete" type="Boolean" equals="true" />
+        <expand path="publicGoals" as="goal" />
+        <where path="goal.name" type="String" equals="decide" />
+        <test as="required" path="goal.state" type="String" equals="WAITING" negate="true" />
+        <expand path="goal.committed" as="committer" valueType="String" />
+        <expand path="commitmentBindings.rows" as="member" />
+        <whereFieldsEqual leftPath="member.sourcePlayer" rightPath="committer.value" type="String" />
+        <expand path="responsibleGroups" as="group" valueType="String" />
+        <column name="group" path="group.value" required="true" />
+        <column name="player" path="member.runtimePlayer" required="true" />
+        <column name="scheme" path="identity" required="true" />
+        <column name="goal" path="goal.definition" required="true" />
+        <column name="required" path="required" required="true" />
+        <column name="complete" path="commitmentBindings.complete" required="true" />
+      </table>
+    </tables>
+    <inputs>
+      <input id="organization-input" tableRef="qualified-organizations" identityKind="PHYSICAL" identityFields="uuid">
+        <field name="uuid" type="String" required="true" />
+      </input>
+      <input id="group-input" tableRef="qualified-groups" identityKind="PHYSICAL" identityFields="uuid">
+        <field name="uuid" type="String" required="true" />
+        <field name="organization" type="String" required="true" />
+      </input>
+      <input id="auctioneer-input" tableRef="observed-auctioneer" identityKind="LOGICAL_ROLE" identityFields="group player role" reconcileMissing="retire-logical-role" reconcileScopeField="group">
+        <field name="group" type="String" required="true" />
+        <field name="player" type="String" required="true" />
+        <field name="role" type="String" required="true" />
+        <field name="occurrence" type="String" required="true" />
+      </input>
+      <input id="participant-input" tableRef="observed-participant" identityKind="LOGICAL_ROLE" identityFields="group player role" reconcileMissing="retire-logical-role" reconcileScopeField="group">
+        <field name="group" type="String" required="true" />
+        <field name="player" type="String" required="true" />
+        <field name="role" type="String" required="true" />
+        <field name="occurrence" type="String" required="true" />
+      </input>
+      <input id="domain-creation-input" tableRef="bound-domain-creations" identityKind="PHYSICAL" identityFields="uuid">
+        <field name="uuid" type="String" required="true" />
+        <field name="group" type="String" required="true" />
+        <field name="id" type="String" required="true" />
+      </input>
+      <input id="domain-state-input" tableRef="observed-domain-state" identityKind="PHYSICAL" identityFields="uuid">
+        <field name="uuid" type="String" required="true" />
+        <field name="semantic" type="String" required="true" />
+        <field name="running" type="Boolean" required="true" />
+        <field name="task" type="String" required="true" />
+        <field name="best" type="JavaBinary64" required="true" />
+        <field name="winner" type="JasonAtom" required="true" />
+        <field name="candidate" type="String" required="true" />
+      </input>
+      <input id="domain-disposal-input" tableRef="disposed-domain" identityKind="PHYSICAL" identityFields="uuid">
+        <field name="uuid" type="String" required="true" />
+      </input>
+    </inputs>
+    <converters>
+      <converter id="runtime-boolean" inputType="Boolean" outputType="Boolean" algorithm="identity" onMismatch="incomplete" />
+      <converter id="runtime-string" inputType="String" outputType="String" algorithm="preserve-exact-content" onMismatch="incomplete" />
+      <converter id="runtime-atom" inputType="JasonAtom" outputType="String" algorithm="extract-Atom-name-without-term-pretty-print-quotes" onMismatch="incomplete" />
+      <converter id="runtime-real" inputType="JavaBinary64" outputType="Real" algorithm="preserve-the-finite-source-value-with-binary64-round-trip-or-exact-real-decoding" onMismatch="incomplete" onOverflowOrUnsupportedBackend="incomplete-do-not-clamp" sentinelReplacement="forbidden" />
+    </converters>
+    <rule id="organization-instance" inputRef="organization-input">
+      <requireEvidence proof="source-cut" />
+      <upsertInstance targetType="AuctionOrg" keyFields="uuid" aliasFrom="uuid" />
+    </rule>
+    <rule id="group-instance" inputRef="group-input">
+      <requireEvidence proof="source-cut" />
+      <upsertInstance targetType="auctionGroup" keyFields="uuid" contextType="AuctionOrg" contextFrom="organization" membership="orgctx" aliasFrom="uuid" />
+    </rule>
+    <rule id="auctioneer-occurrence" inputRef="auctioneer-input">
+      <requireEvidence proof="source-cut" />
+      <upsertInstance targetType="auctioneer" keyFields="group player role" contextType="auctionGroup" contextFrom="group" membership="roles" playerFrom="player" aliasFrom="occurrence" />
+    </rule>
+    <rule id="participant-occurrence" inputRef="participant-input">
+      <requireEvidence proof="source-cut" />
+      <upsertInstance targetType="participant" keyFields="group player role" contextType="auctionGroup" contextFrom="group" membership="roles" playerFrom="player" aliasFrom="occurrence" />
+    </rule>
+    <rule id="domain-creation" inputRef="domain-creation-input">
+      <requireEvidence proof="source-cut" />
+      <requireEvidence proof="typed-reference" />
+      <requireEvidence proof="join:creation:operation-reference" />
+      <upsertInstance targetType="Auction" keyFields="uuid" contextType="auctionGroup" contextFrom="group" membership="entities" aliasFrom="uuid">
+        <assign target="id" sourceField="id" converter="runtime-string" write="create-or-identity-check" />
+      </upsertInstance>
+    </rule>
+    <rule id="domain-state" inputRef="domain-state-input">
+      <requireEvidence proof="source-cut" />
+      <requireEvidence proof="capability:candidate-field" />
+      <assignSnapshot targetType="Auction" keyFields="uuid" atomic="true" missingValuePolicy="incomplete" aliasFrom="semantic">
+        <assign target="running" sourceField="running" converter="runtime-boolean" />
+        <assign target="task" sourceField="task" converter="runtime-string" />
+        <assign target="best_bid" sourceField="best" converter="runtime-real" />
+        <assign target="winner" sourceField="winner" converter="runtime-atom" />
+        <assign target="currentWinner" sourceField="candidate" converter="runtime-string" />
+      </assignSnapshot>
+    </rule>
+    <rule id="domain-disposal" inputRef="domain-disposal-input">
+      <requireEvidence proof="source-cut" />
+      <removeInstance targetType="Auction" keyFields="uuid" authorityProof="removed-identity" />
+    </rule>
+    <occurrences>
+      <scope id="auction-execution" tableRef="execution-scopes" anchorColumn="group" contextColumn="group" keyFields="group scheme">
+        <actor actor="Auction" tableRef="execution-scopes" scopeColumn="scheme" scopeKey="scheme" playerColumn="group" kind="CONTEXT_VIEWPOINT" cardinality="ONE" completeColumn="castComplete" />
+        <actor actor="Auctioneer" tableRef="execution-auctioneers" scopeColumn="scheme" scopeKey="scheme" playerColumn="player" kind="ROLE_OCCURRENCE" cardinality="ONE" roleLookup="EXACT_NATIVE_ENACTMENT" completeColumn="castComplete" />
+        <actor actor="Participant" tableRef="execution-participants" scopeColumn="scheme" scopeKey="scheme" playerColumn="player" kind="ROLE_OCCURRENCE" cardinality="MANY_NONEMPTY" roleLookup="EXACT_NATIVE_ENACTMENT" completeColumn="castComplete" />
+        <self target="A_start_t1" origin="COLUMN" column="domain" optional="true" />
+        <self target="A_start_t2" origin="COLUMN" column="domain" optional="true" />
+        <self target="A_decide_t2" origin="COLUMN" column="domain" optional="true" />
+        <self target="P_bid_t1" origin="COLUMN" column="domain" optional="true" />
+        <self target="P_bid_t2" origin="COLUMN" column="domain" optional="true" />
+        <resource target="A_artifact" column="domain" type="Auction" />
+        <resource target="P_artifact" column="domain" type="Auction" />
+      </scope>
+    </occurrences>
+    <taskDemands>
+      <demand id="require-A_start_t1" target="A_start_t1" scopeRef="auction-execution" tableRef="demand-start" anchorColumn="group" playerColumn="player" requiredColumn="required" scopeColumn="scheme" scopeKey="scheme" episodeFields="scheme goal" completeColumn="complete" />
+      <demand id="require-A_start_t2" target="A_start_t2" scopeRef="auction-execution" tableRef="demand-start" anchorColumn="group" playerColumn="player" requiredColumn="required" scopeColumn="scheme" scopeKey="scheme" episodeFields="scheme goal" completeColumn="complete" />
+      <demand id="require-A_decide_t2" target="A_decide_t2" scopeRef="auction-execution" tableRef="demand-decide" anchorColumn="group" playerColumn="player" requiredColumn="required" scopeColumn="scheme" scopeKey="scheme" episodeFields="scheme goal" completeColumn="complete" />
+      <demand id="require-P_bid_t1" target="P_bid_t1" scopeRef="auction-execution" tableRef="demand-bid" anchorColumn="group" playerColumn="player" requiredColumn="required" scopeColumn="scheme" scopeKey="scheme" episodeFields="scheme goal" completeColumn="complete" />
+      <demand id="require-P_bid_t2" target="P_bid_t2" scopeRef="auction-execution" tableRef="demand-bid" anchorColumn="group" playerColumn="player" requiredColumn="required" scopeColumn="scheme" scopeKey="scheme" episodeFields="scheme goal" completeColumn="complete" />
+    </taskDemands>
+    <!-- Optional epistemic attributes are not inputs to these OCL/iStar requirements.
+         Do not acquire full belief/cycle streams; leave those optional values undefined. -->
+  </runtime>
+  <!-- Only observer state read by active authored contracts is materialized.
+       Raw NPL/source-clock requests remain trace evidence. To restore the disabled
+       WithinDeadline requirement use references/auction-mapping-full-observers.xml. -->
+  <observers>
+    <view id="view-monitor" name="AuctionMonitor" category="CLASS" keyFields="runId schemeUid">
+
+      <field name="startSatisfiedConfirmedAt" type="Integer" origin="MOISE_PUBLIC_CONFIRMATION/1.0 source callback, not internal truth time" />
+      <field name="bidEnabledConfirmedAt" type="Integer" origin="MOISE_PUBLIC_CONFIRMATION/1.0 source callback, not internal truth time" />
+      <field name="bidSatisfiedConfirmedAt" type="Integer" origin="MOISE_PUBLIC_CONFIRMATION/1.0 source callback, not internal truth time" />
+      <field name="decideEnabledConfirmedAt" type="Integer" origin="MOISE_PUBLIC_CONFIRMATION/1.0 source callback, not internal truth time" />
+      <field name="decideSatisfiedConfirmedAt" type="Integer" origin="MOISE_PUBLIC_CONFIRMATION/1.0 source callback, not internal truth time" />
+      <field name="bidSatisfiedObserved" type="Boolean" origin="qualified complete public MOISE state history contains SATISFIED; no timestamp assumption" />
+      <field name="bidCommittedBy" type="Set(String)" origin="actual participant mission commitments frozen at first source satisfaction" />
+      <field name="bidDoneBy" type="Set(String)" origin="actual MOISE done facts" />
+      <field name="actualBidBy" type="Set(String)" origin="successful bound bid operation including non-improving bids" />
+      <field name="adminBidOverride" type="Boolean" origin="successful exact administrative command, never actual bid" />
+    </view>
+    <view id="view-step" name="step" category="TUPLE" keyFields="run scheme player goalInvocation stepInvocation">
+      <field name="enabled" type="Boolean" origin="STEP_ENABLED" />
+      <field name="succeeded" type="Boolean" origin="STEP_SUCCEEDED" />
+    </view>
+    <project id="project-monitor" viewRef="view-monitor" tableRef="monitor-observations" keyFields="runId schemeUid">
+
+      <write field="bidCommittedBy" column="committed" mode="freeze-first-qualified" historyColumn="history" whenColumn="firstSatisfied" beforeFreeze="current" />
+      <write field="bidDoneBy" column="done" mode="current" />
+      <write field="actualBidBy" column="actual" mode="current" />
+      <derive field="bidSatisfiedObserved" expression="states-&gt;includes('SATISFIED')" completeColumn="history"><arg name="states" column="bidStates" type="Set(String)" /></derive>
+      <derive field="adminBidOverride" expression="calls-&gt;notEmpty()" completeColumn="adminHistory">
+        <arg name="calls" column="adminCalls" type="Set(String)" />
+      </derive>
+      <derive field="startSatisfiedConfirmedAt" expression="if found then timestamp else -1 endif" completeColumn="confirmationComplete">
+        <arg name="found" column="startSatisfiedFound" type="Boolean" />
+        <arg name="timestamp" column="startSatisfiedTime" type="Integer" onMissing="undefined" />
+      </derive>
+      <derive field="bidEnabledConfirmedAt" expression="if found then timestamp else -1 endif" completeColumn="confirmationComplete">
+        <arg name="found" column="bidEnabledFound" type="Boolean" />
+        <arg name="timestamp" column="bidEnabledTime" type="Integer" onMissing="undefined" />
+      </derive>
+      <derive field="bidSatisfiedConfirmedAt" expression="if found then timestamp else -1 endif" completeColumn="confirmationComplete">
+        <arg name="found" column="bidSatisfiedFound" type="Boolean" />
+        <arg name="timestamp" column="bidSatisfiedTime" type="Integer" onMissing="undefined" />
+      </derive>
+      <derive field="decideEnabledConfirmedAt" expression="if found then timestamp else -1 endif" completeColumn="confirmationComplete">
+        <arg name="found" column="decideEnabledFound" type="Boolean" />
+        <arg name="timestamp" column="decideEnabledTime" type="Integer" onMissing="undefined" />
+      </derive>
+      <derive field="decideSatisfiedConfirmedAt" expression="if found then timestamp else -1 endif" completeColumn="confirmationComplete">
+        <arg name="found" column="decideSatisfiedFound" type="Boolean" />
+        <arg name="timestamp" column="decideSatisfiedTime" type="Integer" onMissing="undefined" />
+      </derive>
+    </project>
+  </observers>
+  <bindings>
+    <static id="bind-org" kind="ORG_CONTEXT" target="AuctionOrg" sourceKind="JACAMO_ORGANIZATION_DEPLOYMENT" feature="name" value="aorg" reason="Explicit organization deployment viewpoint, not a framework Entity">
+      <metadata key="contextAbstraction" value="ORGANIZATION_DEPLOYMENT_VIEW" />
+    </static>
+    <static id="bind-group" kind="ORG_CONTEXT" target="auctionGroup" sourceKind="MOISE_GROUP" feature="groupId" value="auctionGroup" reason="Configured structural group definition" />
+    <static id="bind-role-auctioneer" kind="ROLE" target="auctioneer" sourceKind="MOISE_ROLE" feature="roleId" value="auctioneer" reason="Declared MOISE role, not a live enactment" />
+    <static id="bind-role-participant" kind="ROLE" target="participant" sourceKind="MOISE_ROLE" feature="roleId" value="participant" reason="Declared MOISE role, not a live enactment" />
+    <static id="bind-domain" kind="ENTITY" target="Auction" sourceKind="DERIVED_ARTIFACT_CLASS_ALIAS" feature="javaClass" value="auction_env.AuctionArtifact" reason="Passive application Artifact type, not an instance or request" />
+    <static id="bind-actor-Auction" kind="ACTOR" target="Auction" sourceKind="JACAMO_ORGANIZATION_DEPLOYMENT" feature="name" value="aorg" reason="Reviewed intentional abstraction; organization actor is only a context viewpoint" />
+    <actorRuntime actor="Auction" bindingRef="bind-actor-Auction" contextBindingRef="bind-group" activationPolicy="OBSERVED_SCHEME_COMMITMENT" episodePolicy="RUN_SCHEME_PLAYER_INVOCATION" />
+    <static id="bind-actor-Auctioneer" kind="ACTOR" target="Auctioneer" sourceKind="MOISE_ROLE" feature="roleId" value="auctioneer" reason="Reviewed intentional abstraction; organization actor is only a context viewpoint" />
+    <actorRuntime actor="Auctioneer" bindingRef="bind-actor-Auctioneer" contextBindingRef="bind-group" activationPolicy="OBSERVED_SCHEME_COMMITMENT" episodePolicy="RUN_SCHEME_PLAYER_INVOCATION" roleBindingRef="bind-role-auctioneer" />
+    <static id="bind-actor-Participant" kind="ACTOR" target="Participant" sourceKind="MOISE_ROLE" feature="roleId" value="participant" reason="Reviewed intentional abstraction; organization actor is only a context viewpoint" />
+    <actorRuntime actor="Participant" bindingRef="bind-actor-Participant" contextBindingRef="bind-group" activationPolicy="OBSERVED_SCHEME_COMMITMENT" episodePolicy="RUN_SCHEME_PLAYER_INVOCATION" roleBindingRef="bind-role-participant" />
+    <elementRuntime target="O_root" actor="Auction" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="O_start" actor="Auction" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="O_bid" actor="Auction" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="O_decide" actor="Auction" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="A_start" actor="Auctioneer" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="A_start_t1" actor="Auctioneer" self="Auction" derived="false" selfKind="ARTIFACT" reason="Exact declared Jason step, never state-only task completion" stepScope="auction-execution" scopePolicy="EXACT_REFERENCES" stepSchemeColumn="scheme" stepArtifactColumn="domain" entryPolicy="ALLOW_UNBOUND_SELF_FOR_PURE_CALLBACK" failurePolicy="EVALUATE_PURE_CALLBACK_POST">
+      <variable name="step" viewRef="view-step" origin="STEP_TUPLE" />
+    </elementRuntime>
+    <elementRuntime target="A_start_t2" actor="Auctioneer" self="Auction" derived="false" selfKind="ARTIFACT" reason="Exact declared Jason step, never state-only task completion" stepScope="auction-execution" scopePolicy="EXACT_REFERENCES" stepSchemeColumn="scheme" stepArtifactColumn="domain" entryPolicy="EXACT_SELF" failurePolicy="EVALUATE_PURE_CALLBACK_POST">
+      <actionReceipt operationRef="op-start" />
+      <variable name="service" type="String" origin="STEP_INPUT:service" />
+    </elementRuntime>
+    <elementRuntime target="A_decide" actor="Auctioneer" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="A_decide_t2" actor="Auctioneer" self="Auction" derived="false" selfKind="ARTIFACT" reason="Exact declared Jason step, never state-only task completion" stepScope="auction-execution" scopePolicy="EXACT_REFERENCES" stepSchemeColumn="scheme" stepArtifactColumn="domain" entryPolicy="EXACT_SELF" failurePolicy="EVALUATE_PURE_CALLBACK_POST">
+      <actionReceipt operationRef="op-stop" />
+    </elementRuntime>
+    <elementRuntime target="P_bid" actor="Participant" self="Auction" derived="true" selfKind="ARTIFACT" reason="Original refinement/dependency result" />
+    <elementRuntime target="P_bid_t1" actor="Participant" self="Auction" derived="false" selfKind="ARTIFACT" reason="Exact declared Jason step, never state-only task completion" stepScope="auction-execution" scopePolicy="EXACT_REFERENCES" stepSchemeColumn="scheme" stepArtifactColumn="domain" entryPolicy="ALLOW_UNBOUND_SELF_FOR_PURE_CALLBACK" failurePolicy="EVALUATE_PURE_CALLBACK_POST">
+      <variable name="step" viewRef="view-step" origin="STEP_TUPLE" />
+    </elementRuntime>
+    <elementRuntime target="P_bid_t2" actor="Participant" self="Auction" derived="false" selfKind="ARTIFACT" reason="Exact declared Jason step, never state-only task completion" stepScope="auction-execution" scopePolicy="EXACT_REFERENCES" stepSchemeColumn="scheme" stepArtifactColumn="domain" entryPolicy="EXACT_SELF" failurePolicy="EVALUATE_PURE_CALLBACK_POST">
+      <actionReceipt operationRef="op-bid" />
+      <variable name="step" viewRef="view-step" origin="STEP_TUPLE" />
+    </elementRuntime>
+    <oclClause name="Idle" context="context Auction::start(service : String)" />
+    <oclClause name="Opened" context="context Auction::start(service : String)" />
+    <oclClause name="RunningForBid" context="context Auction::bid(amount : Real)" />
+    <oclClause name="RunningForStop" context="context Auction::stop()" />
+    <oclClause name="Closed" context="context Auction::stop()" />
+    <oclClause name="ConfirmedSchemeOrder" context="context AuctionMonitor" />
+    <oclClause name="ObservedBidEvidence" context="context AuctionMonitor" />
+    <!-- TEMPORARY USER TEST: <oclClause name="WithinDeadline" context="context AuctionObligation" /> -->
+    <operation id="op-start" owner="Auction" signature="[&quot;auction_env.AuctionArtifact&quot;,&quot;start&quot;,[&quot;java.lang.String&quot;],&quot;void&quot;]" clauses="Idle Opened" task="A_start_t2" />
+    <operation id="op-bid" owner="Auction" signature="[&quot;auction_env.AuctionArtifact&quot;,&quot;bid&quot;,[&quot;double&quot;],&quot;void&quot;]" clauses="RunningForBid" task="P_bid_t2" />
+    <operation id="op-stop" owner="Auction" signature="[&quot;auction_env.AuctionArtifact&quot;,&quot;stop&quot;,[],&quot;void&quot;]" clauses="RunningForStop Closed" task="A_decide_t2" />
+    <dependencyPopulation target="D_bid" quantifier="ANY" />
+    <static id="bind-capability-role" kind="ROLE" target="auction_capabilities" sourceKind="JASON_AGENT_PROGRAM" feature="declarationId" value="bob" reason="Shared authored ASL capability role, anchored by exact source declaration; not a separately adopted MOISE role">
+      <metadata key="roleAbstraction" value="ASL_CAPABILITY_VIEW" />
+    </static>
+    <static id="bind-capability-actor" kind="ACTOR" target="auction_capabilities" sourceKind="JASON_AGENT_PROGRAM" feature="declarationId" value="bob" reason="Empty intentional capability abstraction of the shared program, not an independent actor occurrence" />
+    <actorRuntime actor="auction_capabilities" bindingRef="bind-capability-actor" activationPolicy="MODEL_ONLY_CAPABILITY_ROLE" episodePolicy="MODEL_REVISION" />
+  </bindings>
+  <requirements>
+    <capability id="scheme-operations" provider="cartago.operation-history.v1" required="true" class="ora4mas.nopl.SchemeBoard" hash="79f28443c5701d5b424de5d952db81f17274a7d3c170c2fc2f9ab6dbb4628ba6" operations="admCommand" />
+    <capability id="workspace-operations" provider="cartago.operation-history.v1" required="true" class="cartago.WorkspaceArtifact" hash="6fda906d426c1d66a6f42cce2a2a5bdeacc90960c0da20e2c2719e6f6bb2e1b4" operations="makeArtifact" />
+    <capability id="candidate-field" provider="cartago.artifact-field.v1" hashOrigin="OFFICIAL_CLASS_PROOF" required="true" sourceRef="src-artifact" class="auction_env.AuctionArtifact" field="currentWinner" type="java.lang.String">
+      <property name="running" type="BOOLEAN" />
+      <property name="task" type="STRING" />
+      <property name="best_bid" type="IEEE754_BINARY64" />
+      <property name="winner" type="JASON_ATOM" />
+    </capability>
+    <capability id="auction-operations" provider="cartago.operation-history.v1" hashOrigin="OFFICIAL_CLASS_PROOF" required="true" sourceRef="src-artifact" class="auction_env.AuctionArtifact" operations="start bid stop" />
+    <capability id="scheme-history" provider="moise.scheme-lifecycle.v1" required="true" sourceRef="src-os" organization="auction" scheme="doAuction" />
+    <capability id="source-clock" provider="npl.source-clock.v1" required="true" hash="956818edfe9aeff7c4fde35bf1dd276cd71e1da62daf77a2a15ab08f87903332" />
+    <capability id="norm-lifecycle" provider="npl.lifecycle.v1" required="true" hash="956818edfe9aeff7c4fde35bf1dd276cd71e1da62daf77a2a15ab08f87903332" />
+    <capability id="execution-steps" provider="jason.plan-boundaries.v1" required="true" sourceRef="src-asl">
+      <plan trigger="start[scheme(Sch)]">
+        <step task="A_start_t1" first="0" after="5" variables="Id Sch S ArtId" artifactVariable="ArtId" artifactClass="auction_env.AuctionArtifact" schemeVariable="Sch" allowMissingArtifactAtEntry="true" />
+        <step task="A_start_t2" first="5" after="6" variables="Id Sch S ArtId" artifactVariable="ArtId" artifactClass="auction_env.AuctionArtifact" schemeVariable="Sch" allowMissingArtifactAtEntry="false">
+          <input name="service" variable="S" type="java.lang.String" />
+        </step>
+      </plan>
+      <plan trigger="decide[scheme(Sch)]">
+        <step task="decide_source_prefix" first="0" after="2" variables="Id Sch ArtId" artifactVariable="ArtId" artifactClass="auction_env.AuctionArtifact" schemeVariable="Sch" allowMissingArtifactAtEntry="true" />
+        <step task="A_decide_t2" first="2" after="3" variables="Id Sch ArtId" artifactVariable="ArtId" artifactClass="auction_env.AuctionArtifact" schemeVariable="Sch" allowMissingArtifactAtEntry="false" />
+      </plan>
+      <plan trigger="bid[scheme(Sch)]">
+        <step task="P_bid_t1" first="0" after="3" variables="Id Sch AId" artifactVariable="AId" artifactClass="auction_env.AuctionArtifact" schemeVariable="Sch" allowMissingArtifactAtEntry="true" />
+        <step task="P_bid_t2" first="3" after="4" variables="Id Sch AId" artifactVariable="AId" artifactClass="auction_env.AuctionArtifact" schemeVariable="Sch" allowMissingArtifactAtEntry="false" />
+      </plan>
+    </capability>
+  </requirements>
+  <omittedConcepts>
+    <omit id="no-agent-entity" concept="Jason agent" reason="Agent is a runtime player, not a CSL Entity" handledBy="actorRuntime" />
+    <omit id="no-belief-truth" concept="Jason beliefs" reason="Mental state does not supply authoritative world values" handledBy="trace" />
+    <omit id="source-sequence" concept="MOISE sequence" reason="AND models outcome only; authored SchemeOrder requires real transition evidence" handledBy="SchemeOrder" />
+    <omit id="norm-separate" concept="MOISE norms" reason="Actual activation/deadline/lifecycle are external observer data" handledBy="norm-lifecycle" />
+    <omit id="publication-not-transition" concept="MOISE internal transition timestamps" reason="Public MOISE history supplies publication order, not exact internal engine timestamps; affected authored constraints stay unavailable" handledBy="source-clock" />
+    <omit id="trace-decide-prefix" concept="SOURCE_EXECUTION_PREFIX" sourceStep="decide_source_prefix" handledBy="TRACE_ONLY" reason="Actual argument/focusing-query prefix retained for complete source partition and reference evidence; no sixth intentional Task exists in the authored diagram." />
+  </omittedConcepts>
+  <!-- Business-state browser only. All verification audit boundaries remain recorded. -->
+  <presentation milestones="DOMAIN">
+    <state owner="AuctionOrg" />
+    <state owner="auctionGroup" />
+    <state owner="auctioneer" />
+    <state owner="participant" />
+    <state owner="Auction" attributes="id running task best_bid winner currentWinner" />
+  </presentation>
+</mapping>

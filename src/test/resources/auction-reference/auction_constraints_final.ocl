@@ -1,0 +1,49 @@
+-- Auction / supplement to auction_istar_final.drawio (thesis IV-A).
+-- Auction is the CSL projection of AuctionArtifact: running:Boolean, task:String.
+-- Observer schema/bindings: drawio page 2. No monitor field is a source Java field.
+-- Per run: Integer ms; -1 = absent; sets/flags are observed, never guessed.
+-- Bid commitments are frozen at satisfaction. Admin does not mean actual bid.
+
+context Auction::start(service : String)
+pre Idle: not self.running
+post Opened: self.running and self.task = service
+
+context Auction::bid(amount : Real)
+pre RunningForBid: self.running
+
+context Auction::stop()
+pre RunningForStop: self.running
+post Closed: not self.running
+
+-- MOISE sequence, including enablement; no synchronous goal updates on operations.
+context AuctionMonitor
+inv SchemeOrder:
+    (self.bidEnabledAt >= 0 implies
+        self.startSatisfiedAt >= 0 and self.startSatisfiedAt <= self.bidEnabledAt) and
+    (self.bidSatisfiedAt >= 0 implies
+        self.bidEnabledAt >= 0 and self.bidEnabledAt <= self.bidSatisfiedAt) and
+    (self.decideEnabledAt >= 0 implies
+        self.bidSatisfiedAt >= 0 and self.bidSatisfiedAt <= self.decideEnabledAt) and
+    (self.decideSatisfiedAt >= 0 implies
+        self.decideEnabledAt >= 0 and self.decideEnabledAt <= self.decideSatisfiedAt)
+
+-- Performance goal: all committed agents report done, or owner overrides.
+-- !bid failure reports no done; a non-winning successful bid is still actual.
+context AuctionMonitor
+inv BidEvidence:
+    self.bidDoneBy->forAll(a | self.actualBidBy->includes(a)) and
+    (self.bidSatisfiedAt >= 0 implies
+        self.adminBidOverride or
+        (self.bidDoneBy->notEmpty() and
+         self.bidCommittedBy->forAll(a | self.bidDoneBy->includes(a))))
+
+-- One retained record per bid/decide obligation activation; engine timestamps.
+-- endedAt = first terminal event, -1 while pending. unfulfilled is latched.
+-- This norm may fail while the scheme continues through administrative recovery.
+context AuctionObligation
+inv WithinDeadline:
+    self.deadlineAt = self.activatedAt +
+        (if self.goal = 'bid' then 10000 else 3600000 endif) and
+    not self.unfulfilled and
+    (if self.endedAt >= 0 then self.endedAt else self.monitor.now endif)
+        <= self.deadlineAt

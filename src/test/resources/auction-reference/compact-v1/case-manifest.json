@@ -1,0 +1,16 @@
+{
+  "version": "COMPACT_OBSERVED_WORLD/1.0",
+  "inputs": {
+    "jcm": "../auction.jcm",
+    "csl": "auction.csl",
+    "istar": "auction.istar",
+    "mapping": "auction-mapping.xml",
+    "ocl": "auction.ocl"
+  },
+  "sha256": {
+    "auction-mapping.xml": "c9be3529333a8c8015d36aad1dbbd087d009f1b6395d3830e31ec00cd8e2d72d",
+    "auction.csl": "a26e007481604b88c91ef523ba5ae41176bcfb8a2eabc2b0501993dd29be5015",
+    "auction.istar": "727a9973d6cb63677f3b78b33640d29574cb42eafb17cfe08594786e2c7f4345",
+    "auction.ocl": "3f1e31aeb187a65cddf204b8d5a921b2d7f214b5e7bb121fd4d66fb3a6786f1b"
+  }
+}

@@ -1,0 +1,10 @@
+// Explicit state/outcome abstraction; no inference of Jason Task completion.
+istar CompactAuctionGoals {
+ role AuctionObserver {
+  goal AuctionFinished : Achieve
+  goal AuctionClosed : Achieve > AuctionFinished
+   condition {[ not self.running and self.winner <> 'no_winner' ]}
+  goal WinnerPublished : Achieve > AuctionFinished
+   condition {[ self.winner <> 'no_winner' and self.winner = self.currentWinner ]}
+ }
+}

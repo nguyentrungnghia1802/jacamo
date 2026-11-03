@@ -1,0 +1,67 @@
+// Desktop Auction model: role specialization follows auction_istar_final_fixed.drawio.
+// auction_capabilities is an authored capability-role abstraction of the shared ASL
+// program. It is not an extra MOISE role declared by auction-os.xml.
+// Its attributes describe the SAME player's epistemic view, never world truth.
+// The two concrete role views inherit them; no second parent-role enactment is created.
+//
+// Belief-view contract (generic; selected predicates belong in mapping XML):
+// - String = JSON array of exact Jason literal/rule source strings, sorted lexically.
+// - Preserve namespace, strong negation, arguments, annotations and source qualifiers.
+// - A predicate-specific view selects actual stored literals by namespace/name/arity.
+// - [] means a known empty extension ONLY with complete player/cut coverage.
+// - An unavailable/incomplete view is undefined, not []/false/an invented default.
+// - A query result, plan variable or event is not automatically a stored belief.
+// - joined/2 is a compatibility rule over joinedWsp/3; do not materialize its
+//   inferred answers by pretending they were stored belief literals.
+// - oblUnfulfilled/1 is event/lifecycle evidence; no persistent belief is assumed.
+// - The shared BB may contain several schemes/artifacts (a1 and a2); keep the
+//   full tuple/annotations. Do not collapse task/winner/best_bid to one scalar.
+// - Native OCL does not parse these JSON views: predicates requiring typed belief
+//   access need an explicitly declared, generic typed observer binding.
+
+csl v4.0 AuctionState {
+    orgContext AuctionOrg {
+        orgContext auctionGroup {
+            role auction_capabilities {
+                // Entire observed BB; rules stay explicitly distinguishable from facts.
+                attribute beliefBase : String optional mutable;
+                // CArtAgO workspace membership percept: joinedWsp/3.
+                attribute belief_joinedWsp : String optional mutable;
+                // Agent-artifact focus relation: focusing/6.
+                attribute belief_focusing : String optional mutable;
+                // Scheme/goal/argument-name/value relation: goalArgument/4.
+                attribute belief_goalArgument : String optional mutable;
+                // Agent/role/group relation as believed by this player: play/3.
+                attribute belief_play : String optional mutable;
+                // Artifact-qualified percept extensions, not authoritative Artifact data.
+                attribute belief_running : String optional mutable;
+                attribute belief_task : String optional mutable;
+                attribute belief_best_bid : String optional mutable;
+                attribute belief_winner : String optional mutable;
+            }
+
+            role auctioneer specializes auction_capabilities;
+            role participant specializes auction_capabilities;
+
+            // Diagram containment: group coordinates Auction state. This is model
+            // scope, not physical CArtAgO ownership or a disposal cascade.
+            entity Auction {
+                attribute id : String required;
+                attribute running : Boolean required mutable default false;
+                attribute task : String required mutable default 'no_task';
+                // Read actual finite Double.MAX_VALUE; never replace it by zero.
+                attribute best_bid : Real required mutable;
+                attribute winner : String required mutable default 'no_winner';
+                // Persistent Java field, NOT an observable property.
+                attribute currentWinner : String required mutable default 'no_winner';
+            }
+        }
+    }
+
+    // Count observed specialized role occurrences, not ASL program declarations
+    // or mission commitments. Violation is evaluated, not filtered out by mapping.
+    context auctionGroup inv AuctioneerPopulation:
+        self.auctioneer->size() = 1;
+    context auctionGroup inv ParticipantPopulation:
+        self.participant->size() <= 300;
+}

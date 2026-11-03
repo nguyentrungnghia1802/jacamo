@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mapping xmlns="urn:use:jacamo-mapping:2" version="2.0" id="auction-compact-v1" engineProfile="USE4GOAL_OBSERVED_V1" jcmRef="src-jcm" xmlns:os="http://moise.sourceforge.net/os">
+  <sources>
+    <file id="src-jcm" path="auction.jcm" sha256="c766fb0dc5fc6f4085cf6c1fc26d2df09229256c2e6138dfd4d44ef21fb7d2fb" kind="JCM" />
+    <file id="src-os" path="src/org/auction-os.xml" sha256="d2481d4ee3c45b2cead42f942a3943684e86facee992870356ca4d1e47d16f9a" kind="MOISE" />
+    <file id="src-asl" path="src/agt/auction_capabilities.asl" sha256="31679b13210114b211dad862ad86af352cc9003ac9527ea7268e3a1d0f9cfe1b" kind="ASL" />
+    <file id="src-artifact" path="src/env/auction_env/AuctionArtifact.java" sha256="34036fc220274853e39f93682cdb22c350fe6a06739669860f2a66afe606ff4b" kind="JAVA" />
+    <file id="src-build" path="build.gradle" sha256="0c81b7f1b57c8f9b427280eb8967e820edaffe329540e4988ddd85e402175b40" kind="RESOURCE" />
+  </sources>
+  <ocl sha256="3f1e31aeb187a65cddf204b8d5a921b2d7f214b5e7bb121fd4d66fb3a6786f1b" />
+  <models mode="AUTHORED" cslSha256="a26e007481604b88c91ef523ba5ae41176bcfb8a2eabc2b0501993dd29be5015" istarSha256="727a9973d6cb63677f3b78b33640d29574cb42eafb17cfe08594786e2c7f4345" />
+  <assertions>
+    <require selectorRef="sel-org" field="instance" equals="aorg" />
+    <require selectorRef="sel-org" field="spec" equals="auction-os.xml" />
+    <require selectorRef="sel-os-root" field="id" equals="auction" />
+    <require selectorRef="sel-os-group" field="id" equals="auctionGroup" />
+    <require selectorRef="sel-group-config" field="spec" equals="auctionGroup" />
+    <require selectorRef="sel-group-config" field="instance" equals="agrp" />
+    <requireSet selectorRef="sel-role-definitions" field="id" values="auctioneer participant" />
+    <requireSameSet leftSelectorRef="sel-role-definitions" leftField="id" rightSelectorRef="sel-role-bounds" rightField="id" />
+    <require selectorRef="sel-class" field="name" equals="AuctionArtifact" />
+    <require selectorRef="sel-class" field="base" equals="Artifact" />
+    <require selectorRef="sel-create" field="className" equals="auction_env.AuctionArtifact" />
+    <require selectorRef="sel-create" field="idVariable" equals="Id" />
+    <require selectorRef="sel-create" field="artifactVariable" equals="ArtId" />
+    <require selectorRef="sel-current-winner" field="name" equals="currentWinner" />
+    <require selectorRef="sel-current-winner" field="initial" equals="no_winner" />
+    <require selectorRef="sel-current-winner-write" field="expression" equals="getCurrentOpAgentId().getAgentName()" />
+  </assertions>
+  <selectors>
+    <select id="sel-org" sourceRef="src-jcm" syntax="regex" expectedCount="1">
+      <pattern>^\s*organisation\s+(?P&lt;instance&gt;\w+)\s*:\s*(?P&lt;spec&gt;[^\s{]+)\s*\{</pattern>
+    </select>
+    <select id="sel-group-config" sourceRef="src-jcm" syntax="regex" expectedCount="1">
+      <pattern>^\s*group\s+(?P&lt;instance&gt;\w+)\s*:\s*(?P&lt;spec&gt;\w+)\s*\{</pattern>
+    </select>
+    <select id="sel-agents" sourceRef="src-jcm" syntax="regex" expectedCount="5">
+      <pattern>^\s*agent\s+(?P&lt;agent&gt;\w+)\s*:\s*(?P&lt;program&gt;[\w./-]+)</pattern>
+    </select>
+    <select id="sel-players" sourceRef="src-jcm" syntax="regex" expectedCount="5">
+      <pattern>^\s*(?:players:\s*)?(?P&lt;agent&gt;\w+)\s+(?P&lt;role&gt;\w+)\s*$</pattern>
+    </select>
+    <select id="sel-requests" sourceRef="src-jcm" syntax="regex" expectedCount="2">
+      <pattern>do_auction\("(?P&lt;auctionId&gt;[^"]+)","(?P&lt;service&gt;[^"]+)"\)</pattern>
+    </select>
+    <select id="sel-os-root" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification" expectedCount="1">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-os-group" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification/os:group-specification" expectedCount="1">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-role-definitions" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification/os:role-definitions/os:role" expectedCount="2">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-role-bounds" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification/os:group-specification/os:roles/os:role" expectedCount="2">
+      <capture name="id" expression="@id" />
+      <capture name="min" expression="@min" />
+      <capture name="max" expression="@max" />
+    </select>
+    <select id="sel-absent-structure" sourceRef="src-os" syntax="xpath" expression="/os:organisational-specification/os:structural-specification//os:subgroups | /os:organisational-specification/os:structural-specification//os:extends | /os:organisational-specification/os:structural-specification//os:links | /os:organisational-specification/os:structural-specification//os:compatibilities" expectedCount="0" />
+    <select id="sel-sequence" sourceRef="src-os" syntax="xpath" expression="//os:scheme[@id='doAuction']/os:goal[@id='auction']/os:plan" expectedCount="1">
+      <capture name="operator" expression="@operator" />
+    </select>
+    <select id="sel-sequence-goals" sourceRef="src-os" syntax="xpath" expression="//os:scheme[@id='doAuction']/os:goal[@id='auction']/os:plan/os:goal" expectedCount="3">
+      <capture name="id" expression="@id" />
+    </select>
+    <select id="sel-deadlines" sourceRef="src-os" syntax="xpath" expression="//os:scheme[@id='doAuction']/os:goal[@id='auction']/os:plan/os:goal[@ttf]" expectedCount="2">
+      <capture name="goal" expression="@id" />
+      <capture name="ttf" expression="@ttf" />
+    </select>
+    <select id="sel-class" sourceRef="src-artifact" syntax="regex" expectedCount="1">
+      <pattern>public\s+class\s+(?P&lt;name&gt;\w+)\s+extends\s+(?P&lt;base&gt;\w+)</pattern>
+    </select>
+    <select id="sel-create" sourceRef="src-asl" syntax="regex" expectedCount="1">
+      <pattern>makeArtifact\(\s*(?P&lt;idVariable&gt;Id),\s*"(?P&lt;className&gt;[^"]+)",\s*\[\s*\],\s*(?P&lt;artifactVariable&gt;ArtId)\s*\)</pattern>
+    </select>
+    <select id="sel-observables" sourceRef="src-artifact" syntax="regex" expectedCount="4">
+      <pattern>defineObsProperty\("(?P&lt;name&gt;[^"]+)",\s*(?P&lt;initial&gt;[^;\r\n]+)\);</pattern>
+    </select>
+    <select id="sel-current-winner" sourceRef="src-artifact" syntax="regex" expectedCount="1">
+      <pattern>^\s*String\s+(?P&lt;name&gt;currentWinner)\s*=\s*"(?P&lt;initial&gt;[^"]*)";</pattern>
+    </select>
+    <select id="sel-current-winner-write" sourceRef="src-artifact" syntax="regex" expectedCount="1">
+      <pattern>^\s*currentWinner\s*=\s*(?P&lt;expression&gt;getCurrentOpAgentId\(\)\.getAgentName\(\));</pattern>
+    </select>
+  </selectors>
+  <modelRules targetVersion="v4.0" targetModel="CompactAuctionState" />
+  <istar name="CompactAuctionGoals" />
+  <runtime>
+    <datasets>
+      <facts id="raw-workspaces" authority="cartago" kind="WORKSPACE" />
+      <facts id="raw-artifacts" authority="cartago" kind="ARTIFACT" />
+      <fieldCuts id="raw-domain-state" requestRef="candidate-field" />
+      <facts id="raw-operations" authority="cartago" kind="OPERATION" />
+    </datasets>
+    <tables>
+      <table id="workspaces" dataset="raw-workspaces">
+        <column name="uuid" path="identity" required="true" />
+        <column name="semantic" path="values.semanticId" required="true" />
+      </table>
+      <table id="observed-domain-state" dataset="raw-domain-state">
+        <column name="uuid" path="identity" required="true" />
+        <column name="semantic" path="artifactSemanticId" required="true" />
+        <column name="running" path="properties.running" required="true" />
+        <column name="task" path="properties.task" required="true" />
+        <column name="best" path="properties.best_bid" required="true" />
+        <column name="winner" path="properties.winner" required="true" />
+        <column name="candidate" path="fields.currentWinner" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="selected-artifacts" dataset="raw-artifacts">
+        <where path="values.artifactTypeJavaClassName" type="String" equals="auction_env.AuctionArtifact" />
+        <join tableRef="workspaces" leftPath="values.workspaceSemanticId" rightPath="semantic" as="w" cardinality="ONE" required="true" />
+        <join tableRef="observed-domain-state" leftPath="values.semanticId" rightPath="semantic" as="s" cardinality="ONE" required="true" knowledge="QUALIFIED_PHYSICAL_REFERENCE" />
+        <column name="uuid" path="identity" required="true" />
+        <column name="context" path="w.uuid" required="true" />
+        <column name="id" path="values.name" required="true" />
+        <column name="running" path="s.running" required="true" />
+        <column name="task" path="s.task" required="true" />
+        <column name="best_bid" path="s.best" required="true" />
+        <column name="winner" path="s.winner" required="true" />
+        <column name="currentWinner" path="s.candidate" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="selected-contexts" dataset="raw-workspaces">
+        <whereExists tableRef="selected-artifacts" leftPath="identity" rightPath="context" as="auction" />
+        <column name="uuid" path="identity" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+      <table id="artifact-identities" dataset="raw-artifacts">
+        <where path="values.artifactTypeJavaClassName" type="String" equals="auction_env.AuctionArtifact" />
+        <column name="uuid" path="identity" required="true" />
+        <column name="id" path="values.name" required="true" />
+        <identity mode="PHYSICAL" path="identity" />
+      </table>
+    </tables>
+    <inputs>
+      <input id="context-input" identityKind="PHYSICAL" identityFields="uuid" tableRef="selected-contexts">
+        <field name="uuid" type="String" required="true" />
+      </input>
+      <input id="artifact-input" identityKind="PHYSICAL" identityFields="uuid" tableRef="selected-artifacts">
+        <field name="context" type="String" required="true" />
+        <field name="uuid" type="String" required="true" />
+        <field name="id" type="String" required="true" />
+        <field name="running" type="Boolean" required="true" />
+        <field name="task" type="String" required="true" />
+        <field name="best_bid" type="JavaBinary64" required="true" />
+        <field name="winner" type="JasonAtom" required="true" />
+        <field name="currentWinner" type="String" required="true" />
+      </input>
+      <input id="identity-input" identityKind="PHYSICAL" identityFields="uuid" tableRef="artifact-identities">
+        <field name="uuid" type="String" required="true" />
+        <field name="id" type="String" required="true" />
+      </input>
+    </inputs>
+    <converters>
+      <converter id="runtime-boolean" inputType="Boolean" outputType="Boolean" algorithm="identity" onMismatch="incomplete" />
+      <converter id="runtime-string" inputType="String" outputType="String" algorithm="preserve-exact-content" onMismatch="incomplete" />
+      <converter id="runtime-atom" inputType="JasonAtom" outputType="String" algorithm="extract-Atom-name-without-term-pretty-print-quotes" onMismatch="incomplete" />
+      <converter id="runtime-real" inputType="JavaBinary64" outputType="Real" algorithm="preserve-the-finite-source-value-with-binary64-round-trip-or-exact-real-decoding" onMismatch="incomplete" onOverflowOrUnsupportedBackend="incomplete-do-not-clamp" sentinelReplacement="forbidden" />
+    </converters>
+    <rule id="map-artifact-identity" inputRef="identity-input">
+      <requireEvidence proof="source-cut" />
+      <upsertInstance targetType="Auction" keyFields="uuid" aliasFrom="uuid">
+        <assign target="id" sourceField="id" converter="runtime-string" write="create-or-identity-check" />
+      </upsertInstance>
+    </rule>
+    <rule id="map-context" inputRef="context-input">
+      <requireEvidence proof="source-cut" />
+      <upsertInstance targetType="AuctionRun" keyFields="uuid" aliasFrom="uuid" />
+    </rule>
+    <rule id="map-auction" inputRef="artifact-input">
+      <requireEvidence proof="source-cut" />
+      <requireEvidence proof="join:s:capability:candidate-field" />
+      <assignSnapshot targetType="Auction" keyFields="uuid" aliasFrom="uuid" atomic="true" missingValuePolicy="incomplete">
+        <assign target="running" sourceField="running" converter="runtime-boolean" />
+        <assign target="task" sourceField="task" converter="runtime-string" />
+        <assign target="best_bid" sourceField="best_bid" converter="runtime-real" />
+        <assign target="winner" sourceField="winner" converter="runtime-atom" />
+        <assign target="currentWinner" sourceField="currentWinner" converter="runtime-string" />
+      </assignSnapshot>
+    </rule>
+    <occurrences>
+      <scope id="observed-auction" tableRef="selected-artifacts" anchorColumn="uuid" contextColumn="context" keyFields="uuid">
+        <actor actor="AuctionObserver" tableRef="selected-artifacts" scopeColumn="uuid" scopeKey="uuid" playerColumn="context" kind="CONTEXT_VIEWPOINT" cardinality="ONE" />
+        <self target="AuctionClosed" origin="COLUMN" column="uuid" />
+        <self target="WinnerPublished" origin="COLUMN" column="uuid" />
+      </scope>
+    </occurrences>
+  </runtime>
+  <observers />
+  <bindings>
+    <static id="bind-context" kind="ORG_CONTEXT" target="AuctionRun" sourceKind="JACAMO_PROJECT" feature="name" value="auction" reason="Explicit physical workspace execution view">
+      <metadata key="contextAbstraction" value="PROJECT_EXECUTION_VIEW/1.0" />
+    </static>
+    <static id="bind-entity" kind="ENTITY" target="Auction" sourceKind="DERIVED_ARTIFACT_CLASS_ALIAS" feature="javaClass" value="auction_env.AuctionArtifact" reason="Passive world state" />
+    <static id="bind-actor" kind="ACTOR" target="AuctionObserver" sourceKind="JACAMO_PROJECT" feature="name" value="auction" reason="Collective outcome viewpoint; no individual Task credit" />
+    <actorRuntime actor="AuctionObserver" bindingRef="bind-actor" contextBindingRef="bind-context" activationPolicy="OBSERVED_SCHEME_COMMITMENT" episodePolicy="RUN_SCHEME_PLAYER_INVOCATION" />
+    <elementRuntime target="AuctionFinished" actor="AuctionObserver" self="Auction" derived="true" selfKind="ARTIFACT" reason="Authored outcome, not Jason active-goal truth" />
+    <elementRuntime target="AuctionClosed" actor="AuctionObserver" self="Auction" derived="false" selfKind="ARTIFACT" reason="Authored outcome, not Jason active-goal truth" />
+    <elementRuntime target="WinnerPublished" actor="AuctionObserver" self="Auction" derived="false" selfKind="ARTIFACT" reason="Authored outcome, not Jason active-goal truth" />
+    <oclClause name="NonnegativePrice" context="context Auction" />
+    <oclClause name="PublishedWinner" context="context Auction" />
+    <oclClause name="Idle" context="context Auction::start(service : String)" />
+    <oclClause name="Opened" context="context Auction::start(service : String)" />
+    <oclClause name="RunningForBid" context="context Auction::bid(amount : Real)" />
+    <oclClause name="RunningForStop" context="context Auction::stop()" />
+    <oclClause name="Closed" context="context Auction::stop()" />
+    <operation id="op-start" owner="Auction" signature="[&quot;auction_env.AuctionArtifact&quot;,&quot;start&quot;,[&quot;java.lang.String&quot;],&quot;void&quot;]" clauses="Idle Opened" />
+    <operation id="op-bid" owner="Auction" signature="[&quot;auction_env.AuctionArtifact&quot;,&quot;bid&quot;,[&quot;double&quot;],&quot;void&quot;]" clauses="RunningForBid" />
+    <operation id="op-stop" owner="Auction" signature="[&quot;auction_env.AuctionArtifact&quot;,&quot;stop&quot;,[],&quot;void&quot;]" clauses="RunningForStop Closed" />
+  </bindings>
+  <requirements>
+    <capability id="candidate-field" provider="cartago.artifact-field.v1" hashOrigin="OFFICIAL_CLASS_PROOF" required="true" sourceRef="src-artifact" class="auction_env.AuctionArtifact" field="currentWinner" type="java.lang.String">
+      <property name="running" type="BOOLEAN" />
+      <property name="task" type="STRING" />
+      <property name="best_bid" type="IEEE754_BINARY64" />
+      <property name="winner" type="JASON_ATOM" />
+    </capability>
+    <capability id="auction-operations" provider="cartago.operation-history.v1" hashOrigin="OFFICIAL_CLASS_PROOF" required="true" sourceRef="src-artifact" class="auction_env.AuctionArtifact" operations="start bid stop" />
+  </requirements>
+  <omittedConcepts>
+    <omit id="omit-beliefs" concept="Jason belief base" reason="Not needed by the selected state/outcome requirements" handledBy="TRACE_ONLY" />
+    <omit id="omit-norms" concept="MOISE exact transition times and norms" reason="Not claimed; full authored-v1 remains available" handledBy="TRACE_ONLY" />
+    <omit id="omit-tasks" concept="Original Jason/iStar per-invocation Tasks" reason="Native operation contracts are checked; no claim of full Jason Task conformance" handledBy="TRACE_ONLY" />
+  </omittedConcepts>
+  <presentation>
+    <state owner="Auction" attributes="id running task winner" />
+  </presentation>
+</mapping>

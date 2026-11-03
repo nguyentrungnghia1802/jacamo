@@ -1,0 +1,86 @@
+-- Desktop Auction / latest rationale with auction_capabilities role inheritance.
+-- These eight authored requirements preserve the latest Desktop OCL bodies.
+--
+-- auctioneer and participant inherit the capability-role belief attributes.
+-- Those attributes represent player beliefs, not authoritative Artifact state;
+-- belief equality with the world is NOT assumed or imposed as an invariant.
+-- Source literals, arguments and annotations are selected by declarative XML.
+-- The Java engine must contain no Auction names or predicate-selection rules.
+--
+-- Operation self is the exact Auction Artifact projection, not a Role instance.
+-- service/amount are actual invocation inputs; all three source operations return
+-- void. Bind PRE/POST to the same invocation and its before/after cuts. No @pre
+-- expression is required by these authored clauses; no return/caller is invented.
+-- Operation success and Jason step success remain separate runtime evidence.
+-- currentWinner is an internal field and winner is only published by stop.
+-- A successful non-improving bid may leave every Artifact value unchanged.
+
+context Auction::start(service : String)
+pre Idle:
+    not self.running
+post Opened:
+    self.running and self.task = service
+
+context Auction::bid(amount : Real)
+pre RunningForBid:
+    self.running
+
+context Auction::stop()
+pre RunningForStop:
+    self.running
+post Closed:
+    not self.running
+
+-- Actual MOISE enabled/satisfied transition times, not operation return times
+-- or TCP notification receipt times. -1 is known not-yet-occurred only under
+-- complete history. Missing source evidence remains undefined/INCOMPLETE.
+-- AuctionMonitor is an explicit observer view outside the CSL domain model.
+context AuctionMonitor
+inv SchemeOrder:
+    (self.bidEnabledAt >= 0 implies
+        self.startSatisfiedAt >= 0 and
+        self.startSatisfiedAt <= self.bidEnabledAt) and
+    (self.bidSatisfiedAt >= 0 implies
+        self.bidEnabledAt >= 0 and
+        self.bidEnabledAt <= self.bidSatisfiedAt) and
+    (self.decideEnabledAt >= 0 implies
+        self.bidSatisfiedAt >= 0 and
+        self.bidSatisfiedAt <= self.decideEnabledAt) and
+    (self.decideSatisfiedAt >= 0 implies
+        self.decideEnabledAt >= 0 and
+        self.decideEnabledAt <= self.decideSatisfiedAt)
+
+-- Keep latest Desktop EXISTS semantics: at least one committed participant
+-- has both observed MOISE done evidence and a successful real bid, unless the
+-- exact successful administrative override is observed. The override permits
+-- scheme progress; it does not satisfy D_bid or count as an actual bid.
+-- Role population is not mission commitment. Freeze bidCommittedBy at the first
+-- observed bid satisfaction; keep exact same-run/same-scheme player identities.
+context AuctionMonitor
+inv BidEvidence:
+    self.bidDoneBy->forAll(a |
+        self.actualBidBy->includes(a)) and
+    (self.bidSatisfiedAt >= 0 implies
+        self.adminBidOverride or
+        self.bidCommittedBy->exists(a |
+            self.bidDoneBy->includes(a) and
+            self.actualBidBy->includes(a)))
+
+-- AuctionObligation is a retained observer record, not a CSL Entity.
+-- Only bid/decide obligations enter this view; XML selects them explicitly.
+-- One record per actual activation, including later mission commitments.
+-- Source NPL activation/deadline/first terminal use one qualified clock basis.
+-- unfulfilled is latched; admin recovery does not erase an expired obligation.
+-- Pending overtime also violates this requirement. Unknown is not Boolean false.
+-- TEMPORARY USER TEST: WithinDeadline disabled; restore this block to check deadlines.
+-- context AuctionObligation
+-- inv WithinDeadline:
+--     self.deadlineAt =
+--         self.activatedAt +
+--         (if self.goal = 'bid' then 10000 else 3600000 endif)
+--     and not self.unfulfilled
+--     and
+--         (if self.endedAt >= 0
+--          then self.endedAt
+--          else self.monitor.now
+--          endif) <= self.deadlineAt

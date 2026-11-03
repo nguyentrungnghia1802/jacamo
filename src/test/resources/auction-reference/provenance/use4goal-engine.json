@@ -1,0 +1,4017 @@
+{
+  "schemaVersion": "1.0.0",
+  "upstreamRepository": "use4Goal",
+  "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+  "targetModule": "use-jacamo-semantic-engine",
+  "javaRelease": 21,
+  "antlrVersion": "4.9.3",
+  "hostUseVersion": "7.5.0",
+  "hostUseScope": "provided",
+  "sourceOfTruth": "PINNED_WORKING_COPY_BYTES",
+  "files": [
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslAttributeCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "0da1fa794ded99437af1b7618b0a1492b3375cc4e0f1da85cb2c6976908aafc5",
+      "headSha256": "ea620e3498ac0aee6b2462800d1d1e14eb5340a5c6e89d2cf03d041025205f1d",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslAttributeCS.java",
+      "targetSha256": "0da1fa794ded99437af1b7618b0a1492b3375cc4e0f1da85cb2c6976908aafc5",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslAttributeCS",
+      "imports": [
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslCardinalityCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "85758d951dab4faa463050e95187e7cd8e1bdb66c05abd6d2b7cb9ccbd6d4134",
+      "headSha256": "1eaed62e755b02d363ae9eb6fdb6c75edc61083580f0c73f2e09ba737fdb2da6",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslCardinalityCS.java",
+      "targetSha256": "85758d951dab4faa463050e95187e7cd8e1bdb66c05abd6d2b7cb9ccbd6d4134",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslCardinalityCS",
+      "imports": [
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslCardinalityConstraintCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "853a72967425e17403fd6ce21ab0cd42a0be7a7aefd68c4b62587820ea6c2290",
+      "headSha256": "53b8e468ed66597c15a29f7436a8fcc6dc84c80d54cf4da4770dd71c7f282f34",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslCardinalityConstraintCS.java",
+      "targetSha256": "853a72967425e17403fd6ce21ab0cd42a0be7a7aefd68c4b62587820ea6c2290",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslCardinalityConstraintCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslCompatibilityCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e2e2b2851156facc4b272e54b61907bcc8897cd25193af39435994fa3dacdc49",
+      "headSha256": "448e0d32211ba228bcc92c70c5054246dcea2875414ea6821e102e7ec01269ad",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslCompatibilityCS.java",
+      "targetSha256": "e2e2b2851156facc4b272e54b61907bcc8897cd25193af39435994fa3dacdc49",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslCompatibilityCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslDataTypeCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "10b266609a5bee2249a9597d64c89cee91d06cd91936597ea2e26b2591f7ca05",
+      "headSha256": "ba9c22c17928dd84ce78e902319842c8fd36d137dce98ca5c4bdf1d8a1ab7153",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslDataTypeCS.java",
+      "targetSha256": "10b266609a5bee2249a9597d64c89cee91d06cd91936597ea2e26b2591f7ca05",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslDataTypeCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEndpointCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "f4626c55929f6edfad4d739d71b38b18833d58c4ad6218a49c0e28d028266702",
+      "headSha256": "f079c9b4dd2f7469ae31ac5e72fa478c9ff1bbc988d7e48766a1f0de3845a185",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEndpointCS.java",
+      "targetSha256": "f4626c55929f6edfad4d739d71b38b18833d58c4ad6218a49c0e28d028266702",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslEndpointCS",
+      "imports": [
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEntityCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "4697c02bd975115ca67f2f496c51738976c16270e21f2787d49344ce27feb3d8",
+      "headSha256": "fc4268855118a5638e903d210a4ba9eac1b74f2a123e4445124391e945d537fa",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEntityCS.java",
+      "targetSha256": "4697c02bd975115ca67f2f496c51738976c16270e21f2787d49344ce27feb3d8",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslEntityCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEntityMembershipCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "6fe62b8744581124b728f7b1b9966c3c8ddc65cb05e7332060681c930fa5dc7a",
+      "headSha256": "d08dd4908d98111eb4219e272b08791f19913e7c26ba7774dc8e367b9b506d3b",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEntityMembershipCS.java",
+      "targetSha256": "6fe62b8744581124b728f7b1b9966c3c8ddc65cb05e7332060681c930fa5dc7a",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslEntityMembershipCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEnumCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "9e261424395a4aa4a69cf1d350badda7d105503ae680ae8478f00a9dca8ef769",
+      "headSha256": "917d7a531c12a56c778d74df322468da1fc67ee11ad29e03eb03531a4d12b7a0",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslEnumCS.java",
+      "targetSha256": "9e261424395a4aa4a69cf1d350badda7d105503ae680ae8478f00a9dca8ef769",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslEnumCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslGroupCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "aa2bad63745140c97c2e57826478f6d2b58559c8ee5d131e639c3fea4a644476",
+      "headSha256": "70198105b750bba816d21161db94771f2b64135c52872dfecfee7aab71d0265b",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslGroupCS.java",
+      "targetSha256": "aa2bad63745140c97c2e57826478f6d2b58559c8ee5d131e639c3fea4a644476",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslGroupCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslGroupMemberCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ea5223968e5d1d1392491223afd3c3a8732e5f3a624417f937111edadfa73c7c",
+      "headSha256": "9c51c2a84a911f3cfcbed4432dcb352dafb0e701b4b56c27afb1f7f71c87de14",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslGroupMemberCS.java",
+      "targetSha256": "ea5223968e5d1d1392491223afd3c3a8732e5f3a624417f937111edadfa73c7c",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslGroupMemberCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslInvariantCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5e66bf63a33d4462c56b117fa6a1cc0474165f0e7dd225ffbf0dbc2cfeb796d2",
+      "headSha256": "b502d0f0aef11c8f46365b1a0f0326642e9fb928264fdf5391893f0b6d782394",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslInvariantCS.java",
+      "targetSha256": "5e66bf63a33d4462c56b117fa6a1cc0474165f0e7dd225ffbf0dbc2cfeb796d2",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslInvariantCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslLinkOptionCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "d6ece3f7e82f87a191e0e9adb2b07813ee4b4e8a442ada8e3c2bb8f6f9690abe",
+      "headSha256": "7700aae243b21079207bfb0ab3fe915393f6c9fed8d10d4d130492c7a3c707bc",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslLinkOptionCS.java",
+      "targetSha256": "d6ece3f7e82f87a191e0e9adb2b07813ee4b4e8a442ada8e3c2bb8f6f9690abe",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslLinkOptionCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslModelCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "fe18730d4d41d242d7cd757f0d01fb78f4b705dc37a58ef57394221d2d372ed8",
+      "headSha256": "f0b517fc1fde2571c48d582dba80274becb29b5c52c1b623c3ba9c449b725638",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslModelCS.java",
+      "targetSha256": "fe18730d4d41d242d7cd757f0d01fb78f4b705dc37a58ef57394221d2d372ed8",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslModelCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRelationCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "48746639fc2e72ccede47872b05ac5a150c52158a439e6b1743033d5dac6e879",
+      "headSha256": "669bb515e5b221591f8615b00c8c5b7dc2fbb87a91d0d1790c16d486b08a8205",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRelationCS.java",
+      "targetSha256": "48746639fc2e72ccede47872b05ac5a150c52158a439e6b1743033d5dac6e879",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslRelationCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRoleCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "cdb33af09fb833040eb7b8e16433664c20937fd93c0c4b137cbcd273be8ef56d",
+      "headSha256": "1371e5c5f856b358a563af72002ea8e002a8fc9ff1d7f58539cdca42cb39700b",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRoleCS.java",
+      "targetSha256": "cdb33af09fb833040eb7b8e16433664c20937fd93c0c4b137cbcd273be8ef56d",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslRoleCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRoleEntityRelationCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "b3ae926a39fbbfec4667b516c955039eac3c10a16f12900224972fe038ddb881",
+      "headSha256": "1f5bd655a0c68b50efb904811fbf9841df978badc91fb509f0c21413b2725926",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRoleEntityRelationCS.java",
+      "targetSha256": "b3ae926a39fbbfec4667b516c955039eac3c10a16f12900224972fe038ddb881",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslRoleEntityRelationCS",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRoleMembershipCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "196b2ef323e3392f6c6597f251a6cde68537fb701180aa61791b892d48eb86f5",
+      "headSha256": "8e7517d773bbc733327a532dac28802090871d4ea18e51c7c48ebb71b08578a1",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslRoleMembershipCS.java",
+      "targetSha256": "196b2ef323e3392f6c6597f251a6cde68537fb701180aa61791b892d48eb86f5",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslRoleMembershipCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslSourceLocationCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "1ca8f51c1c3631f2a081e41b32aebe2c313f295d4d21acffba8da1a73e5186cf",
+      "headSha256": "b116fa0ee0265bec5d732d5c541d9a636923a713fcb53af951fbd2df85795cbb",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslSourceLocationCS.java",
+      "targetSha256": "1ca8f51c1c3631f2a081e41b32aebe2c313f295d4d21acffba8da1a73e5186cf",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslSourceLocationCS",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslSubgroupMembershipCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "13a1fd30af162f0eb48c7fa2ee6b0241fc01905c869c48147ad3395271c64ca4",
+      "headSha256": "c1297aec5e2b7fca8efa73d3bbd3d21100b11f3277225f9358d8bb42bf06911b",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ast/CslSubgroupMembershipCS.java",
+      "targetSha256": "13a1fd30af162f0eb48c7fa2ee6b0241fc01905c869c48147ad3395271c64ca4",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ast.CslSubgroupMembershipCS",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/AttributeDefinition.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "4c53c498a6ead2d439c9c41273345e7117623bc387bd7ee8af6e3e64504ff7c7",
+      "headSha256": "efa9b97b3c55bfba22e9e0ecec7e9f1019066dae06e9bb6bf1d47f2d7f6142d2",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/AttributeDefinition.java",
+      "targetSha256": "4c53c498a6ead2d439c9c41273345e7117623bc387bd7ee8af6e3e64504ff7c7",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.AttributeDefinition",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/Cardinality.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "03581e9f0476540140da027eb9264b974420a4ab4c493c7c6e37a416c8df06f7",
+      "headSha256": "160731d978830a0dfe2a200d84f851f1fdda5192a71c14a688bd9d7ca763e963",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/Cardinality.java",
+      "targetSha256": "03581e9f0476540140da027eb9264b974420a4ab4c493c7c6e37a416c8df06f7",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.Cardinality",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CardinalityConstraint.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "075d9652185a02ee2c9dab24f78b3bff1c339811722ffa50c081d6d8648848b4",
+      "headSha256": "6d0f4b002c0355291098c65e2f658f33d76afeff9c279984d1e8270a321b12d8",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CardinalityConstraint.java",
+      "targetSha256": "075d9652185a02ee2c9dab24f78b3bff1c339811722ffa50c081d6d8648848b4",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CardinalityConstraint",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CardinalityTarget.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "b3f2c01c449e5b33b3ef49e6ec0e926d2746e0031d43694bc802db7c5e684a2f",
+      "headSha256": "6768e417409a19218874c1bf9fe4ef99887173bb203fee8d5f5ddbe3c7a08b26",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CardinalityTarget.java",
+      "targetSha256": "b3f2c01c449e5b33b3ef49e6ec0e926d2746e0031d43694bc802db7c5e684a2f",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CardinalityTarget",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/Compatibility.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "8f671b491981c43af84b2b4825b749c91f56ef0ad363b7b68d35b39877d9f115",
+      "headSha256": "292d8879316f59759ab543617240f67ec43a77f5abec0bb75465a9ee026ea30c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/Compatibility.java",
+      "targetSha256": "8f671b491981c43af84b2b4825b749c91f56ef0ad363b7b68d35b39877d9f115",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.Compatibility",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslAttribute.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "b951be7b1e2d0d7230c19e306bb939b90f8f9620a375bce084b15177ff60ea41",
+      "headSha256": "3b7bf8644ad9f1677a4a7c23ee83dacae2aa04ff9f8988d2a610c1b179ea70b0",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslAttribute.java",
+      "targetSha256": "b951be7b1e2d0d7230c19e306bb939b90f8f9620a375bce084b15177ff60ea41",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslAttribute",
+      "imports": [
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinality.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "0a936a71fd5779a6f231e3dd7284659f5031778d92f86f02d086a2288af3ffe0",
+      "headSha256": "4a89b170b7ab6e3cbeb086324e64436d0d7d04a4b94edf220cd497704d10ed95",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinality.java",
+      "targetSha256": "0a936a71fd5779a6f231e3dd7284659f5031778d92f86f02d086a2288af3ffe0",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslCardinality",
+      "imports": [
+        "java.util.OptionalInt"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinalityConstraint.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "3222f986fc1ba35b369e69aeb47fece8b2cc14938bb304da594702c08d8dcc9f",
+      "headSha256": "8913b462b90e8e07fce83e36692b350bef40e0ff33f9ed9a90fa66b96443ad60",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinalityConstraint.java",
+      "targetSha256": "3222f986fc1ba35b369e69aeb47fece8b2cc14938bb304da594702c08d8dcc9f",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslCardinalityConstraint",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinalityTarget.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "d7c7d51b21bff7054945f4250492ee84eb5af85bb0696bd52142c6c5926597ec",
+      "headSha256": "da3cb740d4f8665963589c38a2dd036b9851f02ff43c367a252d154209f1d9eb",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinalityTarget.java",
+      "targetSha256": "d7c7d51b21bff7054945f4250492ee84eb5af85bb0696bd52142c6c5926597ec",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslCardinalityTarget",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinalityTargetKind.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "acb525867f41c30ad9111da0a81cecc963e26425dbba7330ff8262921a8eb6ac",
+      "headSha256": "880d7004d1ce8a85a25e7abaee9e19cd7990929875fb58f48f8871e1f878e9e5",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCardinalityTargetKind.java",
+      "targetSha256": "acb525867f41c30ad9111da0a81cecc963e26425dbba7330ff8262921a8eb6ac",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslCardinalityTargetKind",
+      "imports": [
+        "java.util.Arrays",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCompatibility.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "acd8a8d6d3bf9f7e8c4afd28d8c9e4324c3a637a64971d5d2f3ccff99cc61639",
+      "headSha256": "f4b6460decae79b8f046e823de702f9c1df25402fc81e51f20e5464a4f7df8ba",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCompatibility.java",
+      "targetSha256": "acd8a8d6d3bf9f7e8c4afd28d8c9e4324c3a637a64971d5d2f3ccff99cc61639",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslCompatibility",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCompatibilityType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "892716b4105b1a123aee8fe40c922766b2267727e34de85b97bdd32eafeb7a02",
+      "headSha256": "a6864f74c1e5c5172f094dfa82064c97e6084ee52085538f9b66c459460e16cf",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslCompatibilityType.java",
+      "targetSha256": "892716b4105b1a123aee8fe40c922766b2267727e34de85b97bdd32eafeb7a02",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslCompatibilityType",
+      "imports": [
+        "java.util.Arrays",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslContainment.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ef7e28d0d76f8920262359008750c4c77a66cdba788f50e1558a90181c43442a",
+      "headSha256": "bd9ab78f3551556241a86a160a3fb0e60b7ff2fc62d70d7db611f80c71c685b0",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslContainment.java",
+      "targetSha256": "ef7e28d0d76f8920262359008750c4c77a66cdba788f50e1558a90181c43442a",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslContainment",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslDataType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "a59c6039a98a2226e3a24cc591b8d49793eea020ce50932cb6318fcc2b9c8cda",
+      "headSha256": "67684756eb79140a04e25de45568d78a5df72ee2eb8c33228b3352483792df23",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslDataType.java",
+      "targetSha256": "a59c6039a98a2226e3a24cc591b8d49793eea020ce50932cb6318fcc2b9c8cda",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslDataType",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEndpoint.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "1d0834ac4327db5c898feb01005625db0b030a134c187ec52d2a3cf3f06039d4",
+      "headSha256": "3754517cdd9a40e336d2ba6c2296cccb865160d44e1d351094e40338510fb5f4",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEndpoint.java",
+      "targetSha256": "1d0834ac4327db5c898feb01005625db0b030a134c187ec52d2a3cf3f06039d4",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslEndpoint",
+      "imports": [
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEntity.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "818a38bbe9d0eda05df119f1a3400aeba779e03ca560e425bf55d2db25006503",
+      "headSha256": "c91e911354de2b9102f62eac5089e1cf177bc8dc77fd5cfe043e130606ff02d7",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEntity.java",
+      "targetSha256": "818a38bbe9d0eda05df119f1a3400aeba779e03ca560e425bf55d2db25006503",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslEntity",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEntityMembership.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ac7b22e311319a355c91461f307ef521bcbbc975229bfc8e7450debe1affbdf6",
+      "headSha256": "59a37463081e87b2ebf65b9142cd93c88e9f32786e59578780b96a6a3c4df2ba",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEntityMembership.java",
+      "targetSha256": "ac7b22e311319a355c91461f307ef521bcbbc975229bfc8e7450debe1affbdf6",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslEntityMembership",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEnum.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e3ae110c852a67a6d325245de0712b88bcbb7d4278ef0ab0d814854250b09f93",
+      "headSha256": "5937c63f4f0ae22b84125048025a1d251bc6173da44e1f6670dd4057501a9a37",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslEnum.java",
+      "targetSha256": "e3ae110c852a67a6d325245de0712b88bcbb7d4278ef0ab0d814854250b09f93",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslEnum",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslGeneralization.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "df7b719836b2acd7382c3413ee762f8330b9bc2118611f7129bd770db32b3544",
+      "headSha256": "c47f0091e853ef48edb0cdc25db37b5de0944ded0543b61054218f6796691285",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslGeneralization.java",
+      "targetSha256": "df7b719836b2acd7382c3413ee762f8330b9bc2118611f7129bd770db32b3544",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslGeneralization",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslGroup.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "66217fbc41b536a449042268d9036b3d28215bb5af671f5d76d282472af3bd00",
+      "headSha256": "754dc8a5064b34d0fbba98ddea1c40824dab4aa8a1dd3400320c247466e1a03a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslGroup.java",
+      "targetSha256": "66217fbc41b536a449042268d9036b3d28215bb5af671f5d76d282472af3bd00",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslGroup",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslGroupMember.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "87f776faee19eff24def0731712f47ae7dae9408576f58caa0e45d2a20db38cf",
+      "headSha256": "8b0bb4e83dae59bed7e296daed5932df947d84a45dae0d535c967a00f4d215eb",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslGroupMember.java",
+      "targetSha256": "87f776faee19eff24def0731712f47ae7dae9408576f58caa0e45d2a20db38cf",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslGroupMember",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslInvariant.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "092660fdc0d2742ae04d1088ada5f4d5acfd2938d4028c11195fcedca1a81f44",
+      "headSha256": "66555baa39df9eb6f9f50ad5cd204123618656cb6ebea2e612a1cde4c4a2f1fe",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslInvariant.java",
+      "targetSha256": "092660fdc0d2742ae04d1088ada5f4d5acfd2938d4028c11195fcedca1a81f44",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslInvariant",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslModel.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "8da2070c384ed555cbbe5f77426213ef809d420594d11f2e9c2725352c03f227",
+      "headSha256": "15bdc3d598ba7bcb0a4a208ac56e791bff69ea4169b48e10e01b1f8f45721eac",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslModel.java",
+      "targetSha256": "8da2070c384ed555cbbe5f77426213ef809d420594d11f2e9c2725352c03f227",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslModel",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslNamedDataType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "764a35498f355691d9ebf67425de5704fbbec519ece7528b2e504e8f2031cc76",
+      "headSha256": "768199f93e806b29e0ec6fdbc1a08f9241167cf2e2b7fccd5094daeb697ae910",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslNamedDataType.java",
+      "targetSha256": "764a35498f355691d9ebf67425de5704fbbec519ece7528b2e504e8f2031cc76",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslNamedDataType",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslOwner.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "4794a1559330712aafbc8c3b0edff72381ef6a0d166271c4003214bde1bb097c",
+      "headSha256": "3c07c86803350686aeb9ad75c77d0d99569fe5d3753b8d43b42f183dc58128d2",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslOwner.java",
+      "targetSha256": "4794a1559330712aafbc8c3b0edff72381ef6a0d166271c4003214bde1bb097c",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslOwner",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslPrimitiveType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ab38069fc24e5b905627ea3145f7571cc2d15a7b5224dd5c8f46bfd84f448078",
+      "headSha256": "03377899db655eef8dd8dff6d294c30899438bf136e5f1103fcf962fd109c79c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslPrimitiveType.java",
+      "targetSha256": "ab38069fc24e5b905627ea3145f7571cc2d15a7b5224dd5c8f46bfd84f448078",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslPrimitiveType",
+      "imports": [
+        "java.util.Arrays",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRelation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "1ce933df2160057ac976cb5ea6a1ccbfc3b081dbbee0b6713bd7a19bf9c3fee5",
+      "headSha256": "c9227cf71418a9fe8ae27b1f6cbc3e6c9d9f41c72587e677892ab12cc8502fab",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRelation.java",
+      "targetSha256": "1ce933df2160057ac976cb5ea6a1ccbfc3b081dbbee0b6713bd7a19bf9c3fee5",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRelation",
+      "imports": [
+        "java.util.Objects",
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRole.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "f4f609eccdf274d0ffad8d7dcea48d2d34ce1f12ddd1941abe3518414b00342b",
+      "headSha256": "34d0c8d52f3aee92c9e4661a19691f7eda5008dc930defda8e06bfc7d4c86b8a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRole.java",
+      "targetSha256": "f4f609eccdf274d0ffad8d7dcea48d2d34ce1f12ddd1941abe3518414b00342b",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRole",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleEntityRelation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "8ae4207a558937688d3398a2d1f4d908a481a33101a7157795feb15e11479673",
+      "headSha256": "09f4017b62cb4d0b3d5e5a6b88d27f6f2583778048db732705530a9294290f2d",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleEntityRelation.java",
+      "targetSha256": "8ae4207a558937688d3398a2d1f4d908a481a33101a7157795feb15e11479673",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRoleEntityRelation",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleEntityRelationType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "25dde3702cb87ffd9e97870aea0bf686be7ee7269109a8a8bbf4939f31aa8d04",
+      "headSha256": "99fa2278fc76dcbc34dcf6821c7d443ead1ba2bdb54fc3a50a1386aa0d21349c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleEntityRelationType.java",
+      "targetSha256": "25dde3702cb87ffd9e97870aea0bf686be7ee7269109a8a8bbf4939f31aa8d04",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRoleEntityRelationType",
+      "imports": [
+        "java.util.Arrays",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleInheritance.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "f6aaf6fa634bb6baa3f1bf0cdf88443477a1de182b5884caf24a86ac45eaed7d",
+      "headSha256": "2b1922e301e383a4945cfea5dc93616be4d5878a5fcc2752f7e3c460b1326ba6",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleInheritance.java",
+      "targetSha256": "f6aaf6fa634bb6baa3f1bf0cdf88443477a1de182b5884caf24a86ac45eaed7d",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRoleInheritance",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleMembership.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "a8f808f6ed973a96073bdd4cd13e8b89d8fbda98615e716fcaaccabb946653f0",
+      "headSha256": "d0329012faa62146aa8d52572b0cf523f5b80c02f4f983b6648392a7f0ed5f63",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleMembership.java",
+      "targetSha256": "a8f808f6ed973a96073bdd4cd13e8b89d8fbda98615e716fcaaccabb946653f0",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRoleMembership",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleRelation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "aba261b4407eb2ff81ed98497b450a05f1e9b0a7df56aa64db0557a59b3756ee",
+      "headSha256": "441d8cb8eae7014dfb6326790fd2196edfbe90b649c43796b13ddf8c346f576a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslRoleRelation.java",
+      "targetSha256": "aba261b4407eb2ff81ed98497b450a05f1e9b0a7df56aa64db0557a59b3756ee",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslRoleRelation",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslScope.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e8f9c93400a050669b3edbeb62061b71e1b08608b5feafd8d09d73818ee92101",
+      "headSha256": "f2dcbb2085517a2ed03fe8fa183ebb1db170bab1ef7344c2884b707017b6e504",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslScope.java",
+      "targetSha256": "e8f9c93400a050669b3edbeb62061b71e1b08608b5feafd8d09d73818ee92101",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslScope",
+      "imports": [
+        "java.util.Arrays",
+        "java.util.Optional"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslSemanticValidator.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "c34b40f9aaac70b66fd3bbeacf18a153e1ba318e4b0f10b2b1c59e359ef09391",
+      "headSha256": "740b3e1ca5ac14e6732b861dc0bc58fad077502dbe6f4be7aa6777f70d34b7ae",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslSemanticValidator.java",
+      "targetSha256": "c34b40f9aaac70b66fd3bbeacf18a153e1ba318e4b0f10b2b1c59e359ef09391",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslSemanticValidator",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.HashMap",
+        "java.util.HashSet",
+        "java.util.LinkedHashMap",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.Map",
+        "java.util.Set"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslSubgroupMembership.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "478ffac8ed4c4df3cb7cfeeaf7a0f8db81621401ddf5202e29b2406a97b9213d",
+      "headSha256": "db856fb17fdcefab4d03b6fd68e0aa14cbd799330b12f0ad5f787242acbe85a1",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/CslSubgroupMembership.java",
+      "targetSha256": "478ffac8ed4c4df3cb7cfeeaf7a0f8db81621401ddf5202e29b2406a97b9213d",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.CslSubgroupMembership",
+      "imports": [
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/EntityDefinition.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "fefcf66a04d4843dfca8ff9fa5f9142b58eee15db5047b31caf34250694def93",
+      "headSha256": "4acca2d90e87a20f200ee14c4ed54ac3c127a462a5e1109eb852cfe274f3f24c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/EntityDefinition.java",
+      "targetSha256": "fefcf66a04d4843dfca8ff9fa5f9142b58eee15db5047b31caf34250694def93",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.EntityDefinition",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/GroupEntity.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ec3f81ec464369986f34ed44525969f9c913c5145288b6192121bf21d0d0ea2b",
+      "headSha256": "0f2955d1025227c35ce9c44689e9b564c2ecb5ea79f40c5fddffcee6f7ee6fca",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/GroupEntity.java",
+      "targetSha256": "ec3f81ec464369986f34ed44525969f9c913c5145288b6192121bf21d0d0ea2b",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.GroupEntity",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/GroupSpecification.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "c91fbe04dd39bc91a99135df394c9e35d5ffaf86d8ba846d902e279c22903b8a",
+      "headSha256": "92e5be673152569c0a02f79388561c232bdd33384e905d6e257759b3d9a79413",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/GroupSpecification.java",
+      "targetSha256": "c91fbe04dd39bc91a99135df394c9e35d5ffaf86d8ba846d902e279c22903b8a",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.GroupSpecification",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/RelationKind.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "287ebf1a85dfb244bb9d62b1e1a9f961a5116438b26b49a32d9219e2ee0146b6",
+      "headSha256": "87dc944f6dbd87f7c71aaff177746db4173ae907c001aff9b4fc25590e2cb9b1",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/RelationKind.java",
+      "targetSha256": "287ebf1a85dfb244bb9d62b1e1a9f961a5116438b26b49a32d9219e2ee0146b6",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.RelationKind",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleDefinition.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "897c9afa6bc1fcc91e87da06e41dc605beb744817686c49019da4f752efa1b1f",
+      "headSha256": "7188d3e38007fc622f30fc4a175e396985540e0386126c72e747f27138b75fad",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleDefinition.java",
+      "targetSha256": "897c9afa6bc1fcc91e87da06e41dc605beb744817686c49019da4f752efa1b1f",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.RoleDefinition",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleEntityRelation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "89f54b1a0c1a8ac30d2af44b932ecbf2742aac08f1932d4ee50c517c9ccf2c6b",
+      "headSha256": "8de7dd29bca45423e3d822f7e09f6b46b954c9a56b73b8ed37e67d4c5a424193",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleEntityRelation.java",
+      "targetSha256": "89f54b1a0c1a8ac30d2af44b932ecbf2742aac08f1932d4ee50c517c9ccf2c6b",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.RoleEntityRelation",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleInheritance.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "4ada66f6f020edc6f857e7babf390f870051beb48a852da335d36d01ff4abc85",
+      "headSha256": "e3d66ae389101447340f8b63311e2128ece17dda16e44ececc7aabecff93cef1",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleInheritance.java",
+      "targetSha256": "4ada66f6f020edc6f857e7babf390f870051beb48a852da335d36d01ff4abc85",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.RoleInheritance",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleRelation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5fd94fb76e240c38c2b79732d530cc1a7e5bc0cf4e774cb0bf54d8c85d63100f",
+      "headSha256": "f0199b0a3e0bbc953d68a3b9a1d53e0ef1b03f2b6e608ebbd99bb0da9b68ef77",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/RoleRelation.java",
+      "targetSha256": "5fd94fb76e240c38c2b79732d530cc1a7e5bc0cf4e774cb0bf54d8c85d63100f",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.RoleRelation",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/StructuralSpecification.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "eff70e11121557335319c8e850931ab51ac31920ee244358a444874b720c3b25",
+      "headSha256": "273c492efd433a49556eb74123b2773920c48169106e6c3fc0152b2f92c3d52e",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/StructuralSpecification.java",
+      "targetSha256": "eff70e11121557335319c8e850931ab51ac31920ee244358a444874b720c3b25",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.StructuralSpecification",
+      "imports": [
+        "java.util.List",
+        "java.util.Objects"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/mm/SubGroup.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "d59356e3860a6176930c1cda91a21d8f215b992359cd0e3c22794cd1b3ebb64b",
+      "headSha256": "9e443773ce57628ad09953a90bc48c625f184185be23a1f875ed0266f91ce83c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/mm/SubGroup.java",
+      "targetSha256": "d59356e3860a6176930c1cda91a21d8f215b992359cd0e3c22794cd1b3ebb64b",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.mm.SubGroup",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "B",
+        "C",
+        "H"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/ocl/CslOclState.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "39633f2d53b238ea58173bb60e3c3b977d8f3081876a155e313da9d73e55adf6",
+      "headSha256": "26950db3bddc926c401a6d836bbf6554d5edcbe116b0504119111e523ef5fb6a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/ocl/CslOclState.java",
+      "targetSha256": "39633f2d53b238ea58173bb60e3c3b977d8f3081876a155e313da9d73e55adf6",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.ocl.CslOclState",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "I"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslBuildingVisitor.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "6bf95f849561014bba8e69ae6577405f992e2b7e142d78998df464931cc3d7c9",
+      "headSha256": "77ab80f34c82164723004a07450b618b538a4929fa30cf78d1105e2251098803",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslBuildingVisitor.java",
+      "targetSha256": "6bf95f849561014bba8e69ae6577405f992e2b7e142d78998df464931cc3d7c9",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.parser.CslBuildingVisitor",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.List",
+        "java.util.Optional",
+        "org.antlr.v4.runtime.ParserRuleContext",
+        "org.antlr.v4.runtime.tree.TerminalNode",
+        "org.vnu.sme.goal.dsl.csl.ast.*"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B",
+        "C",
+        "I"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslCompiler.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "706ba4a4562f2176ccd6d9d1c9c5a9ffa65b7d05d2b0cd50783a84d203740966",
+      "headSha256": "3d01c2c7903978f6c553461941b05aedcdea314ecc9d6fbabf8152c855dbc328",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslCompiler.java",
+      "targetSha256": "706ba4a4562f2176ccd6d9d1c9c5a9ffa65b7d05d2b0cd50783a84d203740966",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.parser.CslCompiler",
+      "imports": [
+        "java.io.IOException",
+        "java.nio.file.Path",
+        "java.util.ArrayList",
+        "java.util.List",
+        "java.util.Objects",
+        "org.antlr.v4.runtime.ANTLRErrorListener",
+        "org.antlr.v4.runtime.BaseErrorListener",
+        "org.antlr.v4.runtime.CharStream",
+        "org.antlr.v4.runtime.CharStreams",
+        "org.antlr.v4.runtime.CommonTokenStream",
+        "org.antlr.v4.runtime.RecognitionException",
+        "org.antlr.v4.runtime.Recognizer",
+        "org.vnu.sme.goal.dsl.csl.ast.CslModelCS",
+        "org.vnu.sme.goal.dsl.csl.mm.CslModel",
+        "org.vnu.sme.goal.trace.cslTrace.nativecsl.NativeOclEvaluator"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B",
+        "C",
+        "I"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslCoreOclSyntax.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "94e015e530a3aae71a140562fdfe64bb9a9194ad0c3252e29b142a7bdb70bff9",
+      "headSha256": "cba0dc26fef84cab00250658e5775e1f1a00e2db328fd086161a0d537ec96e9a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslCoreOclSyntax.java",
+      "targetSha256": "94e015e530a3aae71a140562fdfe64bb9a9194ad0c3252e29b142a7bdb70bff9",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.parser.CslCoreOclSyntax",
+      "imports": [
+        "java.io.PrintWriter",
+        "java.io.StringWriter",
+        "org.antlr.runtime.ANTLRStringStream",
+        "org.antlr.runtime.CommonTokenStream",
+        "org.antlr.runtime.RecognitionException",
+        "org.tzi.use.parser.ParseErrorHandler",
+        "org.tzi.use.parser.ocl.OCLLexer",
+        "org.tzi.use.parser.ocl.OCLParser"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B",
+        "C",
+        "I"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslModelFactory.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "6afa2fd0b5bae853fcedccbf64c0a5fab98180e9c0c25a73734bb9f89c120073",
+      "headSha256": "1a47255e28ee83e697e2e50fbb8a7aae42bab011fdf84d064420072cfd1ebdd3",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/csl/parser/CslModelFactory.java",
+      "targetSha256": "6afa2fd0b5bae853fcedccbf64c0a5fab98180e9c0c25a73734bb9f89c120073",
+      "fqcn": "org.vnu.sme.goal.dsl.csl.parser.CslModelFactory",
+      "imports": [
+        "java.math.BigInteger",
+        "java.util.*",
+        "org.vnu.sme.goal.dsl.csl.ast.*",
+        "org.vnu.sme.goal.dsl.csl.mm.*"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "CslFrontend",
+        "Use75CslModelBackend"
+      ],
+      "parityTests": [
+        "A",
+        "B",
+        "C",
+        "I"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/mm/GoalModelInstance.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5eb0fdb184e2055269a588886091263d478838a519a5bcd4cbfd2a0c871990ee",
+      "headSha256": "0a73a417e319af8850980b87b23526d89982b5897962fa7031e8eab5a1ca922d",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/mm/GoalModelInstance.java",
+      "targetSha256": "5eb0fdb184e2055269a588886091263d478838a519a5bcd4cbfd2a0c871990ee",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.goalmodelinstance.mm.GoalModelInstance",
+      "imports": [
+        "java.util.Map",
+        "org.vnu.sme.goal.dsl.istar.mm.Actor",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+        "org.vnu.sme.goal.dsl.istar.mm.IntentionalElement"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/parser/GoalModelInstanceEvaluation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "267544e975780905b956c9d7e90c4d0d7b421360f82e94cc9f0b0f2a56e0f063",
+      "headSha256": "65bf4aa141e004678017f6b920021890618399c7cb6b4c2a9915d8402b600686",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/parser/GoalModelInstanceEvaluation.java",
+      "targetSha256": "267544e975780905b956c9d7e90c4d0d7b421360f82e94cc9f0b0f2a56e0f063",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.goalmodelinstance.parser.GoalModelInstanceEvaluation",
+      "imports": [
+        "java.util.List",
+        "java.util.Map",
+        "org.vnu.sme.goal.verify.conformance.semantics.IStarMarking",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+        "org.vnu.sme.goal.dsl.iscn.mm.AggregateResult",
+        "org.vnu.sme.goal.dsl.iscn.goalmodelinstance.mm.GoalModelInstance"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/parser/GoalModelInstanceTranslator.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "7c9b7b27c29a328a69c5609399cc54ba170f99e2e56dd79589e6ed4bba9b44a0",
+      "headSha256": "ae76356929e99b78327a379eda2068c6a95d08b68f3dc1d806c821f22ef3aa47",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/parser/GoalModelInstanceTranslator.java",
+      "targetSha256": "daad76b6b94f3693f2157bef1176195bc9d79ed6b3f962e32265c19790b710c0",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.goalmodelinstance.parser.GoalModelInstanceTranslator",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.LinkedHashMap",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.Map",
+        "java.util.Set",
+        "org.vnu.sme.goal.verify.conformance.semantics.GoalTaskStatus",
+        "org.vnu.sme.goal.verify.conformance.semantics.IStarMarking",
+        "org.vnu.sme.goal.verify.conformance.semantics.IStarPropagation",
+        "org.vnu.sme.goal.verify.conformance.semantics.QualityStatus",
+        "org.vnu.sme.goal.dsl.istar.mm.Actor",
+        "org.vnu.sme.goal.dsl.istar.mm.Agent",
+        "org.vnu.sme.goal.dsl.istar.mm.AndRefinement",
+        "org.vnu.sme.goal.dsl.istar.mm.Contribution",
+        "org.vnu.sme.goal.dsl.istar.mm.Dependency",
+        "org.vnu.sme.goal.dsl.istar.mm.Goal",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalTaskElement",
+        "org.vnu.sme.goal.dsl.istar.mm.IntentionalElement",
+        "org.vnu.sme.goal.dsl.istar.mm.OrRefinement",
+        "org.vnu.sme.goal.dsl.istar.mm.Quality",
+        "org.vnu.sme.goal.dsl.istar.mm.Refinement",
+        "org.vnu.sme.goal.dsl.istar.mm.Resource",
+        "org.vnu.sme.goal.dsl.istar.mm.Role",
+        "org.vnu.sme.goal.dsl.istar.mm.Task",
+        "org.vnu.sme.goal.dsl.iscn.mm.AggregateMode",
+        "org.vnu.sme.goal.dsl.iscn.mm.AggregateResult",
+        "org.vnu.sme.goal.dsl.iscn.goalmodelinstance.mm.GoalModelInstance",
+        "org.vnu.sme.goal.dsl.iscn.mm.IStarScenarioModel",
+        "org.vnu.sme.goal.dsl.iscn.mm.ScenarioInstance",
+        "org.vnu.sme.goal.dsl.iscn.mm.ScenarioStmt"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [
+        "P-CTX-01"
+      ],
+      "appliedPatchIds": [
+        "P-CTX-01"
+      ],
+      "extractionStatus": "PATCHED_WITH_PROVENANCE",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/mm/AggregateMode.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5854f6073bb2871075a95035794eae1ebbdd0694ed5f28317b4c5e9ad8e8145f",
+      "headSha256": "f4648b6615a8bfc9903f0285ad89c48f510e062d6b2171966a4c4ff380a52ca4",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/mm/AggregateMode.java",
+      "targetSha256": "5854f6073bb2871075a95035794eae1ebbdd0694ed5f28317b4c5e9ad8e8145f",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.mm.AggregateMode",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/mm/AggregateResult.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "8e19ed38d869135e90ddb12c858e360fae95c7e1e500683e7231f3ec200ae347",
+      "headSha256": "b250d962375c36b1aa813c44cf7678e3c3ca2fababcab21bf3e041a63c872c66",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/mm/AggregateResult.java",
+      "targetSha256": "8e19ed38d869135e90ddb12c858e360fae95c7e1e500683e7231f3ec200ae347",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.mm.AggregateResult",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/mm/IStarScenarioModel.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "66613ed1cc0f4d1a89e7f3b2a72fe2b314cd651763f4a7a303b8c7b945d618e8",
+      "headSha256": "694d62f23d294958099333412206675f45c0c60d1c9dd83f479371ee8835dee0",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/mm/IStarScenarioModel.java",
+      "targetSha256": "66613ed1cc0f4d1a89e7f3b2a72fe2b314cd651763f4a7a303b8c7b945d618e8",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.mm.IStarScenarioModel",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/mm/ScenarioInstance.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "3e5e9592c379ee0675f49b79465b5356e4db9a29261e0718db7d363441a6a020",
+      "headSha256": "c6373183105d2886bbf3c74a3d72b666312530aff860eebd80f2c3636edfaeb1",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/mm/ScenarioInstance.java",
+      "targetSha256": "3e5e9592c379ee0675f49b79465b5356e4db9a29261e0718db7d363441a6a020",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.mm.ScenarioInstance",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/iscn/mm/ScenarioStmt.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "f483a68f788cc8619fc3eaedd934ddd1b5b637c913af3cf236f43b6741201c9e",
+      "headSha256": "af8f53e29c16f9654a5fec04af5331130c00d144dd80fe2cabeef92f53468594",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/mm/ScenarioStmt.java",
+      "targetSha256": "f483a68f788cc8619fc3eaedd934ddd1b5b637c913af3cf236f43b6741201c9e",
+      "fqcn": "org.vnu.sme.goal.dsl.iscn.mm.ScenarioStmt",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/ast/ActorDefCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "43f0f263459a268dcfc7cf6a53965d04019f2858e3ebe3599e42e8b58d8767ab",
+      "headSha256": "0b1a56701a7cf048c5f002910540a5a12d56aee9bee7e5cecd5d1f095d3f4f6f",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/ast/ActorDefCS.java",
+      "targetSha256": "43f0f263459a268dcfc7cf6a53965d04019f2858e3ebe3599e42e8b58d8767ab",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.ast.ActorDefCS",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/ast/DependencyCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "c7360fdcb9c18f0dcf004d5b85742665cad400d66ae8a8b9c4784f322155af08",
+      "headSha256": "7fdde06ad165819187615c55ea5924e541e51cbcacdb599b708f4d8b2839bd9c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/ast/DependencyCS.java",
+      "targetSha256": "c7360fdcb9c18f0dcf004d5b85742665cad400d66ae8a8b9c4784f322155af08",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.ast.DependencyCS",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/ast/ElementBodyCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "82a12f660d391e8ab25323276a2cacd3b564b6606f88c045f045306367d9e380",
+      "headSha256": "04595a4df3d3e3665cc639f351d5fd8c58f422b98360e6907687f82f4a51d0fd",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/ast/ElementBodyCS.java",
+      "targetSha256": "82a12f660d391e8ab25323276a2cacd3b564b6606f88c045f045306367d9e380",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.ast.ElementBodyCS",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/ast/IStarModelCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5b8408700b58bacfeb5f90c6d5b59656dbfa1e5983390f2045e13da1ada0a7dc",
+      "headSha256": "ee9a72ff5a8f57d133f8ac85851fab9aeb1fb1c9ef3e40ba3d0355d63267881c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/ast/IStarModelCS.java",
+      "targetSha256": "5b8408700b58bacfeb5f90c6d5b59656dbfa1e5983390f2045e13da1ada0a7dc",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.ast.IStarModelCS",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/ast/IStarOclConstraintCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "8a46d4b86cd437512b26a062688dcd5c6f6d150d03adf4717ed7f250330a3d73",
+      "headSha256": "2f08cd3f494dc45d51fb0c1a1bf0e7faa8f473eb3a91c36045b3bed611f460fd",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/ast/IStarOclConstraintCS.java",
+      "targetSha256": "8a46d4b86cd437512b26a062688dcd5c6f6d150d03adf4717ed7f250330a3d73",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.ast.IStarOclConstraintCS",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/ast/RelCS.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "a62d15a2d4d845bac58fc1759d5c2cb92d7211602cae099af4020a96d47687b6",
+      "headSha256": "470cd3e4c0a465aa27d470bf9ab8a6219fd6082241a889b0d839fbeac1aad027",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/ast/RelCS.java",
+      "targetSha256": "a62d15a2d4d845bac58fc1759d5c2cb92d7211602cae099af4020a96d47687b6",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.ast.RelCS",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Actor.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "18055890ce1182b0c5b117f3ffaa4d42036c1de7ab74f4a0624ec14974007910",
+      "headSha256": "71d5fa87bbb489f48d4eb6c920fbace760f203c0840b0ba83209e2ed37feb9bf",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Actor.java",
+      "targetSha256": "18055890ce1182b0c5b117f3ffaa4d42036c1de7ab74f4a0624ec14974007910",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Actor",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Agent.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "903e374056641de90c73a9aefbf7142e71a3461fdad706fe12d00b628e105e17",
+      "headSha256": "3069a159a40cd8baddaa3dca812ea366cdbc281e07e73853a705ca48c8ca6f3c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Agent.java",
+      "targetSha256": "903e374056641de90c73a9aefbf7142e71a3461fdad706fe12d00b628e105e17",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Agent",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/AndRefinement.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "7d68096b3496e5a127f2c8cda793288df5474306f8f3f5f0f9cdff8b86781538",
+      "headSha256": "69fce4ce566f657c22fd5da50e6b63a227583696ffd95f2eafad49c8fda918c4",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/AndRefinement.java",
+      "targetSha256": "7d68096b3496e5a127f2c8cda793288df5474306f8f3f5f0f9cdff8b86781538",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.AndRefinement",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/AssocKind.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "0d6f3ec769991c1ca5747135b55ed8d45e335d8e7912bd8520702a593d33be19",
+      "headSha256": "da45c60985e0a66a6987a29358de62c5a557c227e868e75b1d79cb1cb49d42d2",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/AssocKind.java",
+      "targetSha256": "0d6f3ec769991c1ca5747135b55ed8d45e335d8e7912bd8520702a593d33be19",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.AssocKind",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Association.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ecdeb59525da6a70a64675076224943af51d8ce8537782123bd3f724df6d09eb",
+      "headSha256": "359fb46fbae026c9dc5c414b7d88ce268479bf87224e9654f1e73d19a67a341e",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Association.java",
+      "targetSha256": "ecdeb59525da6a70a64675076224943af51d8ce8537782123bd3f724df6d09eb",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Association",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/ConcreteIntentionalElement.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "cbc9eccffbf84c1681374eeb24bc8cdd5dcf46a909cadf947fad3c4fd5c7effc",
+      "headSha256": "4e7cf07940112ce2f31425f98ad40eaed39a762111d4c4a5bad7d18c98436d67",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/ConcreteIntentionalElement.java",
+      "targetSha256": "cbc9eccffbf84c1681374eeb24bc8cdd5dcf46a909cadf947fad3c4fd5c7effc",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.ConcreteIntentionalElement",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/ContextResolution.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "9624a8f22763332a97ad61cb9d60ad9f2cef0d8f116279746176572ef3395a26",
+      "headSha256": "ca5a0a91efdd25022df6d13164a8468870a3b5186b85534f55c71b56a9514cf2",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/ContextResolution.java",
+      "targetSha256": "9624a8f22763332a97ad61cb9d60ad9f2cef0d8f116279746176572ef3395a26",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.ContextResolution",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.Set"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Contribution.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "c0ad43cbd5d956739a394d3d9b62f26a275a8776e77362014b4952da7035b482",
+      "headSha256": "013c7e9f389817f4785d356fd6d18692f6811289d4b9998a7b3db9059f1ffe6f",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Contribution.java",
+      "targetSha256": "c0ad43cbd5d956739a394d3d9b62f26a275a8776e77362014b4952da7035b482",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Contribution",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/ContributionType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "080c68d807355ce46a089b2810dc32794afb9b1d43c46c0a161b7fe59ff735d9",
+      "headSha256": "8310539d5a4eb58cc59210dfd6ecfcbd6fe90e6b69b4f3033a17fc8a5e63af39",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/ContributionType.java",
+      "targetSha256": "080c68d807355ce46a089b2810dc32794afb9b1d43c46c0a161b7fe59ff735d9",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.ContributionType",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Dependency.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e387cbd2bc90abae5214f8588f44d81038a396789d5eb7750967a2d7431c30f1",
+      "headSha256": "e2ed75f0e856945591e61782785612c0b2249956022d5b8ef27b1de5efdb255e",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Dependency.java",
+      "targetSha256": "e387cbd2bc90abae5214f8588f44d81038a396789d5eb7750967a2d7431c30f1",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Dependency",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Goal.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "b30cc80c3291576a0bda39e573866dd84feb1b4c7dc1c53eeb4eb33d26f390ce",
+      "headSha256": "335c225af05a1205e3de440cbe1171a8764e08f5870815b99feb47b581a1cfc5",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Goal.java",
+      "targetSha256": "b30cc80c3291576a0bda39e573866dd84feb1b4c7dc1c53eeb4eb33d26f390ce",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Goal",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalActivationGraph.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "02c01a6e172c9768a27eb54c9e0c8551139f8b69c6b6e8b7fe708619b74e1a35",
+      "headSha256": "92bdf5b2824a60a5c80c438c74af15ef3ecaa7f35448bab66904b1d0ad4a28b5",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalActivationGraph.java",
+      "targetSha256": "02c01a6e172c9768a27eb54c9e0c8551139f8b69c6b6e8b7fe708619b74e1a35",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.GoalActivationGraph",
+      "imports": [
+        "java.util.LinkedHashMap",
+        "java.util.LinkedHashSet",
+        "java.util.Map",
+        "java.util.Optional",
+        "java.util.Set"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalModel.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "1b0815ce3940b02c631b207a1cbbb05ea5e9cef989f21bf91ff17288ae82cf6b",
+      "headSha256": "aa5b2cba6252a379caf87bf5a3cb67b42d3a492709d288a511ad88c03a6aa414",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalModel.java",
+      "targetSha256": "1b0815ce3940b02c631b207a1cbbb05ea5e9cef989f21bf91ff17288ae82cf6b",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+      "imports": [
+        "java.util.*"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalModelValidator.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "cc10c79b7d4cd6c67889030c46000e654a88a9ec86b00518a4f02646226501a6",
+      "headSha256": "436f7b9e6c047f4af6386dd574e10d424727588fdd2c7dc87a121f025a03fd75",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalModelValidator.java",
+      "targetSha256": "cc10c79b7d4cd6c67889030c46000e654a88a9ec86b00518a4f02646226501a6",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.GoalModelValidator",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.HashMap",
+        "java.util.LinkedHashMap",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.Map",
+        "java.util.Optional",
+        "java.util.Set"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalTaskElement.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "7bc5deae65e57c954b5d4a95664decd9d3556bde28a1f1e971d927a7c4e48734",
+      "headSha256": "3e05b7b2181b04d948b1b56d2c7de389edf7ce0e2d0be5c55eb7ab9fcb66447f",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalTaskElement.java",
+      "targetSha256": "7bc5deae65e57c954b5d4a95664decd9d3556bde28a1f1e971d927a7c4e48734",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.GoalTaskElement",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalType.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e70b52a7ea55bdb7e1b209c7425e69024bfae935a2f411a15676c63aa9cd043b",
+      "headSha256": "8781ea7df3d8f44b1705c16944ceab0581d9961d761c07f4c8141ea6daa936d8",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalType.java",
+      "targetSha256": "e70b52a7ea55bdb7e1b209c7425e69024bfae935a2f411a15676c63aa9cd043b",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.GoalType",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalTypeRefinementPolicy.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "87535b949617773a829ec57060dff7e65eb44372010edcbc8879eb9a963f4645",
+      "headSha256": "c81dfbe42956cd8172810c7646c53f4461f1211b38c845531520649e2e07c07c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/GoalTypeRefinementPolicy.java",
+      "targetSha256": "87535b949617773a829ec57060dff7e65eb44372010edcbc8879eb9a963f4645",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.GoalTypeRefinementPolicy",
+      "imports": [
+        "java.util.EnumSet",
+        "java.util.Map",
+        "java.util.Set"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/IStarOclConstraint.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "1f2a87ee037f35c3fdcb83202003cca6dffe5b9e3089ba942bb3388de74999ca",
+      "headSha256": "a72035b6096adb4a6019c1150abe8d9195231bb4ea8ddeb3387ce5360bf2c9a0",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/IStarOclConstraint.java",
+      "targetSha256": "1f2a87ee037f35c3fdcb83202003cca6dffe5b9e3089ba942bb3388de74999ca",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.IStarOclConstraint",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/IntentionalElement.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "b77e15e32f5267c16e1cb7ae3c2f7b616decedf5a7154934a17c088a2eec40c7",
+      "headSha256": "32f12c04294683082c6037143a4277fb4ffc14571477b042679febe953f16eaf",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/IntentionalElement.java",
+      "targetSha256": "b77e15e32f5267c16e1cb7ae3c2f7b616decedf5a7154934a17c088a2eec40c7",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.IntentionalElement",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/NeededBy.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "ee57ab56bceb28afaa17354499c31d3b93bdc547bc614ba37f3da8b7834c7acb",
+      "headSha256": "7630de64f159ec971e6fa61a9734b6d4fa1bea27ed0cb8222f59e9c4f4828c53",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/NeededBy.java",
+      "targetSha256": "ee57ab56bceb28afaa17354499c31d3b93bdc547bc614ba37f3da8b7834c7acb",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.NeededBy",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/OrRefinement.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "20dc41945f0f54e445b3062e91c7781203690db5add05968e54506c49b355929",
+      "headSha256": "c949741da316d2e4e48dfb93cbe39edef823a78758ad1fc77690d297e05e01e3",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/OrRefinement.java",
+      "targetSha256": "20dc41945f0f54e445b3062e91c7781203690db5add05968e54506c49b355929",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.OrRefinement",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Qualification.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "52e7411d78e663d172555a5bc1c9b71866af0f29ad0ad2caef4f8a18ed318353",
+      "headSha256": "44fc720ec2c140f82fbab0ed1de0babac1fd303f818458f36eed88fa99c03f50",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Qualification.java",
+      "targetSha256": "52e7411d78e663d172555a5bc1c9b71866af0f29ad0ad2caef4f8a18ed318353",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Qualification",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Quality.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "b6cb72519273d304ae121d4040835dd41fd20f38ed435739daa25fefb5db13ca",
+      "headSha256": "5e4d53ceddd1e4ea43bb8f751d8d856f2d1948600fbc26e96d8b70eb56f8d2ae",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Quality.java",
+      "targetSha256": "b6cb72519273d304ae121d4040835dd41fd20f38ed435739daa25fefb5db13ca",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Quality",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Refinement.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "0271e82d5b72f2c1b035f4bce0586140cdc6432644e15ef4f23462633e889e36",
+      "headSha256": "6e248ef303ecfa69dff78c3fb10495b4ce0915962efd66201f5d18487402be4c",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Refinement.java",
+      "targetSha256": "0271e82d5b72f2c1b035f4bce0586140cdc6432644e15ef4f23462633e889e36",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Refinement",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Resource.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "63e8766ccfc80d7fd1b7c0340ef6b61f96876292f707088947af0c29afc42506",
+      "headSha256": "2c047ef69327c8dbb83d95d6cfb8013fd8781b1a54e131f4447233e9abddc945",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Resource.java",
+      "targetSha256": "63e8766ccfc80d7fd1b7c0340ef6b61f96876292f707088947af0c29afc42506",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Resource",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Role.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "6f8e3fa2a7aa565efae7c6b9b6400a645a8e291093c3d41ab76a1b0627ff7436",
+      "headSha256": "1ca3b6b6245dbbf9d3de16057eb81369c22b7b514fad46671c21c5546d934ffa",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Role.java",
+      "targetSha256": "6f8e3fa2a7aa565efae7c6b9b6400a645a8e291093c3d41ab76a1b0627ff7436",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Role",
+      "imports": [
+        "java.util.List"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/mm/Task.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "4c067b286e8b5f88d276755663b09ffa680bf04dbb408005f6c4abc97837fe4e",
+      "headSha256": "16e5c273954c3573bb764d3d4a31a8b25f4c79ef134d98a51626cdc2f02631f2",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/mm/Task.java",
+      "targetSha256": "4c067b286e8b5f88d276755663b09ffa680bf04dbb408005f6c4abc97837fe4e",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.mm.Task",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D",
+        "G",
+        "L"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/parser/IStarBuildingVisitor.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5f0c04ba2c8baec7bda084a975b97b67ada04d5821610ce6f464b83ce5b5ce51",
+      "headSha256": "7681f3768e1377c8c702ce9ba4b24b6479f0a390677005e59e9aabd43ecfc25a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/parser/IStarBuildingVisitor.java",
+      "targetSha256": "5f0c04ba2c8baec7bda084a975b97b67ada04d5821610ce6f464b83ce5b5ce51",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.parser.IStarBuildingVisitor",
+      "imports": [
+        "java.util.*",
+        "java.util.stream.Collectors",
+        "org.vnu.sme.goal.dsl.istar.ast.*"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/parser/IStarCompiler.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e84aeeccdd857237985b62a26ef8d747bd298c71ed0ca96f064ee22b374928c6",
+      "headSha256": "e6ea79c72522097f57c1df6f16c90e523a966e5be6df659206c467258837201e",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/parser/IStarCompiler.java",
+      "targetSha256": "e84aeeccdd857237985b62a26ef8d747bd298c71ed0ca96f064ee22b374928c6",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.parser.IStarCompiler",
+      "imports": [
+        "java.io.IOException",
+        "java.nio.file.Path",
+        "java.util.ArrayList",
+        "java.util.Collections",
+        "java.util.List",
+        "org.antlr.v4.runtime.ANTLRErrorListener",
+        "org.antlr.v4.runtime.BaseErrorListener",
+        "org.antlr.v4.runtime.CharStream",
+        "org.antlr.v4.runtime.CharStreams",
+        "org.antlr.v4.runtime.CommonTokenStream",
+        "org.antlr.v4.runtime.RecognitionException",
+        "org.antlr.v4.runtime.Recognizer",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModelValidator"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/istar/parser/IStarModelFactory.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "8e26e4e1939c2a55b04b5a250c6fcefa2d60d033aebdb983365617d5ca787e18",
+      "headSha256": "ab6e57dc3889e77f062f5dcd37774a0609bbbdfb4cc8dcd746902ab1467bd5e4",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/dsl/istar/parser/IStarModelFactory.java",
+      "targetSha256": "8e26e4e1939c2a55b04b5a250c6fcefa2d60d033aebdb983365617d5ca787e18",
+      "fqcn": "org.vnu.sme.goal.dsl.istar.parser.IStarModelFactory",
+      "imports": [
+        "java.util.*",
+        "org.vnu.sme.goal.dsl.istar.ast.*",
+        "org.vnu.sme.goal.dsl.istar.mm.*"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/trace/cslTrace/nativecsl/NativeOclEvaluator.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "3ea822c4ecf542b60f5d419f9b10e804dd4c213bc2ed476247255db4fb20913d",
+      "headSha256": "5043c7dec841424cd59fc4b755369ffc2a4bbb683d9859b5db4039965a384b47",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/trace/cslTrace/nativecsl/NativeOclEvaluator.java",
+      "targetSha256": "3ea822c4ecf542b60f5d419f9b10e804dd4c213bc2ed476247255db4fb20913d",
+      "fqcn": "org.vnu.sme.goal.trace.cslTrace.nativecsl.NativeOclEvaluator",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.LinkedHashMap",
+        "java.util.List",
+        "java.util.Map",
+        "java.util.Objects",
+        "org.vnu.sme.goal.dsl.csl.ocl.CslOclState"
+      ],
+      "reuseMode": "ORIGINAL_WITH_ADAPTER",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": false,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "A",
+        "I"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/ContributionPolarity.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "bdf60b7cdac7e290f1b5f2f19e9ade119ad0c64d0a70f99295387f6a80ea234f",
+      "headSha256": "d59e1d038ff25af962b3a91102d5de4d46c947fdd8c2f6a2fc12b1bba60a17c7",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/ContributionPolarity.java",
+      "targetSha256": "bdf60b7cdac7e290f1b5f2f19e9ade119ad0c64d0a70f99295387f6a80ea234f",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.ContributionPolarity",
+      "imports": [
+        "org.vnu.sme.goal.dsl.istar.mm.ContributionType"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/GoalMarking.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e9ddcc1bfbafef0c987be6c7a017f8ce88c56a16e3c757bc637d1e1246660f48",
+      "headSha256": "ae3034c69e6c8382fcd39169d2fe188fe25cfb1fc0aa68bc532014237cd22c4a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/GoalMarking.java",
+      "targetSha256": "e9ddcc1bfbafef0c987be6c7a017f8ce88c56a16e3c757bc637d1e1246660f48",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.GoalMarking",
+      "imports": [
+        "org.vnu.sme.goal.dsl.istar.mm.GoalType"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/GoalTaskStatus.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "80156a0396095c90a6551ceedf4ebc47e3d93716b7437a50295a6ed4ecf24daf",
+      "headSha256": "780a954763717bb85f4acac12cd08290902684e528016dc0ba2317ad9c57a0f7",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/GoalTaskStatus.java",
+      "targetSha256": "80156a0396095c90a6551ceedf4ebc47e3d93716b7437a50295a6ed4ecf24daf",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.GoalTaskStatus",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/IStarMarking.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "c93e88db8bf323991d3ae66f64cca1f3106edaa5ed9bde19fafbc057dc48910f",
+      "headSha256": "759c448457b0a8ffa82537aac5d13dc609aa7da485a95bd0d404984677dc1069",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/IStarMarking.java",
+      "targetSha256": "c93e88db8bf323991d3ae66f64cca1f3106edaa5ed9bde19fafbc057dc48910f",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.IStarMarking",
+      "imports": [
+        "java.util.Collections",
+        "java.util.LinkedHashMap",
+        "java.util.Map",
+        "java.util.Objects",
+        "org.vnu.sme.goal.dsl.istar.mm.Goal",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+        "org.vnu.sme.goal.dsl.istar.mm.IntentionalElement",
+        "org.vnu.sme.goal.dsl.istar.mm.Quality",
+        "org.vnu.sme.goal.dsl.istar.mm.Resource",
+        "org.vnu.sme.goal.dsl.istar.mm.Task"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/IStarPropagation.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "90e8ff0662f03889a4ec977cd1296c57f4dbdde2a0cbcde76afe937b25e35de3",
+      "headSha256": "1021562b911706fbf21705cf6ad0aa67f21a863b1300ddb71fe75b6d208575a5",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/IStarPropagation.java",
+      "targetSha256": "90e8ff0662f03889a4ec977cd1296c57f4dbdde2a0cbcde76afe937b25e35de3",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.IStarPropagation",
+      "imports": [
+        "java.util.ArrayList",
+        "java.util.LinkedHashMap",
+        "java.util.LinkedHashSet",
+        "java.util.List",
+        "java.util.Map",
+        "java.util.Set",
+        "org.vnu.sme.goal.dsl.istar.mm.Actor",
+        "org.vnu.sme.goal.dsl.istar.mm.AndRefinement",
+        "org.vnu.sme.goal.dsl.istar.mm.Contribution",
+        "org.vnu.sme.goal.dsl.istar.mm.GoalModel",
+        "org.vnu.sme.goal.dsl.istar.mm.OrRefinement",
+        "org.vnu.sme.goal.dsl.istar.mm.Refinement"
+      ],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/QualityStatus.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "1238434f7882bd6f52ec53f3b150662dbf5a9fc977032ce0a9ddff6d8f64bee5",
+      "headSha256": "29ba037f36078cf4e04b6d255eef3630ef93b33bd475fb3114cdbf3ecab631d5",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/QualityStatus.java",
+      "targetSha256": "1238434f7882bd6f52ec53f3b150662dbf5a9fc977032ce0a9ddff6d8f64bee5",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.QualityStatus",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/conformance/semantics/TaskMarking.java",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "e5eae4cd7b10994e5d71c5c7782ff04de3972352f17f5c5fa0732d39eb9af07d",
+      "headSha256": "6a46283b4355363b6cae1bacc6410bb4ee7299409b56db4a88f88799e4524efd",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/java/org/vnu/sme/goal/verify/conformance/semantics/TaskMarking.java",
+      "targetSha256": "e5eae4cd7b10994e5d71c5c7782ff04de3972352f17f5c5fa0732d39eb9af07d",
+      "fqcn": "org.vnu.sme.goal.verify.conformance.semantics.TaskMarking",
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "E",
+        "F",
+        "G"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/resources/grammars/CSL.g4",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "5bca5c44933f2619eeac837279e09a995a293383ebe3795d058d7e5319d3d224",
+      "headSha256": "3b57f1e5b9cba583c26f89d200e2bccac502875e98849abec4aa3efa2f2a6879",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/resources/grammars/CSL.g4",
+      "targetSha256": "5bca5c44933f2619eeac837279e09a995a293383ebe3795d058d7e5319d3d224",
+      "fqcn": null,
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "A"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    },
+    {
+      "upstreamPath": "goal/src/main/resources/grammars/IStar.g4",
+      "upstreamCommit": "6f3e73801239fd8bfb94ca8d04ba531b903c0ac9",
+      "sourceSha256": "177eabd15e56c644c98bfa4e7a6f2b2e0e18b67bdfe68ac01d872a13ea72d503",
+      "headSha256": "621c05128188f1762fc1c63d1fbf83e81851fb00b05e8d46a66ae7df1eaf337a",
+      "workingBytesDifferFromHead": true,
+      "gitStatus": "",
+      "targetModule": "use-jacamo-semantic-engine",
+      "targetPath": "src/main/resources/grammars/IStar.g4",
+      "targetSha256": "177eabd15e56c644c98bfa4e7a6f2b2e0e18b67bdfe68ac01d872a13ea72d503",
+      "fqcn": null,
+      "imports": [],
+      "reuseMode": "ORIGINAL_COPY",
+      "plannedPatchIds": [],
+      "appliedPatchIds": [],
+      "extractionStatus": "ORIGINAL",
+      "productionEvaluationAllowed": true,
+      "requiredAdapters": [
+        "IStarFrontend",
+        "Use4GoalRuntimeSessionAdapter"
+      ],
+      "parityTests": [
+        "D"
+      ],
+      "acceptance": "Byte-identical selected core; admitted-profile behavior equals pinned original",
+      "license": "GPL-3.0 (upstream LICENSE; retain attribution)"
+    }
+  ],
+  "referenceOnly": [
+    {
+      "upstreamPath": "docs/model/csl.ecore",
+      "sourceSha256": "17146c1ad0bd62547695568d938d4a41a933f44d7480440a3f13e9617bff03f7",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "M2 crosswalk; Java/grammar remain executable authority"
+    },
+    {
+      "upstreamPath": "docs/model/istar.ecore",
+      "sourceSha256": "c6d27be1c2dc37fee69377bc17346b6ff03f8453aacad98de0a2238f1d5625cd",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "Grammar/model gaps must be admitted explicitly"
+    },
+    {
+      "upstreamPath": "goal/src/test/java/org/vnu/sme/goal/conformance/semantics/GoalTaskMarkingTest.java",
+      "sourceSha256": "b21b5632d7a2390f9b3214e0ff9ef1abc4fdae128b649dff266d35aa6c5c5881",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "Original recurrence assertions"
+    },
+    {
+      "upstreamPath": "goal/src/test/java/org/vnu/sme/goal/csl/mm/CslSemanticValidatorTest.java",
+      "sourceSha256": "b74e266257237e311af30c532c7ec2c8c771de17254570bf93cb15abd1153fdd",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "Original validation fixtures"
+    },
+    {
+      "upstreamPath": "goal/src/test/java/org/vnu/sme/goal/csl/view/CslUseViewModelTest.java",
+      "sourceSha256": "c777647b083a50d7808638a2aee3427ef84982084c73c3c731859f8096ca1673",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "V4 input fixtures only; do not copy GUI dependencies"
+    },
+    {
+      "upstreamPath": "goal/src/main/resources/examples/Classroom/classroom.csl",
+      "sourceSha256": "55a08acfdf301b492f929aa3556dcb24f888a926e31584c8fa89932d1003c6e5",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "Legacy group syntax expected rejection for current v4 frontend"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/translate/csl2use/Csl2UseTranslator.java",
+      "sourceSha256": "6aa18f8d6057b37a74b49e9b81cd4c3c19d4e632c634fff6825c2bf1510860fb",
+      "reuseMode": "DO_NOT_REUSE",
+      "reason": "Legacy play-chain backend; v4 guard must remain"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/dsl/aol/state/CslSystemState.java",
+      "sourceSha256": "082cae76747e4dd90dcc6653eeb4369ee8b1c6e6d9b72efefb82c4f3383d54b0",
+      "reuseMode": "REFERENCE_ONLY",
+      "reason": "Legacy M0; not the authoritative native runtime"
+    },
+    {
+      "upstreamPath": "goal/src/main/java/org/vnu/sme/goal/verify/cslstate/CslStateEvaluationSession.java",
+      "sourceSha256": "50ff964285e55c2775e8038d100043b928baef01bb34e9e969feb690b534ae5a",
+      "reuseMode": "DO_NOT_REUSE",
+      "reason": "File workflow/private subset evaluator, not live MSystem attachment"
+    }
+  ],
+  "license": {
+    "upstreamPath": "LICENSE",
+    "sourceSha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809",
+    "targetPath": "src/main/resources/META-INF/licenses/use4Goal-GPL-3.0.txt",
+    "extractionStatus": "ORIGINAL"
+  },
+  "generation": {
+    "visitor": true,
+    "listener": true,
+    "packageFrom": "ORIGINAL_GRAMMAR_HEADER",
+    "classesPerGrammar": [
+      "Lexer",
+      "Parser",
+      "Visitor",
+      "BaseVisitor",
+      "Listener",
+      "BaseListener"
+    ],
+    "output": "target/generated-sources/antlr4",
+    "copyOldGeneratedTarget": false
+  },
+  "plannedPatches": [
+    {
+      "id": "P-CTX-01",
+      "source": "dsl/iscn/goalmodelinstance/parser/GoalModelInstanceTranslator.java",
+      "scope": "Public structured topology/bindings and existing dependency saturation seam",
+      "semanticChange": false,
+      "status": "APPLIED_VERIFIED",
+      "parityTests": [
+        "G"
+      ],
+      "patchPath": "provenance/patches/P-CTX-01.diff",
+      "patchSha256": "066089bbb6899817d4924d651f324b0ac91a9b9e38e308f910c6e2b02e56fb5b",
+      "newApiFiles": [
+        {
+          "targetPath": "src/main/java/org/vnu/sme/goal/dsl/iscn/goalmodelinstance/parser/GoalModelInstanceTopology.java",
+          "sha256": "0e3142b2c14ec37d23886614410ca7eb129df7d0e3dfd4448ca8ec924a47f6a8"
+        }
+      ],
+      "originalMethodsUnchanged": true,
+      "lineEndingsPreserved": true
+    }
+  ],
+  "forbiddenProductionDependencies": [
+    "use-plugin",
+    "use-gui",
+    "jacamo-bridge-contract",
+    "jacamo-bridge-jacamo",
+    "jason",
+    "cartago",
+    "moise",
+    "npl",
+    "kodkod",
+    "sat4j"
+  ]
+}

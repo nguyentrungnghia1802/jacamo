@@ -1,0 +1,80 @@
+csl v4.0 ProposalReview {
+
+    datatype DateTime;
+
+    enum ProposalState {
+        DRAFT,
+        PREPARED,
+        UNDER_REVIEW,
+        CHANGES_REQUESTED,
+        FINALIZED,
+        SENT
+    }
+
+    enum ReviewDecision {
+        ACCEPTED,
+        CHANGES_REQUESTED
+    }
+
+    role ProposalParticipant {
+        email : String;
+    }
+
+    orgContext Proposal {
+        attribute proposalId : Integer required;
+        attribute title : String required;
+        attribute state : ProposalState required mutable default DRAFT;
+
+        role ProposalManager specializes ProposalParticipant;
+        role Customer specializes ProposalParticipant;
+
+        entity ProposalRevision {
+            attribute revisionNo : Integer required;
+            attribute createdAt : DateTime required;
+        }
+    }
+
+    entity Validation {
+        attribute valid : Boolean required;
+        attribute validatedAt : DateTime required;
+    }
+
+    entity Review {
+        attribute decision : ReviewDecision required;
+        attribute comment : String optional;
+        attribute reviewedAt : DateTime required;
+    }
+
+    composition RevisionValidations {
+        ProposalRevision [1] role revision;
+        Validation [0..*] role validations;
+    }
+
+    composition RevisionReviews {
+        ProposalRevision [1] role revision;
+        Review [0..*] role reviews;
+    }
+
+    association ProposalManagerValidates {
+        ProposalManager [1] role validator;
+        Validation [0..*] role validations;
+    }
+
+    association CustomerProvidesReview {
+        Customer [1] role reviewer;
+        Review [0..*] role reviews;
+    }
+
+    context Proposal inv UniqueRevisionNumbers:
+        self.ProposalRevision->forAll(r1 | self.ProposalRevision->forAll(r2 | r1 = r2 or r1.revisionNo <> r2.revisionNo));
+
+    context Proposal inv ValidatorsBelongToProposal:
+        self.ProposalRevision.validations->forAll(v |
+            self.ProposalManager->includes(v.validator)
+        );
+
+    context Proposal inv ReviewersBelongToProposal:
+        self.ProposalRevision.reviews->forAll(r |
+            self.Customer->includes(r.reviewer)
+        );
+}

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="Electron" agent="OpenAI" compressed="false">
+  <diagram id="auction-final" name="Auction - iStar rationale">
+    <mxGraphModel dx="2760" dy="1390" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2760" pageHeight="1390" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="A_boundary" actor="Auctioneer" elementType="actorBoundary" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=70;html=1;whiteSpace=wrap;dashed=1;dashPattern=6 5;strokeWidth=1.3;container=1;collapsible=0;recursiveResize=0;fillColor=none;strokeColor=#677687;" value="" vertex="1">
+          <mxGeometry x="60" y="220" width="650" height="990" as="geometry" />
+        </mxCell>
+        <mxCell id="O_boundary" actor="Auction" elementType="actorBoundary" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=70;html=1;whiteSpace=wrap;dashed=1;dashPattern=6 5;strokeWidth=1.3;container=1;collapsible=0;recursiveResize=0;fillColor=none;strokeColor=#677687;" value="" vertex="1">
+          <mxGeometry x="1030.0" y="220" width="700" height="990" as="geometry" />
+        </mxCell>
+        <mxCell id="P_boundary" actor="Participant" elementType="actorBoundary" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=70;html=1;whiteSpace=wrap;dashed=1;dashPattern=6 5;strokeWidth=1.3;container=1;collapsible=0;recursiveResize=0;fillColor=none;strokeColor=#677687;" value="" vertex="1">
+          <mxGeometry x="2050.0" y="220" width="650" height="990" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=30;align=left;" value="&lt;b&gt;AUCTION&lt;/b&gt; / organizational goals and Jason realizations" vertex="1">
+          <mxGeometry x="60" y="28" width="2640" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;align=left;" value="iStar 2.0 strategic rationale | source-grounded goal dependencies | normative achievement differs from administrative scheme status" vertex="1">
+          <mxGeometry x="60" y="80" width="2640" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="A_decide_t2" elementType="task" owner="Auctioneer" parent="A_boundary" style="shape=hexagon;perimeter=hexagonPerimeter;size=0.14;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=10;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;Call stop()&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;on AuctionArtifact&lt;/font&gt;" vertex="1" sourceReference="auction_capabilities.asl:30; AuctionArtifact.java:26-32" precondition="self.running" postcondition="not self.running" tooltip="auction_capabilities.asl:30; AuctionArtifact.java:26-32&#10;Task is fulfilled only on successful execution of the bound Jason/CArtAgO step.">
+          <mxGeometry x="350" y="845" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="A_artifact" elementType="resource" owner="Auctioneer" parent="A_boundary" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.4;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=6;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;AuctionArtifact&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot;&gt;shared domain entity&lt;/font&gt;" vertex="1">
+          <mxGeometry x="215" y="515" width="220" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="A_needs_stop" edge="1" parent="A_boundary" relation="neededBy" source="A_artifact" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.4;strokeColor=#15202B;startArrow=none;endArrow=oval;endFill=0;endSize=9;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="A_decide_t2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="625" y="548" />
+              <mxPoint x="625" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A_decide_t1" elementType="task" owner="Auctioneer" parent="A_boundary" style="shape=hexagon;perimeter=hexagonPerimeter;size=0.14;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=10;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;Query focused artifact&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;?focusing(ArtId, Id, ...)&lt;/font&gt;" vertex="1" sourceReference="auction_capabilities.asl:27-30" precondition="step.enabled" postcondition="step.succeeded" tooltip="auction_capabilities.asl:27-30&#10;Task is fulfilled only on successful execution of the bound Jason/CArtAgO step.">
+          <mxGeometry x="40" y="845" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="A_decide" elementType="goal" owner="Auctioneer" parent="A_boundary" sourceGoal="decide" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;decide&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:15px&quot;&gt;successful !decide plan&lt;/font&gt;" vertex="1" goalType="ACHIEVE">
+          <mxGeometry x="145" y="645" width="360" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="A_decide_and1" edge="1" parent="A_boundary" refinementKind="AND" relation="refinement" source="A_decide_t1" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="A_decide" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_decide_and2" edge="1" parent="A_boundary" refinementKind="AND" relation="refinement" source="A_decide_t2" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="A_decide" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_start" elementType="goal" owner="Auctioneer" parent="A_boundary" sourceGoal="start" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;start&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:15px&quot;&gt;successful !start plan&lt;/font&gt;" vertex="1" goalType="ACHIEVE">
+          <mxGeometry x="145" y="160" width="360" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="O_decide" elementType="goal" owner="Auction" parent="O_boundary" sourceGoal="decide" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;decide&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;Auction closed; result available&lt;br&gt;mAuctioneer | ttf: 1 h&lt;/font&gt;" vertex="1" goalType="ACHIEVE" evaluation="dependency propagation; not raw administrative goalState" scope="normative-goal-achievement">
+          <mxGeometry x="240" y="780" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="O_bid" elementType="goal" owner="Auction" parent="O_boundary" sourceGoal="bid" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;bid&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;committed bids performed&lt;br&gt;mParticipant | ttf: 10 s&lt;/font&gt;" vertex="1" goalType="ACHIEVE" evaluation="dependency propagation; not raw administrative goalState" scope="normative-goal-achievement">
+          <mxGeometry x="480" y="350" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="O_start" elementType="goal" owner="Auction" parent="O_boundary" sourceGoal="start" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;start&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;Auction started&lt;br&gt;mAuctioneer&lt;/font&gt;" vertex="1" goalType="ACHIEVE" evaluation="dependency propagation; not raw administrative goalState" scope="normative-goal-achievement">
+          <mxGeometry x="20" y="350" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="P_bid" elementType="goal" owner="Participant" parent="P_boundary" sourceGoal="bid" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;bid&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:15px&quot;&gt;successful !bid plan, per committed agent&lt;/font&gt;" vertex="1" goalType="ACHIEVE">
+          <mxGeometry x="145" y="160" width="360" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="A_actor" elementType="role" parent="1" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;fontSize=17;" value="&lt;b&gt;Auctioneer&lt;/b&gt;" vertex="1">
+          <mxGeometry x="317" y="160" width="136" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="O_actor" elementType="actor" parent="1" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;fontSize=17;" value="&lt;b&gt;Auction&lt;/b&gt;" vertex="1">
+          <mxGeometry x="1312.0" y="160" width="136" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="P_actor" elementType="role" parent="1" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;fontSize=17;" value="&lt;b&gt;Participant&lt;/b&gt;" vertex="1">
+          <mxGeometry x="2307.0" y="160" width="136" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="A_participates" associationKind="participates-in" edge="1" parent="1" source="A_actor" style="edgeStyle=none;html=1;strokeWidth=1.3;strokeColor=#425466;startArrow=none;endArrow=open;endFill=0;fontSize=15;fontFamily=Arial;labelBackgroundColor=#FFFFFF;" target="O_actor" value="participates-in" sourceReference="auction-os.xml:14-24; iStar 2.0 section 3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_participates" associationKind="participates-in" edge="1" parent="1" source="P_actor" style="edgeStyle=none;html=1;strokeWidth=1.3;strokeColor=#425466;startArrow=none;endArrow=open;endFill=0;fontSize=15;fontFamily=Arial;labelBackgroundColor=#FFFFFF;" target="O_actor" value="participates-in" sourceReference="auction-os.xml:14-24; iStar 2.0 section 3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_head" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;" value="&lt;b&gt;mAuctioneer = {start, decide}&lt;/b&gt;&lt;br&gt;n1: obligation to commit to mAuctioneer" vertex="1">
+          <mxGeometry x="90" y="290" width="590" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="O_head" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;" value="&lt;b&gt;Organization / doAuction&lt;/b&gt;&lt;br&gt;AND goal structure and expected role fulfilment" vertex="1">
+          <mxGeometry x="1060.0" y="290" width="640" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="P_head" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;" value="&lt;b&gt;mParticipant = {bid}&lt;/b&gt;&lt;br&gt;n2: obligation to commit to mParticipant" vertex="1">
+          <mxGeometry x="2080.0" y="290" width="590" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="O_root" elementType="goal" owner="Auction" parent="O_boundary" sourceGoal="auction" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.7;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=18;spacing=8;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;auction(Id, Service)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:15px&quot;&gt;all three assigned goals achieved&lt;/font&gt;" vertex="1" goalType="ACHIEVE">
+          <mxGeometry x="145" y="160" width="410" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="O_and_start" edge="1" parent="O_boundary" refinementKind="AND" relation="refinement" source="O_start" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="O_root" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O_and_bid" edge="1" parent="O_boundary" refinementKind="AND" relation="refinement" source="O_bid" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="O_root" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O_and_decide" edge="1" parent="O_boundary" refinementKind="AND" relation="refinement" source="O_decide" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="O_root" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O_and_label" parent="O_boundary" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=16;" value="&lt;b&gt;AND&lt;/b&gt;: start, bid and decide are all required" vertex="1">
+          <mxGeometry x="70" y="915" width="560" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="A_start_t1" elementType="task" owner="Auctioneer" parent="A_boundary" style="shape=hexagon;perimeter=hexagonPerimeter;size=0.14;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=10;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;Create &amp;amp; focus artifact&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;makeArtifact(...); focus(ArtId)&lt;/font&gt;" vertex="1" sourceReference="auction_capabilities.asl:19-25" precondition="step.enabled" postcondition="step.succeeded" tooltip="auction_capabilities.asl:19-25&#10;Task is fulfilled only on successful execution of the bound Jason/CArtAgO step.">
+          <mxGeometry x="40" y="350" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="A_start_t2" elementType="task" owner="Auctioneer" parent="A_boundary" style="shape=hexagon;perimeter=hexagonPerimeter;size=0.14;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=10;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;Call start(Service)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;on AuctionArtifact&lt;/font&gt;" vertex="1" sourceReference="auction_capabilities.asl:25; AuctionArtifact.java:18-24" precondition="not self.running" postcondition="self.running and self.task = service" tooltip="auction_capabilities.asl:25; AuctionArtifact.java:18-24&#10;Task is fulfilled only on successful execution of the bound Jason/CArtAgO step.">
+          <mxGeometry x="350" y="350" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="A_start_and1" edge="1" parent="A_boundary" refinementKind="AND" relation="refinement" source="A_start_t1" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="A_start" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_start_and2" edge="1" parent="A_boundary" refinementKind="AND" relation="refinement" source="A_start_t2" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="A_start" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="A_needs_start" edge="1" parent="A_boundary" relation="neededBy" source="A_artifact" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.4;strokeColor=#15202B;startArrow=none;endArrow=oval;endFill=0;endSize=9;" target="A_start_t2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_bid_t1" elementType="task" owner="Participant" parent="P_boundary" style="shape=hexagon;perimeter=hexagonPerimeter;size=0.14;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=10;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;Find &amp;amp; focus artifact&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;lookupArtifact(Id, AId); focus(AId)&lt;/font&gt;" vertex="1" sourceReference="auction_capabilities.asl:32-35" precondition="step.enabled" postcondition="step.succeeded" tooltip="auction_capabilities.asl:32-35&#10;Task is fulfilled only on successful execution of the bound Jason/CArtAgO step.">
+          <mxGeometry x="40" y="350" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="P_bid_t2" elementType="task" owner="Participant" parent="P_boundary" style="shape=hexagon;perimeter=hexagonPerimeter;size=0.14;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=10;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;Wait, then bid(amount)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;successful branch: random &amp;lt; 0.9&lt;/font&gt;" vertex="1" sourceReference="auction_capabilities.asl:36-42; AuctionArtifact.java:34-44" precondition="step.enabled and self.running" postcondition="step.succeeded" tooltip="auction_capabilities.asl:36-42; AuctionArtifact.java:34-44&#10;Task is fulfilled only on successful execution of the bound Jason/CArtAgO step.">
+          <mxGeometry x="350" y="350" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="P_bid_and1" edge="1" parent="P_boundary" refinementKind="AND" relation="refinement" source="P_bid_t1" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="P_bid" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_bid_and2" edge="1" parent="P_boundary" refinementKind="AND" relation="refinement" source="P_bid_t2" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.8;strokeColor=#15202B;startArrow=none;endArrow=baseDash;endFill=0;endSize=15;" target="P_bid" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P_artifact" elementType="resource" owner="Participant" parent="P_boundary" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.4;strokeColor=#15202B;fillColor=#FFFFFF;fontSize=16;spacing=6;fontFamily=Arial;fontColor=#15202B;" value="&lt;b&gt;AuctionArtifact&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot;&gt;same shared domain entity&lt;/font&gt;" vertex="1">
+          <mxGeometry x="215" y="515" width="220" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="P_needs_bid" edge="1" parent="P_boundary" relation="neededBy" source="P_artifact" style="edgeStyle=none;rounded=0;html=1;strokeWidth=1.4;strokeColor=#15202B;startArrow=none;endArrow=oval;endFill=0;endSize=9;" target="P_bid_t2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O_semantics" parent="O_boundary" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" value="" vertex="1">
+          <mxGeometry x="20" y="550" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="O_semantics_text" parent="O_boundary" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=16;align=left;verticalAlign=top;" value="&lt;b&gt;Normative dependency&lt;/b&gt;&lt;br&gt;&lt;br&gt;Auction relies on the assigned&lt;br&gt;roles to fulfil the three goals.&lt;br&gt;Participant means every relevant&lt;br&gt;committed role enactment." vertex="1">
+          <mxGeometry x="35" y="565" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" value="" vertex="1">
+          <mxGeometry x="60" y="1240" width="2640" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=16;align=left;" value="&lt;b&gt;Notation:&lt;/b&gt; Role = circle with lower curve; Goal = oval; Task = hexagon; Resource = rectangle. T-head at parent = AND (child &amp;rarr; parent).&lt;br&gt;A Goal Dependency has an external goal dependum between two D-marked legs, directed from Auction (depender) to the responsible Role (dependee). It expresses expected fulfilment and allows failure.&lt;br&gt;participates-in relates actors; it does not replace goal dependencies. Mission/norm labels trace MOISE allocation. Administrative goalSatisfied(bid) does not establish actual bidding or normative root achievement." vertex="1">
+          <mxGeometry x="80" y="1253" width="2600" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="A_role_mark" edge="1" parent="A_actor" style="curved=1;edgeStyle=none;startArrow=none;endArrow=none;strokeColor=#15202B;strokeWidth=1.5;" notationOnly="true">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="14" y="84" as="sourcePoint" />
+            <mxPoint x="122" y="84" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="68" y="104" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P_role_mark" edge="1" parent="P_actor" style="curved=1;edgeStyle=none;startArrow=none;endArrow=none;strokeColor=#15202B;strokeWidth=1.5;" notationOnly="true">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="14" y="84" as="sourcePoint" />
+            <mxPoint x="122" y="84" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="68" y="104" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="A_query_note" value="The decide plan queries an existing focus; it does not call focus again." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=14;" vertex="1" parent="A_boundary">
+          <mxGeometry x="35" y="947" width="580" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P_branch_note" value="&lt;b&gt;Jason failure and recovery&lt;/b&gt;&lt;br&gt;&lt;br&gt;The successful branch waits 500..2500 ms, then calls&lt;br&gt;bid(random * 100 + 10). The other branch calls .fail.&lt;br&gt;&lt;br&gt;A failed !bid plan produces no normal goalAchieved.&lt;br&gt;An unfulfilled bid obligation triggers the Auctioneer's&lt;br&gt;administrative handler.&lt;br&gt;&lt;br&gt;Failure and administrative recovery are not OR means&lt;br&gt;to perform an actual bid. A non-winning successful&lt;br&gt;bid still counts as an actual bid." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;align=left;verticalAlign=top;" vertex="1" parent="P_boundary">
+          <mxGeometry x="35" y="640" width="580" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="O_admin_note" parent="O_boundary" vertex="1" value="&lt;b&gt;Administrative status&lt;/b&gt;&lt;br&gt;&lt;br&gt;goalSatisfied(bid) can let the&lt;br&gt;scheme proceed despite failure.&lt;br&gt;This does not fulfil the actual-bid&lt;br&gt;dependency or prove root success." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=16;align=left;verticalAlign=top;">
+          <mxGeometry x="400" y="550" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="D_start" parent="1" vertex="1" value="&lt;b&gt;Auction started&lt;/b&gt;" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontFamily=Arial;fontSize=16;spacing=7;" elementType="dependum" dependumType="goal" dependencyId="dep_start" depender="Auction" dependee="Auctioneer" sourceReference="auction-os.xml:38-41,49; auction_capabilities.asl:19-25" scope="normative-realization">
+          <mxGeometry x="770" y="385" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_start_a" edge="1" parent="1" source="O_start" target="D_start" value="" relation="dependencyLeg" dependencyId="dep_start" style="edgeStyle=none;html=1;strokeColor=#15202B;strokeWidth=1.6;startArrow=none;endArrow=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_start_a_D" parent="dep_start_a" vertex="1" connectable="0" value="D" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=21;fontStyle=1;rotation=-112.31;resizable=0;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry x="0" y="0" width="24" height="28" relative="1" as="geometry">
+            <mxPoint x="-12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep_start_b" edge="1" parent="1" source="D_start" target="A_start" value="" relation="dependencyLeg" dependencyId="dep_start" style="edgeStyle=none;html=1;strokeColor=#15202B;strokeWidth=1.6;startArrow=none;endArrow=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_start_b_D" parent="dep_start_b" vertex="1" connectable="0" value="D" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=21;fontStyle=1;rotation=-179.30;resizable=0;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry x="0" y="0" width="24" height="28" relative="1" as="geometry">
+            <mxPoint x="-12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D_decide" parent="1" vertex="1" value="&lt;b&gt;Auction closed;&lt;br&gt;result available&lt;/b&gt;" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontFamily=Arial;fontSize=16;spacing=7;" elementType="dependum" dependumType="goal" dependencyId="dep_decide" depender="Auction" dependee="Auctioneer" sourceReference="auction-os.xml:38-41,49; auction_capabilities.asl:27-30" scope="normative-realization">
+          <mxGeometry x="770" y="865" width="200" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_decide_a" edge="1" parent="1" source="O_decide" target="D_decide" value="" relation="dependencyLeg" dependencyId="dep_decide" style="edgeStyle=none;html=1;strokeColor=#15202B;strokeWidth=1.6;startArrow=none;endArrow=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_decide_a_D" parent="dep_decide_a" vertex="1" connectable="0" value="D" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=21;fontStyle=1;rotation=-154.59;resizable=0;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry x="0" y="0" width="24" height="28" relative="1" as="geometry">
+            <mxPoint x="-12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep_decide_b" edge="1" parent="1" source="D_decide" target="A_decide" value="" relation="dependencyLeg" dependencyId="dep_decide" style="edgeStyle=none;html=1;strokeColor=#15202B;strokeWidth=1.6;startArrow=none;endArrow=none;exitX=0;exitY=0.5;entryX=1;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_decide_b_D" parent="dep_decide_b" vertex="1" connectable="0" value="D" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=21;fontStyle=1;rotation=180.00;resizable=0;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry x="0" y="0" width="24" height="28" relative="1" as="geometry">
+            <mxPoint x="-12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D_bid" parent="1" vertex="1" value="&lt;b&gt;Assigned bid&lt;br&gt;performed&lt;/b&gt;" style="ellipse;html=1;whiteSpace=wrap;strokeWidth=1.6;strokeColor=#15202B;fillColor=#FFFFFF;fontFamily=Arial;fontSize=16;spacing=7;" elementType="dependum" dependumType="goal" dependencyId="dep_bid" depender="Auction" dependee="Participant" sourceReference="auction-os.xml:42-44,50; auction_capabilities.asl:32-42" scope="per-committed-role-enactment">
+          <mxGeometry x="1800" y="385" width="200" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_bid_a" edge="1" parent="1" source="O_bid" target="D_bid" value="" relation="dependencyLeg" dependencyId="dep_bid" style="edgeStyle=none;html=1;strokeColor=#15202B;strokeWidth=1.6;startArrow=none;endArrow=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_bid_a_D" parent="dep_bid_a" vertex="1" connectable="0" value="D" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=21;fontStyle=1;rotation=-64.94;resizable=0;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry x="0" y="0" width="24" height="28" relative="1" as="geometry">
+            <mxPoint x="-12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dep_bid_b" edge="1" parent="1" source="D_bid" target="P_bid" value="" relation="dependencyLeg" dependencyId="dep_bid" style="edgeStyle=none;html=1;strokeColor=#15202B;strokeWidth=1.6;startArrow=none;endArrow=none;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dep_bid_b_D" parent="dep_bid_b" vertex="1" connectable="0" value="D" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=21;fontStyle=1;rotation=-1.47;resizable=0;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry x="0" y="0" width="24" height="28" relative="1" as="geometry">
+            <mxPoint x="-12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="auction-semantics" name="Semantics and OCL bindings">
+    <mxGraphModel dx="1840" dy="1500" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1840" pageHeight="1500" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="notes_title" parent="1" value="&lt;b&gt;AUCTION / semantic contract and source trace&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=29;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="45" y="30" width="1750" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ownership_panel" parent="1" value="" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" vertex="1">
+          <mxGeometry x="45" y="115" width="850" height="295" as="geometry" />
+        </mxCell>
+        <mxCell id="ownership" parent="1" value="&lt;b&gt;1 / Goal reliance and actor association&lt;/b&gt;&lt;br&gt;&lt;br&gt;auction = AND(start, bid, decide), all within Auction.&lt;br&gt;mAuctioneer = {start, decide}; mParticipant = {bid}.&lt;br&gt;participates-in describes Role-to-Organization association only.&lt;br&gt;Three Goal Dependencies express who is expected to achieve the goals.&lt;br&gt;Each has an external dependum and two directed D-marked legs.&lt;br&gt;Auction's child goals are depender elements; they have no refinements&lt;br&gt;of their own. Role-side dependee goals may be refined into Tasks.&lt;br&gt;Dependency failure is possible and does not make the notation invalid." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=18;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="67" y="135" width="806" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="plans_panel" parent="1" value="" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" vertex="1">
+          <mxGeometry x="935" y="115" width="860" height="395" as="geometry" />
+        </mxCell>
+        <mxCell id="plans" parent="1" value="&lt;b&gt;2 / Jason task mapping&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;start&lt;/b&gt;: makeArtifact; focus; start(Service). ASL 19-25.&lt;br&gt;&lt;b&gt;decide&lt;/b&gt;: ?focusing(...); stop. ASL 27-30.&lt;br&gt;The query retrieves the existing focus; it does not refocus.&lt;br&gt;&lt;b&gt;bid&lt;/b&gt;: lookupArtifact; focus; if random &amp;lt; 0.9, wait and bid;&lt;br&gt;otherwise .fail. ASL 32-42. The code says 0.9; its 80% comment is stale.&lt;br&gt;&lt;br&gt;org-obedient.asl calls goalAchieved only after !Goal succeeds.&lt;br&gt;A successful bid need not improve best_bid or become winner.&lt;br&gt;AuctionArtifact.stop publishes currentWinner, including no_winner.&lt;br&gt;&lt;br&gt;The AND task refinements show the necessary successful plan steps.&lt;br&gt;The .fail branch is not modeled as an alternative achievement." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=18;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="957" y="135" width="816" height="355" as="geometry" />
+        </mxCell>
+        <mxCell id="conditions_panel" parent="1" value="" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" vertex="1">
+          <mxGeometry x="45" y="440" width="850" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="conditions" parent="1" value="&lt;b&gt;3 / Thesis extended iStar: evaluating the goals&lt;/b&gt;&lt;br&gt;&lt;br&gt;Section IV-A / Fig. 4 / Table I: refinement and dependency values&lt;br&gt;are propagated; leaf Conditions bind execution to the shared state.&lt;br&gt;&lt;br&gt;The organizational children now obtain achievement via dependencies.&lt;br&gt;They are not additionally assigned self.*SatisfiedAt &amp;gt;= 0 conditions.&lt;br&gt;A MOISE administrative state must not override a failed actual-bid&lt;br&gt;dependency in the goal model.&lt;br&gt;&lt;br&gt;Setup/query leaf Tasks: pre = step.enabled; post = step.succeeded.&lt;br&gt;Artifact-call Tasks: source operation contracts plus observed success.&lt;br&gt;step is keyed by scheme run, role player and invocation.&lt;br&gt;Goals use Achieve within one run; MOISE performance is a separate type.&lt;br&gt;A successful protocol run need not achieve every normative iStar goal." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=18;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="67" y="460" width="806" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor_panel" parent="1" value="" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" vertex="1">
+          <mxGeometry x="935" y="540" width="860" height="455" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor" parent="1" value="&lt;b&gt;4 / Explicit observer interface for the OCL&lt;/b&gt;&lt;br&gt;&lt;br&gt;AuctionMonitor is a required trace projection, not a Java source class.&lt;br&gt;One instance per scheme run / auction Id. Integer times are in ms&lt;br&gt;on one clock; -1 means the event has not occurred.&lt;br&gt;&lt;br&gt;&lt;font face=&quot;Consolas&quot;&gt;now&lt;br&gt;startSatisfiedAt, bidEnabledAt, bidSatisfiedAt&lt;br&gt;decideEnabledAt, decideSatisfiedAt : Integer&lt;br&gt;bidCommittedBy, bidDoneBy, actualBidBy : Set(String)&lt;br&gt;adminBidOverride : Boolean&lt;/font&gt;&lt;br&gt;&lt;br&gt;Satisfied/enabled times come from MOISE, not artifact return times.&lt;br&gt;bidDoneBy comes from done(Sch,bid,Ag); actualBidBy from successful&lt;br&gt;bid calls, including non-winning bids. Do not infer either from winner.&lt;br&gt;bidCommittedBy is frozen at the first bid satisfaction (current before it).&lt;br&gt;adminBidOverride records only an observed successful admin command.&lt;br&gt;These fields audit scheme status; they do not define normative goal values." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=18;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="957" y="560" width="816" height="415" as="geometry" />
+        </mxCell>
+        <mxCell id="deadlines_panel" parent="1" value="" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" vertex="1">
+          <mxGeometry x="45" y="830" width="850" height="415" as="geometry" />
+        </mxCell>
+        <mxCell id="deadlines" parent="1" value="&lt;b&gt;5 / Deadline and recovery semantics&lt;/b&gt;&lt;br&gt;&lt;br&gt;bid: ttf = 10000 ms. decide: ttf = 3600000 ms. OS 34-35.&lt;br&gt;Use each obligation's activation/deadline from MOISE, including&lt;br&gt;a later mission commitment; do not time from MAS startup.&lt;br&gt;&lt;br&gt;AuctionObligation: one record per bid/decide obligation activation.&lt;br&gt;&lt;font face=&quot;Consolas&quot;&gt;goal : String  -- bid or decide&lt;br&gt;activatedAt, deadlineAt, endedAt : Integer&lt;br&gt;unfulfilled : Boolean; monitor : AuctionMonitor&lt;/font&gt;&lt;br&gt;endedAt = first terminal engine time (fulfilled/unfulfilled/inactive),&lt;br&gt;or -1 while pending. Use engine times, not notification receipt times.&lt;br&gt;unfulfilled remains true after oblUnfulfilled; never erase the record.&lt;br&gt;&lt;br&gt;WithinDeadline is a conformance norm: pending overtime also fails.&lt;br&gt;Admin recovery allows progress but does not repair an expired duty.&lt;br&gt;Thus the scheme can finish while the iStar bidding goal is unachieved." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=18;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="67" y="850" width="806" height="375" as="geometry" />
+        </mxCell>
+        <mxCell id="sources_panel" parent="1" value="" style="rounded=0;html=1;whiteSpace=wrap;strokeWidth=1.2;strokeColor=#ADB8C3;fillColor=#F8FAFC;fontFamily=Arial;fontColor=#15202B;" vertex="1">
+          <mxGeometry x="935" y="1025" width="860" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="sources" parent="1" value="&lt;b&gt;6 / Verified references and scope&lt;/b&gt;&lt;br&gt;&lt;br&gt;Local JaCaMo examples/auction:&lt;br&gt;src/org/auction-os.xml: 14-24, 28-50.&lt;br&gt;src/agt/auction_capabilities.asl: 19-42, 53-57.&lt;br&gt;src/env/auction_env/AuctionArtifact.java: 18-44.&lt;br&gt;Resolved moise-1.1.jar: asl/org-obedient.asl;&lt;br&gt;Scheme.isSatisfied and SchemeBoard.admCommand.&lt;br&gt;&lt;br&gt;&lt;a href=&quot;https://arxiv.org/html/1605.07767&quot;&gt;iStar 2.0 Language Guide&lt;/a&gt;: sections 2, 3, 5, 6.1, 6.2, 8.&lt;br&gt;Supplied thesis PDF: section IV-A, Fig. 4, Table I (page 3).&lt;br&gt;&lt;br&gt;ASL 53-57 handles oblUnfulfilled with goalSatisfied(bid).&lt;br&gt;No blacklist task is added: the source contains only a TODO.&lt;br&gt;Bid Dependency is instantiated per committed Participant enactment;&lt;br&gt;normal global completion requires all such agents, not one winning bid." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="957" y="1045" width="816" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="notes_footer" parent="1" value="Standard iStar has no generic Goal-to-Goal Association. Cross-actor reliance uses Dependency; mission trace annotations are not semantic edges. The unchanged OCL audits sequence, evidence and deadlines, including administrative recovery; it does not erase normative dependency failure." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Arial;fontColor=#15202B;fontSize=17;align=left;verticalAlign=top;" vertex="1">
+          <mxGeometry x="45" y="1400" width="1750" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

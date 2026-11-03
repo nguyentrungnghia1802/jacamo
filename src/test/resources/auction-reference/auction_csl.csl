@@ -1,0 +1,27 @@
+csl v4.0 AuctionState {
+    orgContext AuctionOrg {
+        orgContext auctionGroup {
+            role auctioneer;
+            role participant;
+        }
+        // Model scope: the organization coordinates the named auction artifacts.
+        // This is not physical ownership of a CArtAgO workspace/artifact.
+        entity Auction {
+            attribute id : String required;
+            attribute running : Boolean required mutable default false;
+            attribute task : String required mutable default 'no_task';
+            // Initial source value is Double.MAX_VALUE; retain it in a snapshot.
+            // No invented numeric default or bounded-domain sentinel is used.
+            attribute best_bid : Real required mutable;
+            attribute winner : String required mutable default 'no_winner';
+            // Source field, not an observable property. Requires explicit access.
+            attribute currentWinner : String required mutable default 'no_winner';
+        }
+    }
+
+    // Source role-population constraints, distinct from declaration containment.
+    context auctionGroup inv AuctioneerPopulation:
+        self.auctioneer->size() = 1;
+    context auctionGroup inv ParticipantPopulation:
+        self.participant->size() <= 300;
+}
