@@ -8,6 +8,17 @@ admitted step. The shared logical clock then freezes; artifact `await_time`, Jas
 when admitted work drains. Publisher, TCP control, disk ingress and inspection
 remain available. This is independent of the existing Jason Pause control.
 
+Admitted semantic Task entries acquire intention-identity continuations. A Task
+terminal closes admission without waiting and defers that intention's next deed.
+Other admitted Tasks on the same agent may finish; future unrelated intentions
+cannot start. A multi-act cycle returns after its current act when admission is
+closed. Pending actions, waits and nested parents yield with explicit continuation
+receipts. Atomic intentions obey the same selected boundary. Runnable Task
+continuations and causal queued work must drain before READY; the interpreter's
+actual intention objects remain in its queues. Exact release resumes those same
+objects. This is a cooperative source boundary, not an atomic stop at the callback
+or a rollback of work already admitted elsewhere in the MAS.
+
 Strict preflight rejects unsupported remote/platform schedulers, custom agent
 architectures, raw thread/clock/timer and unadmitted producers. This is a bounded
 source-admission profile, not a sandbox for arbitrary Java code or a distributed

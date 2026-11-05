@@ -58,5 +58,11 @@
     "path": "jason/infra/local/LocalAgArch.java",
     "sourceJarSha256": "2f4e450d1fb116a9bf2d4ab7eddb2265b82fa4a303a97a64570c67710e2d1ce0",
     "sha256": "1928d3c17f999301b7823efdd21a898a90bff403e0d490a0a2f8a4b3d5cc89ca"
+  },
+  {
+    "component": "jason",
+    "path": "jason/asSemantics/TransitionSystem.java",
+    "sourceJarSha256": "2f4e450d1fb116a9bf2d4ab7eddb2265b82fa4a303a97a64570c67710e2d1ce0",
+    "sha256": "1b600a65756af282394170fefb4bd4c0c0489cdd8cfe35c1bd4c0d9e95c36be2"
   }
 ]

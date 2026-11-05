@@ -14,6 +14,13 @@ public final class ExecutionBarrier {
     private static final Map<Long,String> active=new LinkedHashMap<>();
     private static final Map<String,Long> completed=new TreeMap<>();
     private static final IdentityHashMap<Object,Boolean> admittedQueue=new IdentityHashMap<>();
+    private static final Set<Object> deferredAgents=Collections.newSetFromMap(new IdentityHashMap<>());
+    private static final Set<Object> deferredIntentions=Collections.newSetFromMap(new IdentityHashMap<>());
+    private static final Map<String,TaskContinuation> tasks=new LinkedHashMap<>();
+    private static final class TaskContinuation {
+        final Object agent,intention;boolean waiting;
+        TaskContinuation(Object agent,Object intention){this.agent=agent;this.intention=intention;}
+    }
     private static volatile boolean enabled;
     private static boolean closed, frozen, stopped;
     private static String run="";
@@ -36,6 +43,58 @@ public final class ExecutionBarrier {
         }finally{lock.unlock();}
     }
     public static boolean enabled(){return enabled;}
+    /** Scheduler safepoint query. Never waits for the verifier. */
+    public static boolean admissionClosed(){if(!enabled)return false;lock.lock();try{return closed;}finally{lock.unlock();}}
+    public static void beginTask(Object agent,Object intention,String token) {
+        if(!enabled)return;
+        lock.lock();try {
+            if(stopped)throw new Stopped();
+            if(depth.get()==0||tasks.containsKey(token)||tasks.size()>=16384
+                    ||closed&&!taskIntentionAllowed(intention))throw new IllegalStateException("CHECKPOINT_TASK_ADMISSION_UNAVAILABLE");
+            tasks.put(token,new TaskContinuation(Objects.requireNonNull(agent),Objects.requireNonNull(intention)));changed.signalAll();
+        }finally{lock.unlock();}
+    }
+    public static void endTask(String token) {
+        if(!enabled)return;
+        lock.lock();try {
+            var task=tasks.remove(token);if(task==null)return;
+            if(closed)deferredIntentions.add(task.intention);
+            completed.put("jason.task-boundary-yield",++sequence);changed.signalAll();
+        }finally{lock.unlock();}
+    }
+    /** Called only by the owning reasoning-cycle thread, before its permit ends.
+     * Pending intentions/actions are safe waits; queued feedback can still drain. */
+    public static void taskWaits(Object agent,Set<Object> waiting,boolean atomicBlocked) {
+        if(!enabled)return;
+        lock.lock();try {
+            for(var task:tasks.values())if(task.agent==agent)task.waiting=atomicBlocked||waiting.contains(task.intention);
+            changed.signalAll();
+        }finally{lock.unlock();}
+    }
+    public static boolean intentionAllowed(Object intention) {
+        if(!enabled)return true;
+        lock.lock();try{return !closed||taskIntentionAllowed(intention);}finally{lock.unlock();}
+    }
+    private static boolean taskIntentionAllowed(Object intention) {
+        return !deferredIntentions.contains(intention)&&tasks.values().stream().anyMatch(t->t.intention==intention&&!deferredAgents.contains(t.agent));
+    }
+    private static boolean hasTasks(Object agent){return tasks.values().stream().anyMatch(t->t.agent==agent&&!deferredIntentions.contains(t.intention));}
+    private static boolean drainingAgent(Object agent){return !frozen&&!deferredAgents.contains(agent)&&tasks.values().stream().anyMatch(t->t.agent==agent&&!t.waiting&&!deferredIntentions.contains(t.intention));}
+    private static long drainingTasks(){return tasks.values().stream().filter(t->!t.waiting&&!deferredIntentions.contains(t.intention)&&!deferredAgents.contains(t.agent)).count();}
+    public static Map<String,String> taskContinuations() {
+        lock.lock();try {var states=new TreeMap<String,String>();tasks.forEach((token,t)->states.put(token,deferredIntentions.contains(t.intention)?"DEFERRED_AT_SELECTED_TASK":t.waiting?"PARKED_SOURCE_WAIT":"DRAINING_ADMITTED_TASK"));return Map.copyOf(states);}finally{lock.unlock();}
+    }
+    /** Defer further deeds after this agent's selected Task terminal. Pending
+     * messages/feedback stay in Jason; only its future cycle permit is deferred. */
+    public static void deferAgent(Object agent) {
+        if(!enabled)return;
+        lock.lock();try {
+            if(!closed||stopped)throw new IllegalStateException("CHECKPOINT_AGENT_DEFER_WITHOUT_HOLD");
+            deferredAgents.add(Objects.requireNonNull(agent));
+            if(admittedQueue.remove(agent)!=null)pending--;
+            completed.put("jason.task-boundary-yield",++sequence);changed.signalAll();
+        }finally{lock.unlock();}
+    }
     public static long originMillis(){lock.lock();try{requireEnabled();return originWall;}finally{lock.unlock();}}
     public static Step enter(String lane) {
         if(!enabled)return new Step(false,lane);
@@ -52,14 +111,14 @@ public final class ExecutionBarrier {
         if(!enabled)return;
         lock.lock();try {
             if(stopped)throw new Stopped();
-            if((!closed||depth.get()>0)&&!admittedQueue.containsKey(work)){admittedQueue.put(work,true);pending++;changed.signalAll();}
+            if((!closed||!frozen&&(depth.get()>0||hasTasks(work)))&&!(closed&&deferredAgents.contains(work))&&!admittedQueue.containsKey(work)){admittedQueue.put(work,true);pending++;changed.signalAll();}
         }finally{lock.unlock();}
     }
     /** Drain admitted queued work and its causal children even after admission closes. */
     public static Step enterQueued(Object work,String lane) {
         if(!enabled)return new Step(false,lane);
         lock.lock();try {
-            while(depth.get()==0&&closed&&!admittedQueue.containsKey(work)&&!stopped)changed.awaitUninterruptibly();
+            while(depth.get()==0&&closed&&((!admittedQueue.containsKey(work)&&!drainingAgent(work))||deferredAgents.contains(work))&&!stopped)changed.awaitUninterruptibly();
             if(stopped)throw new Stopped();
             if(admittedQueue.remove(work)!=null) {
                 pending--;int n=depth.get();if(n==0)active.put(Thread.currentThread().threadId(),lane);depth.set(n+1);changed.signalAll();return new Step(true,lane);
@@ -113,11 +172,11 @@ public final class ExecutionBarrier {
         if(depth.get()!=0)throw new IllegalStateException("CHECKPOINT_CANNOT_WAIT_INSIDE_SOURCE_STEP");
         long remaining=timeout.toNanos();lock.lockInterruptibly();try {
             requireEnabled();
-            while(!stopped&&closed&&epoch==expectedEpoch&&(!active.isEmpty()||pending!=0)&&remaining>0)
+            while(!stopped&&closed&&epoch==expectedEpoch&&(!active.isEmpty()||pending!=0||drainingTasks()!=0)&&remaining>0)
                 remaining=changed.awaitNanos(remaining);
             if(stopped)throw new Stopped();
             if(!closed||epoch!=expectedEpoch)throw new IllegalStateException("CHECKPOINT_EPOCH_REPLACED");
-            if(!active.isEmpty()||pending!=0)throw new IllegalStateException("CHECKPOINT_DRAIN_TIMEOUT:"+active+":pending="+pending);
+            if(!active.isEmpty()||pending!=0||drainingTasks()!=0)throw new IllegalStateException("CHECKPOINT_DRAIN_TIMEOUT:"+active+":pending="+pending+":tasks="+drainingTasks());
             if(!frozen){freezeNanos=System.nanoTime();frozen=true;changed.signalAll();}
             return proofLocked();
         }finally{lock.unlock();}
@@ -125,11 +184,11 @@ public final class ExecutionBarrier {
     public static void release(long expectedEpoch) {
         lock.lock();try {
             if(stopped||!closed||!frozen||epoch!=expectedEpoch)throw new IllegalStateException("CHECKPOINT_RELEASE_NOT_EXACT_FROZEN_EPOCH");
-            heldNanos+=System.nanoTime()-freezeNanos;frozen=false;closed=false;changed.signalAll();
+            heldNanos+=System.nanoTime()-freezeNanos;frozen=false;closed=false;deferredAgents.clear();deferredIntentions.clear();changed.signalAll();
         }finally{lock.unlock();}
     }
     public static Proof proof(){lock.lock();try{return proofLocked();}finally{lock.unlock();}}
-    private static Proof proofLocked(){return new Proof(run,epoch,sequence,nowLocked(),closed,frozen,active,pending,completed);}
+    private static Proof proofLocked(){return new Proof(run,epoch,sequence,nowLocked(),closed,frozen,active,pending+drainingTasks(),completed);}
     public static long nowMillis(){if(!enabled)return System.currentTimeMillis();lock.lock();try{return nowLocked();}finally{lock.unlock();}}
     public static long nowNanos(){if(!enabled)return System.nanoTime();lock.lock();try{return originNanos+(frozen?freezeNanos:System.nanoTime())-originNanos-heldNanos;}finally{lock.unlock();}}
     private static long nowLocked(){return originWall+TimeUnit.NANOSECONDS.toMillis((frozen?freezeNanos:System.nanoTime())-originNanos-heldNanos);}
@@ -187,6 +246,6 @@ public final class ExecutionBarrier {
             try{action.run();}finally{leave("source-notification");}
         });}catch(RuntimeException failed){lock.lock();try{pending--;changed.signalAll();}finally{lock.unlock();}throw failed;}
     }
-    public static void stop(){lock.lock();try{stopped=true;closed=true;timers.clear();pending-=admittedQueue.size();admittedQueue.clear();changed.signalAll();}finally{lock.unlock();}}
+    public static void stop(){lock.lock();try{stopped=true;closed=true;timers.clear();tasks.clear();deferredIntentions.clear();pending-=admittedQueue.size();admittedQueue.clear();changed.signalAll();}finally{lock.unlock();}}
     private static void requireEnabled(){if(!enabled)throw new IllegalStateException("CHECKPOINT_RUN_NOT_ENABLED");}
 }

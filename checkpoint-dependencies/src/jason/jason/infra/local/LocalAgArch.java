@@ -249,6 +249,7 @@ public class LocalAgArch extends AgArch implements Runnable, Serializable {
         }
         while (running && i++ < ca && !ts.canSleepAct()) {
             ts.act();
+            if (ExecutionBarrier.admissionClosed()) break;
         }
         //sumAct += i; nbAct++;
         //System.out.println("running act "+(sumAct/nbAct)+"/"+ca);
@@ -264,6 +265,7 @@ try(var checkpointStep=ExecutionBarrier.enterQueued(this,"jason.local-cycle.reas
         act();
 
         getFirstAgArch().reasoningCycleFinished();
+        checkpointTaskWaits();
     
 }
 }
@@ -320,6 +322,7 @@ try(var checkpointStep=ExecutionBarrier.enterQueued(this,"jason.local-cycle.reas
 
     @Override
     public void wake() {
+        if (running && myThread != null && myThread.isAlive()) ExecutionBarrier.queued(this);
         sleepLock.lock();
         try {
             sleepTime = 50;
@@ -580,6 +583,20 @@ try(var checkpointStep=ExecutionBarrier.enter("jason.local-cycle.receiveMsg")) {
         status.put("intentions", ints);
 
         return status;
+    }
+
+    private void checkpointTaskWaits() {
+        if (!ExecutionBarrier.enabled()) return;
+        var circumstance=getTS().getC();
+        var waiting=java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Object,Boolean>());
+        waiting.addAll(circumstance.getPendingIntentions().values());
+        circumstance.getPendingActions().values().forEach(action->waiting.add(action.getIntention()));
+        boolean atomicBlocked=circumstance.isAtomicIntentionSuspended();
+        if(circumstance.hasAtomicIntention()) {
+            var all=circumstance.getRunningIntentionsPlusAtomic();
+            while(all.hasNext()) {var intention=all.next();if(intention.isAtomic()&&!ExecutionBarrier.intentionAllowed(intention)){atomicBlocked=true;break;}}
+        }
+        ExecutionBarrier.taskWaits(this,waiting,atomicBlocked);
     }
 
 public static String checkpointHookVersion(){return ExecutionBarrier.VERSION;}

@@ -141,15 +141,63 @@ private void checkpointRun() {
 jasonjar=base.parent/'build/checkpoint-source/jason-interpreter-3.3.2-sources.jar'
 assert sha(jasonjar.read_bytes())=='2f4e450d1fb116a9bf2d4ab7eddb2265b82fa4a303a97a64570c67710e2d1ce0'
 with zipfile.ZipFile(jasonjar) as z:
-    for rel in ['jason/stdlib/wait.java','jason/infra/local/LocalAgArch.java']:
+    for rel in ['jason/stdlib/wait.java','jason/infra/local/LocalAgArch.java','jason/asSemantics/TransitionSystem.java']:
         data=z.read(rel);origin.append(dict(component='jason',path=rel,sourceJarSha256=sha(jasonjar.read_bytes()),sha256=sha(data)))
         text=imported(data.decode().replace('\r\n','\n'))
         if rel.endswith('/wait.java'):
             text=text.replace('System.currentTimeMillis()','ExecutionBarrier.nowMillis()')
             text=text.replace('Agent.getScheduler().schedule(() -> {\n                    resume(true);\n                }, timeout, TimeUnit.MILLISECONDS);','if(ExecutionBarrier.enabled())ExecutionBarrier.schedule(() -> resume(true),timeout);\nelse Agent.getScheduler().schedule(() -> resume(true),timeout,TimeUnit.MILLISECONDS);')
-        else:
+        elif rel.endswith('/LocalAgArch.java'):
             text=methods(text,{'reasoningCycle','receiveMsg'},'jason.local-cycle')
             text=text.replace('ExecutionBarrier.enter("jason.local-cycle.reasoningCycle")','ExecutionBarrier.enterQueued(this,"jason.local-cycle.reasoningCycle")')
+            text=text.replace('            ts.act();','            ts.act();\n            if (ExecutionBarrier.admissionClosed()) break;')
+            text=text.replace('        getFirstAgArch().reasoningCycleFinished();','        getFirstAgArch().reasoningCycleFinished();\n        checkpointTaskWaits();')
+            text=text.replace('    public void wake() {','    public void wake() {\n        if (running && myThread != null && myThread.isAlive()) ExecutionBarrier.queued(this);')
+            pos=text.rfind('}')
+            text=text[:pos]+'''
+    private void checkpointTaskWaits() {
+        if (!ExecutionBarrier.enabled()) return;
+        var circumstance=getTS().getC();
+        var waiting=java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<Object,Boolean>());
+        waiting.addAll(circumstance.getPendingIntentions().values());
+        circumstance.getPendingActions().values().forEach(action->waiting.add(action.getIntention()));
+        boolean atomicBlocked=circumstance.isAtomicIntentionSuspended();
+        if(circumstance.hasAtomicIntention()) {
+            var all=circumstance.getRunningIntentionsPlusAtomic();
+            while(all.hasNext()) {var intention=all.next();if(intention.isAtomic()&&!ExecutionBarrier.intentionAllowed(intention)){atomicBlocked=true;break;}}
+        }
+        ExecutionBarrier.taskWaits(this,waiting,atomicBlocked);
+    }
+'''+text[pos:]
+        else:
+            old='C.SI = ag.selectIntention(C.getRunningIntentions());'
+            assert text.count(old)==1
+            text=text.replace(old,'C.SI = checkpointSelectIntention();')
+            old='''        C.SI = C.removeAtomicIntention();
+        if (C.SI != null) {
+            return;
+        }'''
+            assert text.count(old)==1
+            text=text.replace(old,'''        C.SI = C.removeAtomicIntention();
+        if (C.SI != null) {
+            if (!ExecutionBarrier.intentionAllowed(C.SI)) {
+                C.setAtomicIntention(C.SI);
+                C.SI = null;
+                stepAct = State.StartRC;
+            }
+            return;
+        }''')
+            pos=text.rfind('}')
+            text=text[:pos]+'''
+    private Intention checkpointSelectIntention() {
+        var running=C.getRunningIntentions();
+        if (!ExecutionBarrier.admissionClosed()) return ag.selectIntention(running);
+        var eligible=new java.util.ArrayDeque<Intention>();
+        for (var intention:running) if (ExecutionBarrier.intentionAllowed(intention)) eligible.add(intention);
+        var selected=ag.selectIntention(eligible);
+        return selected!=null&&running.remove(selected)?selected:null;
+    }
+'''+text[pos:]
         write('jason',rel,marker(text))
 (base/'source-provenance.json').write_text(json.dumps(origin,indent=2)+'\n')
 print('Prepared',len(origin),'source overlays with pinned provenance')

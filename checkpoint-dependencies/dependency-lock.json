@@ -2,7 +2,7 @@
   "version": "CHECKPOINT_DEPENDENCY_LOCK/1.0",
   "runtime": {
     "path": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\build\\checkpoint-dependencies\\checkpoint-runtime-1.0.0-SNAPSHOT.jar",
-    "sha256": "3fbf98bc1bad6d0e48a70bb0d6296d0d4bdaff9432949bb843f355a523b51018"
+    "sha256": "be844afb1706ac65976fa8b9fbaf3e6e3b39214c9c6067e44cc33b9b2ef77ee6"
   },
   "components": [
     {
@@ -11,7 +11,7 @@
       "artifactId": "cartago",
       "version": "3.1-checkpoint-SNAPSHOT",
       "originalSha256": "bf03b37b28e304b2d784c8d77267e56c12b943ff70eed35b533c6323e0736866",
-      "sha256": "b41bf68920c95d2cf903c5222c615a73ad7e28f7598952870668cec814d0f16a",
+      "sha256": "888f431d03311fa5777b671455b4de3c15179540aa058d3e73cea066f2f37b82",
       "path": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\build\\checkpoint-dependencies\\cartago-3.1-checkpoint-SNAPSHOT.jar",
       "overlayClasses": [
         "cartago/Artifact$AbstractAsyncProcess.class",
@@ -31,7 +31,7 @@
       "artifactId": "npl",
       "version": "0.6.1-checkpoint-SNAPSHOT",
       "originalSha256": "956818edfe9aeff7c4fde35bf1dd276cd71e1da62daf77a2a15ab08f87903332",
-      "sha256": "d1666fbdaa816d99b6837c0dd68ce57b3f30815b460e8cd9ad295f4695408056",
+      "sha256": "55a1417b6937ec66b22ac1c7159c4408623e31642bc7c92d517b4bfc78f8ddcc",
       "path": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\build\\checkpoint-dependencies\\npl-0.6.1-checkpoint-SNAPSHOT.jar",
       "overlayClasses": [
         "npl/NormInstance$State.class",
@@ -51,9 +51,15 @@
       "artifactId": "jason-interpreter",
       "version": "3.3.2-checkpoint-SNAPSHOT",
       "originalSha256": "cd79268ddcfa45599284bda64bd6980dbd86eec6c862028cc276495aab49154c",
-      "sha256": "e1a7a84bf20018189d660a19ad0cf65fef2e5ab2a9417061a28608cbb28d2646",
+      "sha256": "135dc5e0ca1cafea23ac891b0b45f2673d36990d7711f0d5605705b23998de72",
       "path": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\build\\checkpoint-dependencies\\jason-interpreter-3.3.2-checkpoint-SNAPSHOT.jar",
       "overlayClasses": [
+        "jason/asSemantics/TransitionSystem$1.class",
+        "jason/asSemantics/TransitionSystem$2.class",
+        "jason/asSemantics/TransitionSystem$3.class",
+        "jason/asSemantics/TransitionSystem$4.class",
+        "jason/asSemantics/TransitionSystem$State.class",
+        "jason/asSemantics/TransitionSystem.class",
         "jason/infra/local/LocalAgArch.class",
         "jason/stdlib/wait$WaitEvent.class",
         "jason/stdlib/wait.class"
@@ -65,7 +71,7 @@
       "artifactId": "jacamo",
       "version": "1.3.1-checkpoint-SNAPSHOT",
       "path": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\build\\libs\\jacamo-1.3.1-checkpoint-SNAPSHOT.jar",
-      "sha256": "dede2e2cde568c747a774e33f821cdcee6501515997a710816aa9c02c7c901f5"
+      "sha256": "aca1163c73b854123526f52c22c0ea8c6f9bc772376c5fb73d20a1aa4c6af155"
     }
   ]
 }

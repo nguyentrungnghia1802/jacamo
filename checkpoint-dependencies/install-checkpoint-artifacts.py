@@ -15,27 +15,27 @@ ARTIFACTS = [
     {
         'jar': 'checkpoint-runtime-1.0.0-SNAPSHOT.jar',
         'pom': 'checkpoint-runtime.pom',
-        'sha256': '3fbf98bc1bad6d0e48a70bb0d6296d0d4bdaff9432949bb843f355a523b51018',
+        'sha256': 'be844afb1706ac65976fa8b9fbaf3e6e3b39214c9c6067e44cc33b9b2ef77ee6',
     },
     {
         'jar': 'cartago-3.1-checkpoint-SNAPSHOT.jar',
         'pom': 'cartago.pom',
-        'sha256': 'b41bf68920c95d2cf903c5222c615a73ad7e28f7598952870668cec814d0f16a',
+        'sha256': '888f431d03311fa5777b671455b4de3c15179540aa058d3e73cea066f2f37b82',
     },
     {
         'jar': 'npl-0.6.1-checkpoint-SNAPSHOT.jar',
         'pom': 'npl.pom',
-        'sha256': 'd1666fbdaa816d99b6837c0dd68ce57b3f30815b460e8cd9ad295f4695408056',
+        'sha256': '55a1417b6937ec66b22ac1c7159c4408623e31642bc7c92d517b4bfc78f8ddcc',
     },
     {
         'jar': 'jason-interpreter-3.3.2-checkpoint-SNAPSHOT.jar',
         'pom': 'jason-interpreter.pom',
-        'sha256': 'e1a7a84bf20018189d660a19ad0cf65fef2e5ab2a9417061a28608cbb28d2646',
+        'sha256': '135dc5e0ca1cafea23ac891b0b45f2673d36990d7711f0d5605705b23998de72',
     },
     {
         'jar': 'jacamo-1.3.1-checkpoint-SNAPSHOT.jar',
         'pom': 'jacamo-1.3.1-checkpoint-SNAPSHOT.pom',
-        'sha256': 'dede2e2cde568c747a774e33f821cdcee6501515997a710816aa9c02c7c901f5',
+        'sha256': 'aca1163c73b854123526f52c22c0ea8c6f9bc772376c5fb73d20a1aa4c6af155',
     },
 ]
 
