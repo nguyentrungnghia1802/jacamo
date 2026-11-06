@@ -1468,7 +1468,7 @@ public class TransitionSystem implements Serializable {
                 C.addEvent(failEvent);
                 if (logger.isLoggable(Level.FINE)) logger.fine("Generating goal deletion " + failEvent.getTrigger() + " from goal: " + im.getTrigger());
             } else {
-                logger.warning("No failure event was generated for " + failEvent.getTrigger() + "\n"+i);
+                logger.warning("No failure event was generated for " + failEvent.getTrigger());
                 i.fail(getC());
             }
         }
