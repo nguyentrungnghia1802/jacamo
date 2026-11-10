@@ -11,7 +11,7 @@
       "artifactId": "cartago",
       "version": "3.1-checkpoint-SNAPSHOT",
       "originalSha256": "bf03b37b28e304b2d784c8d77267e56c12b943ff70eed35b533c6323e0736866",
-      "sha256": "888f431d03311fa5777b671455b4de3c15179540aa058d3e73cea066f2f37b82",
+      "sha256": "6ed1eb97a332e2effc66656e87fb56337bf32458df0a85fbcff6a87c0a0848a5",
       "path": "D:\\_CODE_BANK\\Project_\\08_Thesis\\jacamo\\build\\checkpoint-dependencies\\cartago-3.1-checkpoint-SNAPSHOT.jar",
       "overlayClasses": [
         "cartago/Artifact$AbstractAsyncProcess.class",

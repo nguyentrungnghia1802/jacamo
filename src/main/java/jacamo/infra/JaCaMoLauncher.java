@@ -363,9 +363,14 @@ public class JaCaMoLauncher extends RunLocalMAS {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }        
+            afterPlatformStart(p);
+        }
         super.start(); // start agents after platforms
     }
+
+    /** Owned observers may negotiate admission before the next domain platform starts.
+     * Invoked outside the platform exception handler, so failed negotiation aborts startup. */
+    protected void afterPlatformStart(Platform platform) { }
 
     public void createEnvironment() throws JasonException {
         Cartago p = new Cartago();

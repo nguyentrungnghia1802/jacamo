@@ -54,6 +54,20 @@ import cartago.security.SecurityException;
  * 
  */
 public class Workspace {
+    private static final java.util.concurrent.CopyOnWriteArrayList<java.util.function.Consumer<Workspace>> creationObservers=new java.util.concurrent.CopyOnWriteArrayList<>();
+    /** Passive subscription before the caller can create artifacts in a new workspace. */
+    public static AutoCloseable observeCreation(java.util.function.Consumer<Workspace> observer) {
+        java.util.Objects.requireNonNull(observer);
+        synchronized(creationObservers) {
+            if(creationObservers.size()>=16)throw new IllegalStateException("WORKSPACE_OBSERVER_CAPACITY");
+            creationObservers.add(observer);
+        }
+        return ()->creationObservers.remove(observer);
+    }
+    private static void publishCreation(Workspace workspace) {
+        for(var observer:creationObservers)try{observer.accept(workspace);}catch(RuntimeException unavailable){/* Passive listeners cannot change source execution. */}
+    }
+
 		
 	// private static final int NCONTROLLERS_DEFAULT = 20;
 
@@ -191,15 +205,8 @@ public class Workspace {
 	 * @return
 	 */
 	public WorkspaceDescriptor createWorkspace(String name) throws CartagoException {
-try(var checkpointStep=ExecutionBarrier.enter("cartago.workspace.createWorkspace")) {
-synchronized(this) {
-
-		return this.createWorkspace(name, (ICartagoLogger) null);
-	
-}
-
-}
-}
+        return this.createWorkspace(name, (ICartagoLogger) null);
+    }
 
 	/**
 	 * Create a child workspace on a remote node
@@ -239,6 +246,7 @@ synchronized(this) {
 	 */
 	public WorkspaceDescriptor createWorkspace(String name, ICartagoLogger log) throws CartagoException {
 try(var checkpointStep=ExecutionBarrier.enter("cartago.workspace.createWorkspace")) {
+WorkspaceDescriptor created;
 synchronized(this) {
 
 			Optional<WorkspaceDescriptor> res = this.resolveWSP(name);
@@ -250,13 +258,14 @@ synchronized(this) {
 				Workspace wsp = new Workspace(wid, winfo, log);
 				winfo.setWorkspace(wsp);
 				this.childWsp.put(name, winfo);
-				return winfo;
+				created=winfo;
 			} else {
 				throw new CartagoException("workspace already present");
 			}
 	
 }
-
+publishCreation(created.getWorkspace());
+return created;
 }
 }
 	
