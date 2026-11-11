@@ -1,7 +1,7 @@
 from pathlib import Path
 import os,json,subprocess,sys
 repo=Path(__file__).resolve().parent.parent;dep=repo/'checkpoint-dependencies';build=repo/'build/checkpoint-dependencies'
-lock=json.loads((dep/'dependency-lock.json').read_text());cp=(repo.parent/'use/jacamo-bridge-jacamo/target/jacamo-bridge-classpath.txt').read_text().strip()
+lock=json.loads((dep/'dependency-lock.json').read_text());cp=(repo.parent/'use/use-plugin/modules/bridge-jacamo/target/jacamo-bridge-classpath.txt').read_text().strip()
 classpath=os.pathsep.join([str(build/'probe-classes'),lock['runtime']['path'],*[c['path'] for c in lock['components']],cp])
 (build/'probe-classes').mkdir(exist_ok=True)
 subprocess.run(['javac','-g','-proc:none','-cp',classpath,'-d',str(build/'probe-classes'),*[str(p) for p in sorted((dep/'tests').glob('*.java'))]],check=True)

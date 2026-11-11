@@ -53,3 +53,10 @@ Build the USE reactor after publication. `record-jacamo-build.py` binds the actu
 JaCaMo JAR into `dependency-lock.json`; the installed launcher verifies these bytes
 before starting an owned producer. Evidence and acceptance status are in
 `../../use/use-plugin/verification/verified-checkpoints` and `../../use/plan.md`.
+# Plugin integration paths
+
+The USE producer adapter and neutral contract sources now belong to
+`use/use-plugin/modules/bridge-jacamo` and
+`use/use-plugin/modules/bridge-contract` in the thesis workspace. The dependency
+build/probe scripts use those locations. Maven artifact IDs and the reviewed
+runtime binary contracts are unchanged.

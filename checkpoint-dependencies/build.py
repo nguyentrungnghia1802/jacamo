@@ -9,7 +9,7 @@ repo=base.parent
 build=repo/'build/checkpoint-dependencies';build.mkdir(parents=True,exist_ok=True)
 m2=Path.home()/'.m2/repository'
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
-classpath=(repo.parent/'use/jacamo-bridge-jacamo/target/jacamo-bridge-classpath.txt').read_text().strip().split(os.pathsep)
+classpath=(repo.parent/'use/use-plugin/modules/bridge-jacamo/target/jacamo-bridge-classpath.txt').read_text().strip().split(os.pathsep)
 classpath=[p for p in classpath if p.endswith('.jar')]
 asm=m2/'org/ow2/asm/asm/9.7/asm-9.7.jar'
 assert asm.is_file(),'Pinned ASM 9.7 is required for admitted project clock weaving'
@@ -73,6 +73,6 @@ for part,group,artifact,version,pinned in components:
 (base/'dependency-lock.json').write_text(json.dumps(record,indent=2)+'\n')
 identity=repo/'src/main/resources/META-INF/checkpoint-binaries.properties';identity.parent.mkdir(parents=True,exist_ok=True)
 identity.write_text('version=1.0.0\nruntime='+sha(runtimejar)+'\n'+''.join(c['component']+'='+c['sha256']+'\n' for c in record['components']))
-profiles=repo.parent/'use/jacamo-bridge-contract/src/main/resources/META-INF/checkpoint-class-profiles.properties';profiles.parent.mkdir(parents=True,exist_ok=True)
+profiles=repo.parent/'use/use-plugin/modules/bridge-contract/src/main/resources/META-INF/checkpoint-class-profiles.properties';profiles.parent.mkdir(parents=True,exist_ok=True)
 profiles.write_text('version=1.0.0\ncartago.Artifact='+sha(build/'cartago-classes/cartago/Artifact.class')+'\ncartago.Workspace='+sha(build/'cartago-classes/cartago/Workspace.class')+'\nnpl.NormInstance='+sha(build/'npl-classes/npl/NormInstance.class')+'\nnpl.jar='+next(c['sha256'] for c in record['components'] if c['component']=='npl')+'\n')
 print(json.dumps(record,indent=2))
